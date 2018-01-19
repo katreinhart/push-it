@@ -46,7 +46,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Log In"/>
                                         <connections>
-                                            <segue destination="Nkh-E8-4mh" kind="show" id="A5X-Eh-gss"/>
+                                            <segue destination="Nkh-E8-4mh" kind="show" identifier="toLogin" id="A5X-Eh-gss"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q77-wi-YbH">
@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign UpVC-->
         <scene sceneID="g7N-mp-ek1">
             <objects>
-                <viewController id="cVD-kJ-lIL" sceneMemberID="viewController">
+                <viewController id="cVD-kJ-lIL" customClass="SignUpVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aQD-0I-tWR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,6 +120,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signUpButtonPressed:" destination="cVD-kJ-lIL" eventType="touchUpInside" id="caW-qw-2kp"/>
+                                            <action selector="signUpButtonPressed:" destination="zaG-xt-ZH6" eventType="touchUpInside" id="mfz-9M-vPw"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXb-Zu-gLY">
                                         <rect key="frame" x="61" y="246" width="248" height="36"/>
@@ -149,6 +153,7 @@
                                             <color key="titleColor" red="0.19074219465255737" green="0.38095420598983765" blue="0.5554463267326355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="signInPressed:" destination="cVD-kJ-lIL" eventType="touchUpInside" id="1gg-sT-h4G"/>
                                             <segue destination="Nkh-E8-4mh" kind="show" id="RdJ-OG-tmg"/>
                                         </connections>
                                     </button>
@@ -182,15 +187,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IvC-HM-1OP"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="pXb-Zu-gLY" id="YNy-GG-Dzp"/>
+                        <outlet property="passwordField" destination="XXw-UI-Fs0" id="L08-gt-W85"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDA-hJ-OW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zaG-xt-ZH6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="132.68365817091455"/>
+            <point key="canvasLocation" x="876" y="133"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign InVC-->
         <scene sceneID="O9W-Ek-Hob">
             <objects>
-                <viewController id="Nkh-E8-4mh" sceneMemberID="viewController">
+                <viewController id="Nkh-E8-4mh" customClass="SignInVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fib-5T-4EQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,6 +226,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Sign In"/>
+                                        <connections>
+                                            <action selector="signinButtonPressed:" destination="Nkh-E8-4mh" eventType="touchUpInside" id="f3m-aM-bsf"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQK-WN-lnC">
                                         <rect key="frame" x="61" y="246" width="248" height="36"/>
@@ -245,7 +258,7 @@
                                             <color key="titleColor" red="0.19074219470000001" green="0.38095420600000002" blue="0.55544632670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="cVD-kJ-lIL" kind="show" id="QSp-BC-tgV"/>
+                                            <segue destination="cVD-kJ-lIL" kind="show" identifier="toRegister" id="QSp-BC-tgV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -278,10 +291,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="23q-dh-M2i"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="OQK-WN-lnC" id="5UH-np-EiJ"/>
+                        <outlet property="passwordField" destination="JdL-KZ-h9L" id="MS4-2M-S5U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSK-Hu-FgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="133"/>
+            <point key="canvasLocation" x="1615" y="133"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -11,14 +11,14 @@ import Foundation
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
 // URL Constants
-let BASE_URL = "https://localhost:8080/"
+let BASE_URL = "https://push-it-api.herokuapp.com"
 let REGISTER_URL = "\(BASE_URL)/auth/register"
 let LOGIN_URL = "\(BASE_URL)/auth/login"
 
 // Segues
 
 let TO_LOGIN = "toLogin"
-let TO_CREATE_ACCOUNT = "toCreateAccount"
+let TO_REGISTER = "toRegister"
 
 // User Defaults
 let TOKEN_KEY = "token"
@@ -29,6 +29,7 @@ let USER_EMAIL = "userEmail"
 let HEADER = [
     "Content-Type": "application/json; charset=utf-8"
 ]
+
 //let BEARER_HEADER = [
   //  "authorization": "Bearer \(AuthService.instance.authToken)",
   //  "Content-Type": "application/json; charset=utf-8"

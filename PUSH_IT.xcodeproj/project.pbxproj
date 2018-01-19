@@ -17,6 +17,8 @@
 		46E5484D2012677900536426 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E5484C2012677900536426 /* Constants.swift */; };
 		46E548502012682600536426 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E5484F2012682600536426 /* AuthService.swift */; };
 		46E548552012703F00536426 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E548532012703F00536426 /* SWRevealViewController.m */; };
+		46E548572012747000536426 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E548562012747000536426 /* SignUpVC.swift */; };
+		46E548592012757000536426 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E548582012757000536426 /* SignInVC.swift */; };
 		B6069BBFA4BD94A98B17FAE2 /* Pods_PUSH_IT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FFC952A66998C4F5FCD90E /* Pods_PUSH_IT.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		46E548522012703F00536426 /* PUSH_IT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PUSH_IT-Bridging-Header.h"; sourceTree = "<group>"; };
 		46E548532012703F00536426 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		46E548542012703F00536426 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		46E548562012747000536426 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		46E548582012757000536426 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		57FB22A2EBEF7CC71BCCFD73 /* Pods-PUSH_IT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PUSH_IT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PUSH_IT/Pods-PUSH_IT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +107,6 @@
 				46E5484B2012676100536426 /* Utilities */,
 				46E5484A2012675B00536426 /* Controller */,
 				46E548492012675700536426 /* View */,
-				46E5481C201161D800536426 /* SplashPage.swift */,
 				46E548482012675200536426 /* Model */,
 				46E54819201161D800536426 /* PUSH_IT */,
 				46E5482E201161D800536426 /* PUSH_ITTests */,
@@ -164,6 +167,9 @@
 		46E548492012675700536426 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				46E5481C201161D800536426 /* SplashPage.swift */,
+				46E548562012747000536426 /* SignUpVC.swift */,
+				46E548582012757000536426 /* SignInVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -400,6 +406,8 @@
 				46E5481B201161D800536426 /* AppDelegate.swift in Sources */,
 				46E548552012703F00536426 /* SWRevealViewController.m in Sources */,
 				46E5484D2012677900536426 /* Constants.swift in Sources */,
+				46E548592012757000536426 /* SignInVC.swift in Sources */,
+				46E548572012747000536426 /* SignUpVC.swift in Sources */,
 				46E548502012682600536426 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
