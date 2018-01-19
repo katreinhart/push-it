@@ -14,6 +14,7 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 let BASE_URL = "https://push-it-api.herokuapp.com"
 let REGISTER_URL = "\(BASE_URL)/auth/register"
 let LOGIN_URL = "\(BASE_URL)/auth/login"
+let SET_INFO_URL = "\(BASE_URL)/auth/setinfo"
 
 // Segues
 

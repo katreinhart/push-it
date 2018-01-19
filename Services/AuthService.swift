@@ -61,6 +61,13 @@ class AuthService {
         Alamofire.request(REGISTER_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             
             if response.result.error == nil {
+                guard let data = response.data else { return }
+                let json = JSON(data: data)
+                self.userEmail = json["email"].stringValue
+                self.authToken = json["token"].stringValue
+                
+                self.isLoggedIn = true
+                debugPrint("User \(self.userEmail) is logged in with token \(self.authToken)")
                 completion(true)
             } else {
                 completion(false)
@@ -85,11 +92,43 @@ class AuthService {
             
             if response.result.error == nil {
                 guard let data = response.data else { return }
+                let json = JSON(data: data)
+                self.userEmail = json["email"].stringValue
+                self.authToken = json["token"].stringValue
+                
+                self.isLoggedIn = true
+                debugPrint("User \(self.userEmail) is logged in with token \(self.authToken)")
                 completion(true)
-                self.setUserInfo(data: data)
+                
             } else {
                 completion(false)
                 debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    func submitOnboardingData(name: String, level: String, goal: String, completion: @escaping CompletionHandler) {
+        
+        
+        let header = [
+            "Content-Type": "application/json; charset=utf8",
+            "Authorization": "Bearer \(authToken)"
+        ]
+        
+        let body: [String: Any] = [
+            "email": userEmail,
+            "name": name,
+            "level": level,
+            "goal": goal
+        ]
+        
+        Alamofire.request(SET_INFO_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else { return }
+                
+                self.setUserInfo(data: data)
+                
+                completion(true)
             }
         }
     }
@@ -102,7 +141,7 @@ class AuthService {
         let expLevel = json["level"].stringValue
         let primaryGoal = json["goal"].stringValue
         
-        UserDataService.instance.setUserData(id: id, email: email, name: name, expLevel: expLevel, primaryGoal: primaryGoal)
+        UserDataService.instance.setUserData(id: id, email: email, name: name, primaryGoal: primaryGoal, expLevel: expLevel)
         
     }
     

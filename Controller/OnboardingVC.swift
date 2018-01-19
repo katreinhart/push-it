@@ -66,11 +66,12 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
 
     }
     @IBAction func finishBtnClicked(_ sender: Any) {
-        debugPrint("Finish btn clicked")
         
         guard let firstName = firstNameField.text, firstNameField.text != "" else { return }
         
         debugPrint(firstName, selectedLevel, selectedGoal)
+        
+        
     }
     
 }

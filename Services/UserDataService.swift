@@ -26,6 +26,8 @@ class UserDataService {
         self.name = name
         self.primaryGoal = primaryGoal
         self.expLevel = expLevel
+        
+        debugPrint("User \(self.id) name \(self.name) is a \(self.expLevel) who wants to \(self.primaryGoal)")
     }
     
     func logoutUser() {
