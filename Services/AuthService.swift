@@ -122,6 +122,8 @@ class AuthService {
             "goal": goal
         ]
         
+        debugPrint("\(name) <\(userEmail)> is a \(level) with the goal of \(goal)")
+        
         Alamofire.request(SET_INFO_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error == nil {
                 guard let data = response.data else { return }

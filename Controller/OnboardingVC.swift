@@ -18,8 +18,8 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     // define variables
     var firstName = ""
-    var selectedLevel = ""
-    var selectedGoal = ""
+    var selectedLevel = "beginner"
+    var selectedGoal = "Get Strong" // defaults
     
     let experienceLevels = ["beginner", "intermediate", "advanced"]
     let primaryGoals = ["Get Strong", "Get Big", "Improve Power"]
@@ -65,11 +65,10 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         goalPicker.dataSource = self
 
     }
+    
     @IBAction func finishBtnClicked(_ sender: Any) {
         
         guard let firstName = firstNameField.text, firstNameField.text != "" else { return }
-        
-        debugPrint(firstName, selectedLevel, selectedGoal)
         
         AuthService.instance.submitOnboardingData(name: firstName, level: selectedLevel, goal: selectedGoal) { (success) in
             if success {
