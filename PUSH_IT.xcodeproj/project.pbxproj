@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46C2B70320128312000BFF02 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70220128312000BFF02 /* DashboardVC.swift */; };
+		46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B704201287DF000BFF02 /* UserDataService.swift */; };
+		46C2B70920128BC3000BFF02 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70820128BC3000BFF02 /* OnboardingVC.swift */; };
 		46E5481B201161D800536426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E5481A201161D800536426 /* AppDelegate.swift */; };
 		46E5481D201161D800536426 /* SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E5481C201161D800536426 /* SplashPage.swift */; };
 		46E54820201161D800536426 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46E5481E201161D800536426 /* Main.storyboard */; };
@@ -42,6 +45,9 @@
 /* Begin PBXFileReference section */
 		04FFC952A66998C4F5FCD90E /* Pods_PUSH_IT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PUSH_IT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E6B5CAC5070905611CF8DA /* Pods-PUSH_IT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PUSH_IT.release.xcconfig"; path = "Pods/Target Support Files/Pods-PUSH_IT/Pods-PUSH_IT.release.xcconfig"; sourceTree = "<group>"; };
+		46C2B70220128312000BFF02 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		46C2B704201287DF000BFF02 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		46C2B70820128BC3000BFF02 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		46E54817201161D800536426 /* PUSH_IT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PUSH_IT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E5481A201161D800536426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46E5481C201161D800536426 /* SplashPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPage.swift; sourceTree = "<group>"; };
@@ -167,9 +173,6 @@
 		46E548492012675700536426 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				46E5481C201161D800536426 /* SplashPage.swift */,
-				46E548562012747000536426 /* SignUpVC.swift */,
-				46E548582012757000536426 /* SignInVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,6 +180,11 @@
 		46E5484A2012675B00536426 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				46E5481C201161D800536426 /* SplashPage.swift */,
+				46E548562012747000536426 /* SignUpVC.swift */,
+				46E548582012757000536426 /* SignInVC.swift */,
+				46C2B70220128312000BFF02 /* DashboardVC.swift */,
+				46C2B70820128BC3000BFF02 /* OnboardingVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				46E5484F2012682600536426 /* AuthService.swift */,
+				46C2B704201287DF000BFF02 /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -405,8 +414,11 @@
 				46E5481D201161D800536426 /* SplashPage.swift in Sources */,
 				46E5481B201161D800536426 /* AppDelegate.swift in Sources */,
 				46E548552012703F00536426 /* SWRevealViewController.m in Sources */,
+				46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */,
 				46E5484D2012677900536426 /* Constants.swift in Sources */,
 				46E548592012757000536426 /* SignInVC.swift in Sources */,
+				46C2B70320128312000BFF02 /* DashboardVC.swift in Sources */,
+				46C2B70920128BC3000BFF02 /* OnboardingVC.swift in Sources */,
 				46E548572012747000536426 /* SignUpVC.swift in Sources */,
 				46E548502012682600536426 /* AuthService.swift in Sources */,
 			);

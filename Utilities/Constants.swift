@@ -19,6 +19,7 @@ let LOGIN_URL = "\(BASE_URL)/auth/login"
 
 let TO_LOGIN = "toLogin"
 let TO_REGISTER = "toRegister"
+let SHOW_ONBOARDING = "showOnboarding"
 
 // User Defaults
 let TOKEN_KEY = "token"

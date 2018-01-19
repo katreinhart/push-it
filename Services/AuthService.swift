@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 
 class AuthService {
@@ -83,12 +84,26 @@ class AuthService {
         Alamofire.request(LOGIN_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             
             if response.result.error == nil {
+                guard let data = response.data else { return }
                 completion(true)
+                self.setUserInfo(data: data)
             } else {
                 completion(false)
                 debugPrint(response.result.error as Any)
             }
         }
+    }
+    
+    func setUserInfo(data: Data) {
+        let json = JSON(data: data)
+        let id = json["id"].stringValue
+        let email = json["email"].stringValue
+        let name = json["name"].stringValue
+        let expLevel = json["level"].stringValue
+        let primaryGoal = json["goal"].stringValue
+        
+        UserDataService.instance.setUserData(id: id, email: email, name: name, expLevel: expLevel, primaryGoal: primaryGoal)
+        
     }
     
     
