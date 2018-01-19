@@ -71,7 +71,13 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         
         debugPrint(firstName, selectedLevel, selectedGoal)
         
-        
+        AuthService.instance.submitOnboardingData(name: firstName, level: selectedLevel, goal: selectedGoal) { (success) in
+            if success {
+                self.performSegue(withIdentifier: SHOW_DASHBOARD_FROM_ONBOARDING, sender: nil)
+            } else {
+                debugPrint("Something went wrong submitting data")
+            }
+        }
     }
     
 }

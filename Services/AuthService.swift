@@ -67,7 +67,7 @@ class AuthService {
                 self.authToken = json["token"].stringValue
                 
                 self.isLoggedIn = true
-                debugPrint("User \(self.userEmail) is logged in with token \(self.authToken)")
+                debugPrint("User \(self.userEmail) is was registered with token \(self.authToken)")
                 completion(true)
             } else {
                 completion(false)
@@ -112,7 +112,7 @@ class AuthService {
         
         let header = [
             "Content-Type": "application/json; charset=utf8",
-            "Authorization": "Bearer \(authToken)"
+            "Authorization": "Bearer \(self.authToken)"
         ]
         
         let body: [String: Any] = [

@@ -390,6 +390,7 @@
                         <outlet property="firstNameField" destination="sZT-ln-b3J" id="5ae-4f-fpl"/>
                         <outlet property="goalPicker" destination="n6q-Bg-i4V" id="BRi-tE-Eno"/>
                         <outlet property="levelPicker" destination="55h-Bc-Z9v" id="mk3-GT-As5"/>
+                        <segue destination="7bo-Jd-GdI" kind="show" identifier="showDashboardFromOnboarding" id="22M-Q4-vHR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Veg-BR-b47" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -479,7 +480,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tKy-Kj-D1h"/>
+        <segue reference="22M-Q4-vHR"/>
         <segue reference="RdJ-OG-tmg"/>
         <segue reference="QSp-BC-tgV"/>
     </inferredMetricsTieBreakers>
