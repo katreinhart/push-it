@@ -22,6 +22,10 @@ let TO_LOGIN = "toLogin"
 let TO_REGISTER = "toRegister"
 let SHOW_ONBOARDING = "showOnboarding"
 let SHOW_DASHBOARD_FROM_ONBOARDING = "showDashboardFromOnboarding"
+let SHOW_DASHBOARD_FROM_SIGNIN = "showDashboardFromSignIn"
+let SHOW_SW_REVEAL = "showSWReveal"
+let SHOW_SPLASH = "showSplashScreen"
+let SHOW_DASHBOARD_FROM_MENU = "showDashboardFromMenu"
 
 // User Defaults
 let TOKEN_KEY = "token"

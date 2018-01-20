@@ -22,12 +22,11 @@ class SignInVC: UIViewController {
         
         AuthService.instance.loginUser(email: email, password: pass) { (success) in
             if (success) {
-                // perform segue to dashboard
+                self.performSegue(withIdentifier: SHOW_SW_REVEAL, sender: nil)
                 
             } else {
                 debugPrint("failed")
             }
         }
-        
     }
 }

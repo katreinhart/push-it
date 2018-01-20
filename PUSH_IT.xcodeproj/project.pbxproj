@@ -10,6 +10,7 @@
 		46C2B70320128312000BFF02 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70220128312000BFF02 /* DashboardVC.swift */; };
 		46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B704201287DF000BFF02 /* UserDataService.swift */; };
 		46C2B70920128BC3000BFF02 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70820128BC3000BFF02 /* OnboardingVC.swift */; };
+		46C2B70D2012C066000BFF02 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70C2012C066000BFF02 /* MenuVC.swift */; };
 		46E5481B201161D800536426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E5481A201161D800536426 /* AppDelegate.swift */; };
 		46E5481D201161D800536426 /* SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E5481C201161D800536426 /* SplashPage.swift */; };
 		46E54820201161D800536426 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46E5481E201161D800536426 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		46C2B70220128312000BFF02 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		46C2B704201287DF000BFF02 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		46C2B70820128BC3000BFF02 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		46C2B70C2012C066000BFF02 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		46E54817201161D800536426 /* PUSH_IT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PUSH_IT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E5481A201161D800536426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46E5481C201161D800536426 /* SplashPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPage.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				46E548582012757000536426 /* SignInVC.swift */,
 				46C2B70220128312000BFF02 /* DashboardVC.swift */,
 				46C2B70820128BC3000BFF02 /* OnboardingVC.swift */,
+				46C2B70C2012C066000BFF02 /* MenuVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */,
 				46E5484D2012677900536426 /* Constants.swift in Sources */,
 				46E548592012757000536426 /* SignInVC.swift in Sources */,
+				46C2B70D2012C066000BFF02 /* MenuVC.swift in Sources */,
 				46C2B70320128312000BFF02 /* DashboardVC.swift in Sources */,
 				46C2B70920128BC3000BFF02 /* OnboardingVC.swift in Sources */,
 				46E548572012747000536426 /* SignUpVC.swift in Sources */,
