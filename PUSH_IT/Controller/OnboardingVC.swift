@@ -63,6 +63,8 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         goalPicker.delegate = self
         levelPicker.dataSource = self
         goalPicker.dataSource = self
+        
+        self.hideKeyboardWhenTappedAround() 
 
     }
     

@@ -16,6 +16,7 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround() 
     }
 
     @IBAction func signUpButtonPressed(_ sender: Any) {

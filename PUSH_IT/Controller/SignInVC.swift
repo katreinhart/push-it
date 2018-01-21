@@ -14,6 +14,7 @@ class SignInVC: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
     }
 
     @IBAction func signinButtonPressed(_ sender: Any) {
