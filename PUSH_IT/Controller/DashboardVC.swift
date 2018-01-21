@@ -12,6 +12,7 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
     
+    
     var username = ""
     
     override func viewDidLoad() {
@@ -24,5 +25,14 @@ class DashboardVC: UIViewController {
         username = UserDataService.instance.name
         greeting.text = "Hi, \(username)!"
     }
-
+    
+    // Actions
+    
+    @IBAction func goalsButtonPressed(_ sender: Any) {
+        let newGoalsVC = self.storyboard?.instantiateViewController(withIdentifier: "GoalsVC")
+        
+        addChildViewController(newGoalsVC!)
+        self.revealViewController().pushFrontViewController(newGoalsVC, animated: true)
+    }
+    
 }

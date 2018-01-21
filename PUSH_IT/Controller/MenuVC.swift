@@ -24,4 +24,8 @@ class MenuVC: UIViewController {
         
         self.performSegue(withIdentifier: SHOW_SPLASH, sender: nil)
     }
+    @IBAction func goalsMenuButtonPressed(_ sender: Any) {
+        
+    }
+    
 }
