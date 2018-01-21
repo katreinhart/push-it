@@ -26,6 +26,7 @@ let SHOW_DASHBOARD_FROM_SIGNIN = "showDashboardFromSignIn"
 let SHOW_SW_REVEAL = "showSWReveal"
 let SHOW_SPLASH = "showSplashScreen"
 let SHOW_DASHBOARD_FROM_MENU = "showDashboardFromMenu"
+let SHOW_SW_REVEAL_FROM_ONBOARDING = "showSWRevealFromOnboarding"
 
 // User Defaults
 let TOKEN_KEY = "token"

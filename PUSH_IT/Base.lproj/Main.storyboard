@@ -191,7 +191,6 @@
                     <connections>
                         <outlet property="emailField" destination="pXb-Zu-gLY" id="YNy-GG-Dzp"/>
                         <outlet property="passwordField" destination="XXw-UI-Fs0" id="L08-gt-W85"/>
-                        <segue destination="7bo-Jd-GdI" kind="show" identifier="showDashboardFromSignUp" id="RX8-8v-MCc"/>
                         <segue destination="fvv-AX-G2b" kind="show" identifier="showOnboarding" id="LZS-HQ-DO1"/>
                     </connections>
                 </viewController>
@@ -297,7 +296,6 @@
                     <connections>
                         <outlet property="emailField" destination="OQK-WN-lnC" id="5UH-np-EiJ"/>
                         <outlet property="passwordField" destination="JdL-KZ-h9L" id="MS4-2M-S5U"/>
-                        <segue destination="7bo-Jd-GdI" kind="show" identifier="showDashboardFromSignIn" id="tKy-Kj-D1h"/>
                         <segue destination="EAL-DI-vz0" kind="show" identifier="showSWReveal" id="nso-CO-Kwj"/>
                     </connections>
                 </viewController>
@@ -305,10 +303,10 @@
             </objects>
             <point key="canvasLocation" x="1610" y="133"/>
         </scene>
-        <!--OnboardingVC-->
+        <!--showSWRevealFromOnboarding-->
         <scene sceneID="93u-YK-OYm">
             <objects>
-                <viewController id="fvv-AX-G2b" customClass="OnboardingVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="showSWRevealFromOnboarding" id="fvv-AX-G2b" customClass="OnboardingVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5oZ-gy-DlZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -392,7 +390,7 @@
                         <outlet property="firstNameField" destination="sZT-ln-b3J" id="5ae-4f-fpl"/>
                         <outlet property="goalPicker" destination="n6q-Bg-i4V" id="BRi-tE-Eno"/>
                         <outlet property="levelPicker" destination="55h-Bc-Z9v" id="mk3-GT-As5"/>
-                        <segue destination="7bo-Jd-GdI" kind="show" identifier="showDashboardFromOnboarding" id="22M-Q4-vHR"/>
+                        <segue destination="EAL-DI-vz0" kind="show" identifier="showSWRevealFromOnboarding" id="N7W-wl-8C7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Veg-BR-b47" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -804,7 +802,8 @@
         <image name="Hamburger-1x" width="30" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TdR-xf-2e7"/>
+        <segue reference="N7W-wl-8C7"/>
+        <segue reference="rvF-yG-foN"/>
         <segue reference="A5X-Eh-gss"/>
         <segue reference="QSp-BC-tgV"/>
     </inferredMetricsTieBreakers>
