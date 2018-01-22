@@ -11,10 +11,12 @@ import UIKit
 class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
  
     // define outlets
-    
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var levelPicker: UIPickerView!
     @IBOutlet weak var goalPicker: UIPickerView!
+    @IBOutlet weak var levelSelectedTxt: UILabel!
+    @IBOutlet weak var goalSelectedTxt: UILabel!
+    @IBOutlet weak var finishBtn: UIButton!
     
     // define variables
     var firstName = ""
@@ -49,8 +51,15 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == levelPicker {
             selectedLevel = experienceLevels[row]
+           levelSelectedTxt.text = selectedLevel
+            levelPicker.isHidden = true
+            finishBtn.isHidden = false
+            
         } else if pickerView == goalPicker {
             selectedGoal = primaryGoals[row]
+           goalSelectedTxt.text = selectedGoal
+            goalPicker.isHidden = true
+            finishBtn.isHidden = false
         }
         return
     }
@@ -63,6 +72,8 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         goalPicker.delegate = self
         levelPicker.dataSource = self
         goalPicker.dataSource = self
+        levelPicker.isHidden = true
+        goalPicker.isHidden = true
         
         self.hideKeyboardWhenTappedAround() 
 
@@ -81,4 +92,16 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         }
     }
     
+    @IBAction func experienceButtonPressed(_ sender: Any) {
+        debugPrint("exp level clicked")
+        levelPicker.isHidden = false
+        finishBtn.isHidden = true
+    }
+    
+    @IBAction func primaryGoalButtonPressed(_ sender: Any) {
+        
+        debugPrint("goal clicked")
+        goalPicker.isHidden = false
+        finishBtn.isHidden = true
+    }
 }
