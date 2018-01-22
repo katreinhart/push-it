@@ -45,6 +45,15 @@ class AuthService {
         }
     }
     
+    var id : Int {
+        get {
+            return defaults.integer(forKey: USER_ID) as! Int
+        }
+        set {
+            defaults.set(newValue, forKey: USER_ID)
+        }
+    }
+    
     func registerUser(email: String, password: String, completion: @escaping CompletionHandler) {
         
         let lowerCaseEmail = email.lowercased()
@@ -147,11 +156,42 @@ class AuthService {
 //
 //    }
     
-//    func setSecondaryGoals(sg1: Goal, sg2: Goal) {
-//        let body: [String: Any] = [
-//
-//        ]
-//    }
+    func setSecondaryGoals(sg1: Goal, sg2: Goal, completion: @escaping CompletionHandler) {
+        let header = [
+            "Content-Type": "application/json; charset=utf8",
+            "Authorization": "Bearer \(self.authToken)"
+        ]
+        
+        let body: [String: Any] = [
+            "goal1": [
+                "uid": String(self.id),
+                "goal_date": sg1.date.toString(withFormat: "MMM dd, yyyy"),
+                "goal_weight": String(sg1.weight),
+                "exercise": sg1.exercise
+            ],
+            "goal2": [
+                "uid": String(self.id),
+                "goal_date": sg2.date.toString(withFormat: "MMM dd, yyyy"),
+                "goal_weight": String(sg2.weight),
+                "exercise": sg2.exercise
+            ]
+        ]
+        
+        Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else { return }
+                
+                let json = JSON(data: data)
+                let message = json["message"]
+                if message == "Goals added successfully" {
+                    completion(true)
+                }
+            } else {
+                completion(false)
+            }
+            debugPrint("Secondary goals posted to db")
+        }
+    }
     
     
     

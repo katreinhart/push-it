@@ -15,7 +15,7 @@ let BASE_URL = "https://push-it-api.herokuapp.com"
 let REGISTER_URL = "\(BASE_URL)/auth/register"
 let LOGIN_URL = "\(BASE_URL)/auth/login"
 let SET_INFO_URL = "\(BASE_URL)/api/setinfo"
-let SECONDARY_GOALS_URL = "\(BASE_URL)/api/user/secondary-goals"
+let SECONDARY_GOALS_URL = "\(BASE_URL)/api/user/goals"
 let FETCH_EXERCISES_URL = "\(BASE_URL)/api/exercises"
 
 // Segues
@@ -36,6 +36,7 @@ let UNWIND_TO_GOALS = "unwindSegueToGoalsVC"
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
+let USER_ID = "userId"
 
 // Headers
 let HEADER = [
