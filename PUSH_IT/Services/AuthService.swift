@@ -139,10 +139,19 @@ class AuthService {
         let expLevel = json["level"].stringValue
         let primaryGoal = json["goal"].stringValue
         
-        UserDataService.instance.setUserData(id: id, email: email, name: name, primaryGoal: primaryGoal, expLevel: expLevel)
+        UserDataService.instance.setUserDataOnLogin(id: id, email: email, name: name, primaryGoal: primaryGoal, expLevel: expLevel)
         
     }
     
+//    func updateUserGoal(primaryGoal: String) {
+//
+//    }
+    
+//    func setSecondaryGoals(sg1: Goal, sg2: Goal) {
+//        let body: [String: Any] = [
+//
+//        ]
+//    }
     
     
     

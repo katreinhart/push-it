@@ -15,6 +15,7 @@ let BASE_URL = "https://push-it-api.herokuapp.com"
 let REGISTER_URL = "\(BASE_URL)/auth/register"
 let LOGIN_URL = "\(BASE_URL)/auth/login"
 let SET_INFO_URL = "\(BASE_URL)/api/setinfo"
+let SECONDARY_GOALS_URL = "\(BASE_URL)/api/user/secondary-goals"
 
 // Segues
 
@@ -27,6 +28,7 @@ let SHOW_SW_REVEAL = "showSWReveal"
 let SHOW_SPLASH = "showSplashScreen"
 let SHOW_DASHBOARD_FROM_MENU = "showDashboardFromMenu"
 let SHOW_SW_REVEAL_FROM_ONBOARDING = "showSWRevealFromOnboarding"
+let SHOW_EDIT_GOAL_VC = "showEditGoalVC"
 
 // User Defaults
 let TOKEN_KEY = "token"

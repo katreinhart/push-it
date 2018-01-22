@@ -26,4 +26,9 @@ class GoalsVC: UIViewController {
         
         primaryGoalLbl.text = UserDataService.instance.primaryGoal
     }
+    
+    @IBAction func editGoalsBtnPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: SHOW_EDIT_GOAL_VC, sender: nil)
+    }
+    
 }
