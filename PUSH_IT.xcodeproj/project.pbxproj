@@ -11,6 +11,8 @@
 		463A4262201558960016D18A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A4261201558960016D18A /* Extensions.swift */; };
 		463A4264201566A40016D18A /* EditGoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A4263201566A40016D18A /* EditGoalsVC.swift */; };
 		463A426620157BB90016D18A /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A426520157BB90016D18A /* Goal.swift */; };
+		463A426820164FE60016D18A /* ExerciseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A426720164FE60016D18A /* ExerciseDataService.swift */; };
+		463A426A2016625B0016D18A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A42692016625B0016D18A /* DateFormatter.swift */; };
 		46C2B70320128312000BFF02 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70220128312000BFF02 /* DashboardVC.swift */; };
 		46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B704201287DF000BFF02 /* UserDataService.swift */; };
 		46C2B70920128BC3000BFF02 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70820128BC3000BFF02 /* OnboardingVC.swift */; };
@@ -54,6 +56,8 @@
 		463A4261201558960016D18A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		463A4263201566A40016D18A /* EditGoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalsVC.swift; sourceTree = "<group>"; };
 		463A426520157BB90016D18A /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Goal.swift; path = PUSH_IT/Controller/Goal.swift; sourceTree = SOURCE_ROOT; };
+		463A426720164FE60016D18A /* ExerciseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDataService.swift; sourceTree = "<group>"; };
+		463A42692016625B0016D18A /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		46C2B70220128312000BFF02 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		46C2B704201287DF000BFF02 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		46C2B70820128BC3000BFF02 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
@@ -143,9 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				46E548482012675200536426 /* Model */,
+				46E5484E2012680D00536426 /* Services */,
 				46E5484B2012676100536426 /* Utilities */,
 				46E5484A2012675B00536426 /* Controller */,
-				46E5484E2012680D00536426 /* Services */,
 				46E5481A201161D800536426 /* AppDelegate.swift */,
 				46E5481E201161D800536426 /* Main.storyboard */,
 				46E54821201161D800536426 /* Assets.xcassets */,
@@ -209,6 +213,7 @@
 			children = (
 				46E5484C2012677900536426 /* Constants.swift */,
 				463A4261201558960016D18A /* Extensions.swift */,
+				463A42692016625B0016D18A /* DateFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			children = (
 				46E5484F2012682600536426 /* AuthService.swift */,
 				46C2B704201287DF000BFF02 /* UserDataService.swift */,
+				463A426720164FE60016D18A /* ExerciseDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -434,6 +440,8 @@
 				46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */,
 				46E5484D2012677900536426 /* Constants.swift in Sources */,
 				46E548592012757000536426 /* SignInVC.swift in Sources */,
+				463A426A2016625B0016D18A /* DateFormatter.swift in Sources */,
+				463A426820164FE60016D18A /* ExerciseDataService.swift in Sources */,
 				46C2B70D2012C066000BFF02 /* MenuVC.swift in Sources */,
 				463A4262201558960016D18A /* Extensions.swift in Sources */,
 				463A4264201566A40016D18A /* EditGoalsVC.swift in Sources */,

@@ -24,6 +24,8 @@ class DashboardVC: UIViewController {
         
         username = UserDataService.instance.name
         greeting.text = "Hi, \(username)!"
+        
+        ExerciseDataService.instance.fetchExercisesFromServer()
     }
     
     // Actions

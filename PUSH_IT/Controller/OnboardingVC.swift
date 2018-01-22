@@ -23,6 +23,7 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     var selectedLevel = "beginner"
     var selectedGoal = "Get Strong" // defaults
     
+    // picker view data sources
     let experienceLevels = ["beginner", "intermediate", "advanced"]
     let primaryGoals = ["Get Strong", "Get Big", "Improve Power"]
     

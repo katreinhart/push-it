@@ -33,11 +33,12 @@ class UserDataService {
     func setSecondaryGoals(goal1: Goal, goal2: Goal) {
         self.secondaryGoal1 = goal1
         self.secondaryGoal2 = goal2
+        
     }
     
     func updatePrimaryGoal(primaryGoal: String) {
         self.primaryGoal = primaryGoal
-        AuthService.instance.updateUserGoal(primaryGoal)
+//        AuthService.instance.updateUserGoal(primaryGoal)
         
     }
     
