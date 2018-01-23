@@ -20,4 +20,8 @@ class NewWorkoutVC: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
     }
+    @IBAction func newWorkoutBtnPressed(_ sender: Any) {
+        WorkoutDataService.instance.createNewWorkout()
+        performSegue(withIdentifier: SHOW_START_NEW_WORKOUT_VC , sender: nil)
+    }
 }

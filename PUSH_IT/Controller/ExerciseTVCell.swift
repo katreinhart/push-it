@@ -9,6 +9,11 @@
 import UIKit
 
 class ExerciseTVCell: UITableViewCell {
+    
+    var exerciseName: String = "" 
+    var targetWeight: Int = 0
+    var reps: Int = 0
+    var sets: Int = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()

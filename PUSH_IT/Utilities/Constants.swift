@@ -18,6 +18,7 @@ let SET_INFO_URL = "\(BASE_URL)/api/setinfo"
 let SECONDARY_GOALS_URL = "\(BASE_URL)/api/user/goals"
 let FETCH_EXERCISES_URL = "\(BASE_URL)/api/exercises"
 let UPDATE_PRIMARY_GOAL_URL = "\(BASE_URL)/api/user/primarygoal"
+let CREATE_WORKOUT_URL = "\(BASE_URL)/api/workouts"
 
 // Segues
 
@@ -32,6 +33,7 @@ let SHOW_DASHBOARD_FROM_MENU = "showDashboardFromMenu"
 let SHOW_SW_REVEAL_FROM_ONBOARDING = "showSWRevealFromOnboarding"
 let SHOW_EDIT_GOAL_VC = "showEditGoalVC"
 let UNWIND_TO_GOALS = "unwindSegueToGoalsVC"
+let SHOW_START_NEW_WORKOUT_VC = "showStartNewWorkoutVC"
 
 // User Defaults
 let TOKEN_KEY = "token"

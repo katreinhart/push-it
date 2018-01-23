@@ -675,6 +675,9 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="New Workout"/>
+                                                <connections>
+                                                    <action selector="newWorkoutBtnPressed:" destination="JdB-GF-5U0" eventType="touchUpInside" id="Q49-Gf-Xjf"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pv-o3-xGm">
                                                 <rect key="frame" x="0.0" y="99" width="275" height="39"/>
@@ -719,10 +722,10 @@
             </objects>
             <point key="canvasLocation" x="2567" y="76"/>
         </scene>
-        <!--Start New WorkoutVC-->
+        <!--Start WorkoutVC-->
         <scene sceneID="Hzd-SL-tl5">
             <objects>
-                <viewController id="r7d-Rq-r7K" customClass="StartNewWorkoutVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="r7d-Rq-r7K" customClass="StartWorkoutVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pga-9i-Y3f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -743,39 +746,6 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="57S-8J-3Jm">
                                         <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="V8L-87-zxe">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V8L-87-zxe" id="dPv-6q-sWi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kJr-Rt-JId">
-                                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kJr-Rt-JId" id="DUL-Ds-1VJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFr-dj-ozj">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                                            <color key="backgroundColor" red="0.14901960780000001" green="0.30196078430000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="Add Exercise"/>
-                                                        </button>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="pFr-dj-ozj" firstAttribute="top" secondItem="DUL-Ds-1VJ" secondAttribute="top" id="Jbe-EM-fq4"/>
-                                                        <constraint firstAttribute="bottom" secondItem="pFr-dj-ozj" secondAttribute="bottom" id="VeC-rB-eB2"/>
-                                                        <constraint firstItem="pFr-dj-ozj" firstAttribute="leading" secondItem="DUL-Ds-1VJ" secondAttribute="leading" id="sEv-DT-E70"/>
-                                                        <constraint firstAttribute="trailing" secondItem="pFr-dj-ozj" secondAttribute="trailing" id="zdz-oc-9Q5"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.83137254900000002" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -1687,7 +1657,7 @@
         <image name="Hamburger-1x" width="30" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FC6-pV-ruH"/>
+        <segue reference="N7W-wl-8C7"/>
         <segue reference="TdR-xf-2e7"/>
         <segue reference="RdJ-OG-tmg"/>
         <segue reference="QSp-BC-tgV"/>
