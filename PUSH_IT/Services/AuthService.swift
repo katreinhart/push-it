@@ -60,16 +60,12 @@ class AuthService {
         
         let lowerCaseEmail = email.lowercased()
         
-        let header = [
-            "Content-Type": "application/json; charset=utf8"
-        ]
-        
         let body: [String: Any] = [
             "email": lowerCaseEmail,
             "password": password
         ]
         
-        Alamofire.request(REGISTER_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+        Alamofire.request(REGISTER_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             
             if response.result.error == nil {
                 guard let data = response.data else { return }
@@ -78,7 +74,6 @@ class AuthService {
                 self.authToken = json["token"].stringValue
                 
                 self.isLoggedIn = true
-                debugPrint("User \(self.userEmail) is was registered with token \(self.authToken)")
                 completion(true)
             } else {
                 completion(false)
@@ -90,22 +85,17 @@ class AuthService {
     func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
         let lowerCaseEmail = email.lowercased()
         
-        let header = [
-            "Content-Type": "application/json; charset=utf8"
-        ]
         
         let body: [String: Any] = [
             "email": lowerCaseEmail,
             "password": password
         ]
         
-        Alamofire.request(LOGIN_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+        Alamofire.request(LOGIN_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             
             if response.result.error == nil {
                 guard let data = response.data else { return }
                 self.setUserInfo(data: data)
-                
-                
                 
                 completion(true)
                 
@@ -118,11 +108,6 @@ class AuthService {
     
     func submitOnboardingData(name: String, level: String, goal: String, completion: @escaping CompletionHandler) {
         
-        let header = [
-            "Content-Type": "application/json; charset=utf8",
-            "Authorization": "Bearer \(self.authToken)"
-        ]
-        
         let body: [String: Any] = [
             "email": userEmail,
             "name": name,
@@ -130,7 +115,7 @@ class AuthService {
             "goal": goal
         ]
         
-        Alamofire.request(SET_INFO_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+        Alamofire.request(SET_INFO_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
                 guard let data = response.data else { return }
                 
@@ -162,20 +147,17 @@ class AuthService {
         if self.isLoggedIn == false {
             completion(false)
         } else {
-            let header = [
-                "Content-Type": "application/json; charset=utf8",
-                "Authorization": "Bearer \(self.authToken)"
-            ]
-            
-            Alamofire.request(SECONDARY_GOALS_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            Alamofire.request(SECONDARY_GOALS_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
                 if response.result.error != nil {
                     guard let data = response.data else { return }
                     let json = JSON(data: data)
                     
                     let df = DateFormatter()
                     
-                    let date1 = df.date(from: json[0]["date"].string!)
-                    let date2 = df.date(from: json[1]["date"].string!)
+                    guard let ds1 = json[0]["date"].string else {return}
+                    let date1 = df.date(from: ds1)
+                    guard let ds2 = json[1]["date"].string else {return}
+                    let date2 = df.date(from: ds2)
                     
                     let goal1 = Goal(exercise: json[0]["exercise"].string, weight: json[0]["goal_weight"].int64, date: date1)
                     let goal2 = Goal(exercise: json[1]["exercise"].string, weight: json[1]["goal_weight"].int64, date: date2)
@@ -188,11 +170,6 @@ class AuthService {
     }
     
     func setSecondaryGoals(sg1: Goal, sg2: Goal, completion: @escaping CompletionHandler) {
-        let header = [
-            "Content-Type": "application/json; charset=utf8",
-            "Authorization": "Bearer \(self.authToken)"
-        ]
-        
         let body: [String: Any] = [
             "goal1": [
                 "uid": String(self.id),
@@ -208,7 +185,7 @@ class AuthService {
             ]
         ]
         
-        Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+        Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
                 guard let data = response.data else { return }
                 
@@ -225,16 +202,12 @@ class AuthService {
     }
     
     func updateUserGoal(goal: String, completion: @escaping CompletionHandler) {
-        let header = [
-            "Content-Type": "application/json; charset=utf8",
-            "Authorization": "Bearer \(self.authToken)"
-        ]
         
         let body = [
             "goal": goal
         ]
         
-        Alamofire.request(UPDATE_PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON {
+        Alamofire.request(UPDATE_PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
             (response) in
             if response.result.error != nil {
                 completion(false)

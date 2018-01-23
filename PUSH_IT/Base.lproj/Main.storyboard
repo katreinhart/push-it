@@ -712,6 +712,7 @@
                     </view>
                     <connections>
                         <outlet property="menuBtn" destination="Wfs-Uh-uPR" id="WNh-1X-g0t"/>
+                        <segue destination="r7d-Rq-r7K" kind="custom" identifier="showStartNewWorkoutVC" customClass="SWRevealViewControllerSeguePushController" id="wYN-tK-Oiy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wr-O7-dSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -721,7 +722,7 @@
         <!--Start New WorkoutVC-->
         <scene sceneID="Hzd-SL-tl5">
             <objects>
-                <viewController id="r7d-Rq-r7K" customClass="startNewWorkoutVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="r7d-Rq-r7K" customClass="StartNewWorkoutVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pga-9i-Y3f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
