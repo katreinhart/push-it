@@ -13,6 +13,10 @@ class SplashPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if AuthService.instance.isLoggedIn {
+            debugPrint("User already logged in")
+            performSegue(withIdentifier: "alreadyLoggedInShowDashboard", sender: nil)
+        }
     }
 
 }

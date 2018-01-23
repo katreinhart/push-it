@@ -17,6 +17,7 @@ let LOGIN_URL = "\(BASE_URL)/auth/login"
 let SET_INFO_URL = "\(BASE_URL)/api/setinfo"
 let SECONDARY_GOALS_URL = "\(BASE_URL)/api/user/goals"
 let FETCH_EXERCISES_URL = "\(BASE_URL)/api/exercises"
+let UPDATE_PRIMARY_GOAL_URL = "\(BASE_URL)/api/user/primarygoal"
 
 // Segues
 

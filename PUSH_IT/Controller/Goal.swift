@@ -12,4 +12,9 @@ struct Goal {
     public private(set) var exercise: String!
     public private(set) var weight: Int64!
     public private(set) var date: Date!
+    
+    func returnAsString() -> String {
+        let dateString = date.toString(withFormat: "MMM dd, yyyy")
+        return "\(String(exercise)) \(String(weight)) by \(dateString)"
+    }
 }

@@ -13,8 +13,9 @@ class GoalsVC: UIViewController {
     // Outlets
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var primaryGoalLbl: UILabel!
-    @IBOutlet weak var secondaryGoalLbl1: UILabel!
-    @IBOutlet weak var secondaryGoalLbl2: UILabel!
+    
+    @IBOutlet weak var secondaryGoal1: UILabel!
+    @IBOutlet weak var secondaryGoal2: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,10 @@ class GoalsVC: UIViewController {
         
         
         primaryGoalLbl.text = UserDataService.instance.primaryGoal
+        secondaryGoal1.text =
+            UserDataService.instance.secondaryGoal1 != nil ? UserDataService.instance.secondaryGoal1!.returnAsString() : "Not set yet!"
+        secondaryGoal2.text = UserDataService.instance.secondaryGoal2 != nil ?   UserDataService.instance.secondaryGoal2!.returnAsString() : "Not set yet!"
+        
     }
     
     @IBAction func editGoalsBtnPressed(_ sender: Any) {

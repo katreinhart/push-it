@@ -47,12 +47,14 @@ class AuthService {
     
     var id : Int {
         get {
-            return defaults.integer(forKey: USER_ID) as! Int
+            return defaults.integer(forKey: USER_ID)
         }
         set {
             defaults.set(newValue, forKey: USER_ID)
         }
     }
+    
+    
     
     func registerUser(email: String, password: String, completion: @escaping CompletionHandler) {
         
@@ -103,6 +105,8 @@ class AuthService {
                 guard let data = response.data else { return }
                 self.setUserInfo(data: data)
                 
+                
+                
                 completion(true)
                 
             } else {
@@ -113,7 +117,6 @@ class AuthService {
     }
     
     func submitOnboardingData(name: String, level: String, goal: String, completion: @escaping CompletionHandler) {
-        
         
         let header = [
             "Content-Type": "application/json; charset=utf8",
@@ -126,8 +129,6 @@ class AuthService {
             "level": level,
             "goal": goal
         ]
-        
-        debugPrint("\(name) <\(userEmail)> is a \(level) with the goal of \(goal)")
         
         Alamofire.request(SET_INFO_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error == nil {
@@ -147,14 +148,44 @@ class AuthService {
         let name = json["name"].stringValue
         let expLevel = json["level"].stringValue
         let primaryGoal = json["goal"].stringValue
+        let token = json["token"].stringValue
+
+        self.authToken = token
         
         UserDataService.instance.setUserDataOnLogin(id: id, email: email, name: name, primaryGoal: primaryGoal, expLevel: expLevel)
         
     }
     
-//    func updateUserGoal(primaryGoal: String) {
-//
-//    }
+    
+    
+    func getSecondaryGoals(completion: @escaping CompletionHandler) {
+        if self.isLoggedIn == false {
+            completion(false)
+        } else {
+            let header = [
+                "Content-Type": "application/json; charset=utf8",
+                "Authorization": "Bearer \(self.authToken)"
+            ]
+            
+            Alamofire.request(SECONDARY_GOALS_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+                if response.result.error != nil {
+                    guard let data = response.data else { return }
+                    let json = JSON(data: data)
+                    
+                    let df = DateFormatter()
+                    
+                    let date1 = df.date(from: json[0]["date"].string!)
+                    let date2 = df.date(from: json[1]["date"].string!)
+                    
+                    let goal1 = Goal(exercise: json[0]["exercise"].string, weight: json[0]["goal_weight"].int64, date: date1)
+                    let goal2 = Goal(exercise: json[1]["exercise"].string, weight: json[1]["goal_weight"].int64, date: date2)
+                    
+                    debugPrint(goal1, goal2)
+                    completion(true)
+                }
+            }
+        }
+    }
     
     func setSecondaryGoals(sg1: Goal, sg2: Goal, completion: @escaping CompletionHandler) {
         let header = [
@@ -193,21 +224,24 @@ class AuthService {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    func updateUserGoal(goal: String, completion: @escaping CompletionHandler) {
+        let header = [
+            "Content-Type": "application/json; charset=utf8",
+            "Authorization": "Bearer \(self.authToken)"
+        ]
+        
+        let body = [
+            "goal": goal
+        ]
+        
+        Alamofire.request(UPDATE_PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON {
+            (response) in
+            if response.result.error != nil {
+                completion(false)
+            } else {
+                debugPrint("pgoal successfully updated")
+            }
+        }
+    }
+
 }

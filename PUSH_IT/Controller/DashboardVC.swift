@@ -26,9 +26,16 @@ class DashboardVC: UIViewController {
         greeting.text = "Hi, \(username)!"
         
         ExerciseDataService.instance.fetchExercisesFromServer()
+        UserDataService.instance.getSecondaryGoals()
     }
     
     // Actions
+    @IBAction func workoutNowButtonPressed(_ sender: Any) {
+        let newWorkoutVC = self.storyboard?.instantiateViewController(withIdentifier: "NewWorkoutVC")
+        
+        addChildViewController(newWorkoutVC!)
+        self.revealViewController().pushFrontViewController(newWorkoutVC, animated: true)
+    }
     
     @IBAction func goalsButtonPressed(_ sender: Any) {
         let newGoalsVC = self.storyboard?.instantiateViewController(withIdentifier: "GoalsVC")

@@ -42,10 +42,25 @@ class UserDataService {
         }
     }
     
+    func getSecondaryGoals() {
+        AuthService.instance.getSecondaryGoals { (success) in
+            if success {
+                debugPrint("Seem to found them")
+                debugPrint(UserDataService.instance.secondaryGoal1 ?? "anything?")
+            } else {
+                debugPrint("Did secondary goals get found?")
+            }
+        }
+    }
+    
     func updatePrimaryGoal(primaryGoal: String) {
         self.primaryGoal = primaryGoal
-//        AuthService.instance.updateUserGoal(primaryGoal)
-        
+        AuthService.instance.updateUserGoal(goal: primaryGoal) {
+            (success) in
+            if success != false {
+                debugPrint("Did it work?")
+            }
+        }
     }
     
     func logoutUser() {

@@ -50,19 +50,20 @@ class EditGoalsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     let primaryGoals = ["Get Strong", "Get Big", "Improve Power"]
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         primaryGoalTxt.text = UserDataService.instance.primaryGoal
         
+        // set delegates & data sources for pickers
         exercise1Picker.delegate = self
         exercise1Picker.dataSource = self
-        
         exercise2Picker.delegate = self
         exercise2Picker.dataSource = self
-        
         primaryGoalPicker.delegate = self
         primaryGoalPicker.dataSource = self
         
-        // Menu button handler
+        // Menu button handler 
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
