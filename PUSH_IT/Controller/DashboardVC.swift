@@ -26,7 +26,9 @@ class DashboardVC: UIViewController {
         greeting.text = "Hi, \(username)!"
         
         ExerciseDataService.instance.fetchExercisesFromServer()
-        UserDataService.instance.getSecondaryGoals()
+        AuthService.instance.getSecondaryGoals { (success) in
+            debugPrint(UserDataService.instance.secondaryGoal1, UserDataService.instance.secondaryGoal2)
+        }
     }
     
     // Actions

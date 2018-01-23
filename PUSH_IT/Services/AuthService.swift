@@ -148,22 +148,32 @@ class AuthService {
             completion(false)
         } else {
             Alamofire.request(SECONDARY_GOALS_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-                if response.result.error != nil {
+                if response.result.error == nil {
                     guard let data = response.data else { return }
                     let json = JSON(data: data)
+                    let responseData = json["data"]
+                    debugPrint(responseData)
                     
-                    let df = DateFormatter()
+//                    Date stuff is causing issues here
+//                    let df = DateFormatter()
+//
+//                    guard let ds1 = json[0]["goal_date"].string else {return}
+//                    let date1 = df.date(from: ds1)
+//                    guard let ds2 = json[1]["goal_date"].string else {return}
+//                    let date2 = df.date(from: ds2)
                     
-                    guard let ds1 = json[0]["date"].string else {return}
-                    let date1 = df.date(from: ds1)
-                    guard let ds2 = json[1]["date"].string else {return}
-                    let date2 = df.date(from: ds2)
+                    let gw1 = responseData[0]["goal_weight"].int64!
+                    let gw2 = responseData[1]["goal_weight"].int64!
                     
-                    let goal1 = Goal(exercise: json[0]["exercise"].string, weight: json[0]["goal_weight"].int64, date: date1)
-                    let goal2 = Goal(exercise: json[1]["exercise"].string, weight: json[1]["goal_weight"].int64, date: date2)
+                    let goal1 = Goal(exercise: responseData[0]["exercise"].string, weight: gw1, date: Date())
+                    let goal2 = Goal(exercise: responseData[1]["exercise"].string, weight: gw2, date: Date())
                     
-                    debugPrint(goal1, goal2)
+                    debugPrint("goal1", goal1, "goal2", goal2)
+                    UserDataService.instance.setSecondaryGoals(goal1: goal1, goal2: goal2)
                     completion(true)
+                } else {
+                    completion(false)
+                    debugPrint("did goals not get found?")
                 }
             }
         }
