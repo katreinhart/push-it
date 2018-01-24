@@ -45,6 +45,8 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
     override func awakeFromNib() {
         super.awakeFromNib()
         exercisePicker.isHidden = true
+        exercisePicker.dataSource = self
+        exercisePicker.delegate = self
     }
 
     @IBAction func selectExerciseBtnClicked(_ sender: Any) {

@@ -54,13 +54,6 @@
                             <constraint firstAttribute="trailing" secondItem="b75-Dg-kgk" secondAttribute="trailing" id="rSa-Ee-mnO"/>
                         </constraints>
                     </view>
-                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqK-OX-U9a">
-                        <rect key="frame" x="0.0" y="71.5" width="320" height="124"/>
-                        <color key="backgroundColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="124" id="XeU-09-dgc"/>
-                        </constraints>
-                    </pickerView>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eE2-fG-PwG">
                         <rect key="frame" x="10" y="81.5" width="300" height="78"/>
                         <subviews>
@@ -149,6 +142,13 @@
                             <action selector="saveButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2OQ-vh-pPf"/>
                         </connections>
                     </button>
+                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqK-OX-U9a">
+                        <rect key="frame" x="0.0" y="71" width="320" height="124"/>
+                        <color key="backgroundColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="124" id="XeU-09-dgc"/>
+                        </constraints>
+                    </pickerView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="EBP-pA-nGT" secondAttribute="bottom" id="4C6-aJ-sgL"/>

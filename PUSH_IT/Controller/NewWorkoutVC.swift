@@ -21,7 +21,6 @@ class NewWorkoutVC: UIViewController {
         
     }
     @IBAction func newWorkoutBtnPressed(_ sender: Any) {
-        WorkoutDataService.instance.createNewWorkout()
         performSegue(withIdentifier: SHOW_START_NEW_WORKOUT_VC , sender: nil)
     }
 }

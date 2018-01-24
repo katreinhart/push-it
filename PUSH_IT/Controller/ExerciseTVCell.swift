@@ -15,9 +15,21 @@ class ExerciseTVCell: UITableViewCell {
     var reps: Int = 0
     var sets: Int = 0
 
+    // Outlets
+    
+    @IBOutlet weak var weightLbl: UILabel!
+    @IBOutlet weak var setsLbl: UILabel!
+    @IBOutlet weak var repsLbl: UILabel!
+    @IBOutlet weak var exerciseNameLbl: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        exerciseNameLbl.text = exerciseName
+        weightLbl.text = String(targetWeight)
+        setsLbl.text = String(sets)
+        repsLbl.text = String(reps)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
