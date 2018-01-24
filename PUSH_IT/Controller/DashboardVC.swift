@@ -27,7 +27,7 @@ class DashboardVC: UIViewController {
         
         ExerciseDataService.instance.fetchExercisesFromServer()
         AuthService.instance.getSecondaryGoals { (success) in
-            debugPrint(UserDataService.instance.secondaryGoal1, UserDataService.instance.secondaryGoal2)
+            debugPrint(UserDataService.instance.secondaryGoal1 as Any, UserDataService.instance.secondaryGoal2 as Any)
         }
     }
     

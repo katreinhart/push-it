@@ -1,5 +1,5 @@
 //
-//  StartWorkoutVC.swift
+//  BuildWorkoutVC.swift
 //  PUSH_IT
 //
 //  Created by Katherine Reinhart on 1/23/18.
@@ -23,6 +23,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             if exercises == nil {
@@ -44,11 +45,13 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         let section = indexPath.section
         
         if section == 0 {
+            debugPrint("section zero")
             let cell = Bundle.main.loadNibNamed("ExerciseTVCell", owner: self, options: nil)?.first as! ExerciseTVCell
-            cell.exerciseName = exercises![indexPath.row].type
-            cell.targetWeight = exercises![indexPath.row].goalWeight
-            cell.reps = exercises![indexPath.row].goalRepsPerSet
-            cell.sets = exercises![indexPath.row].goalSets
+            debugPrint(exercises![indexPath.row])
+            cell.exerciseNameLbl.text = exercises![indexPath.row].type
+            cell.weightLbl.text = String(exercises![indexPath.row].goalWeight)
+            cell.repsLbl.text = String(exercises![indexPath.row].goalRepsPerSet)
+            cell.setsLbl.text = String(exercises![indexPath.row].goalSets)
             return cell
         } else if section == 1 {
             let cell = Bundle.main.loadNibNamed("NewExerciseTVCell", owner: self, options: nil)?.first as! NewExerciseTVCell
@@ -76,8 +79,9 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // AddCellDelegate protocol
     
-    func didPressButton(_ sender: AddExerciseTVCell) {
-        debugPrint("didPressButton")
+    func didPressAddButton(_ sender: AddExerciseTVCell) {
+        debugPrint("didPressAddButton")
+        tableView.reloadData()
     }
     
     // SaveNewCellDelegate protocol function
@@ -85,19 +89,26 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func didPressSaveBtn(_ sender: NewExerciseTVCell, exercise: Exercise) {
         debugPrint("Did press save button")
         debugPrint(exercise)
+        WorkoutDataService.instance.addExerciseToActiveWorkout(exercise: exercise)
+        exercises = WorkoutDataService.instance.activeWorkout?.exercises
+        tableView.reloadData()
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up delegates & data source
         tableView.delegate = self
         tableView.dataSource = self
-        // Set up delegates & data source
         
+        if WorkoutDataService.instance.activeWorkoutID == nil {
+            WorkoutDataService.instance.createNewWorkout()
+        }
         
        // Menu button stuff
-    menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
 }

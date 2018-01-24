@@ -152,7 +152,6 @@ class AuthService {
                     guard let data = response.data else { return }
                     let json = JSON(data: data)
                     let responseData = json["data"]
-                    debugPrint(responseData)
                     
 //                    Date stuff is causing issues here
 //                    let df = DateFormatter()
@@ -168,7 +167,6 @@ class AuthService {
                     let goal1 = Goal(exercise: responseData[0]["exercise"].string, weight: gw1, date: Date())
                     let goal2 = Goal(exercise: responseData[1]["exercise"].string, weight: gw2, date: Date())
                     
-                    debugPrint("goal1", goal1, "goal2", goal2)
                     UserDataService.instance.setSecondaryGoals(goal1: goal1, goal2: goal2)
                     completion(true)
                 } else {

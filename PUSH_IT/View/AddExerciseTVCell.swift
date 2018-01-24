@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddCellDelegate: class {
-    func didPressButton(_ sender: AddExerciseTVCell)
+    func didPressAddButton(_ sender: AddExerciseTVCell)
 }
 
 class AddExerciseTVCell: UITableViewCell {
@@ -22,6 +22,6 @@ class AddExerciseTVCell: UITableViewCell {
     }
     
     @IBAction func AddExerciseBtnPressed(_ sender: AddExerciseTVCell) {
-        delegate?.didPressButton(self)
+        delegate?.didPressAddButton(self)
     }
 }

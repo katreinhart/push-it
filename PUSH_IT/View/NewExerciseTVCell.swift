@@ -30,6 +30,7 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
     
     weak var delegate: SaveExerciseCellDelegate?
     
+    // Picker view protocol methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -55,6 +56,8 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         exercisePicker.delegate = self
     }
 
+    // IBActions
+    
     @IBAction func selectExerciseBtnClicked(_ sender: Any) {
         if(exercisePicker.isHidden) {
             exercisePicker.isHidden = false
@@ -72,7 +75,7 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         guard selectedExercise != nil else {return}
 
         let newExercise = Exercise(type: selectedExercise!, goalWeight: targetWeight!, goalSets: targetSets!, goalRepsPerSet: targetRepsPerSet!, sets: [Set]())
-        
+
         delegate?.didPressSaveBtn(self, exercise: newExercise)
         
     }
@@ -85,5 +88,4 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
     @IBAction func didUpdateSets(_ sender: Any) {
         targetSets = Int(setsTxt.text!)
     }
-
 }

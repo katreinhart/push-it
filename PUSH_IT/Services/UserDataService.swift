@@ -38,7 +38,6 @@ class UserDataService {
     func getSecondaryGoals() {
         AuthService.instance.getSecondaryGoals { (success) in
             if success {
-                debugPrint("Seem to found them")
                 debugPrint(UserDataService.instance.secondaryGoal1 ?? "anything?")
             } else {
                 debugPrint("Did secondary goals get found?")
@@ -52,7 +51,7 @@ class UserDataService {
             (success) in
             if success != false {
                 debugPrint("Did it work?")
-            }
+            } 
         }
     }
     
