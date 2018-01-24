@@ -96,8 +96,25 @@ class WorkoutDataService {
         }
     }
     
-    func allRepsAndSetsCompleted(exercise: Exercise) -> Bool {
-        return false
+    func finishWorkout(comment: String?, rating: Int) {
+        let id = activeWorkoutID!
+        let body = [
+            "completed": true,
+            "rating": rating,
+            "comment": comment ?? ""
+        ] as [String: Any]
+        
+        Alamofire.request("\(BASE_URL)/api/workouts/\(id)", method: .put, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                debugPrint("Workout successfully completed")
+            } else {
+                debugPrint("Something went wrong with alamofire")
+            }
+        }
+        
+        // reset active workout to nil??
+//        activeWorkoutID = nil
+//        activeWorkout = nil
     }
     
     func getWeightPlatesForWeight(weight: Int) -> String {

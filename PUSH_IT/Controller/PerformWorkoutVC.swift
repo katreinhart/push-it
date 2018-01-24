@@ -16,15 +16,22 @@ class PerformWorkoutVC: UIViewController {
     @IBOutlet weak var weightLbl: UILabel!
     @IBOutlet weak var repsLbl: UILabel!
     @IBOutlet weak var setsLbl: UILabel!
-    
     @IBOutlet weak var currentSetLbl: UILabel!
-    
     @IBOutlet weak var repsDoneLbl: UILabel!
     
     @IBOutlet weak var InputWorkoutView: UIView!
     @IBOutlet weak var repsSlider: UISlider!
+    
+    // get ready view
     @IBOutlet weak var getReadyView: UIView!
     @IBOutlet weak var weightPlatesLbl: UILabel!
+    @IBOutlet weak var weightPlatesStackView: UIStackView!
+    
+    // done view outlets
+    @IBOutlet weak var doneView: UIView!
+    @IBOutlet weak var doneFinishBtn: UIButton!
+    @IBOutlet weak var ratingSlider: UISlider!
+    @IBOutlet weak var commentField: UITextField!
     
     // Variables
     var currentExercise: String = ""
@@ -34,16 +41,22 @@ class PerformWorkoutVC: UIViewController {
     
     var exerciseIndex: Int = 0
     var setIndex: Int = 0
-    
     var repsPerformed: Int = 0
     
     var repsDoneLblText = ""
     var currentSetLblText = ""
     var platesLblText = ""
     
+    // done view variables
+    var rating = 0
+    var comment = ""
+    
     // Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // hide done view
+        doneView.isHidden = true
         
         // load current exercise stats
         currentExercise = WorkoutDataService.instance.activeWorkout!.exercises[0].type
@@ -73,13 +86,12 @@ class PerformWorkoutVC: UIViewController {
         InputWorkoutView.isHidden = true
         weightPlatesLbl.text = WorkoutDataService.instance.getWeightPlatesForWeight(weight: targetWeight)
         
+        
         // Menu button stuff
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
-    
-    
     
     // Actions
     
@@ -94,16 +106,22 @@ class PerformWorkoutVC: UIViewController {
         repsDoneLbl.text = repsDoneLblText
         
     }
+    
     @IBAction func nextBtnPressed(_ sender: Any) {
         WorkoutDataService.instance.performSetOnActiveWorkout(exerciseIndex: exerciseIndex, setIndex: setIndex, repsAttempted: targetReps, repsCompleted: repsPerformed)
         
         setIndex += 1
         
         if setIndex == targetSets {
+        
             exerciseIndex += 1
             if exerciseIndex == WorkoutDataService.instance.activeWorkout!.exercises.count {
-                debugPrint("You are done! Booyah.")
-                return
+                // Finished last set!
+                
+                weightPlatesStackView.isHidden = true
+                doneView.isHidden = false
+                InputWorkoutView.isHidden = true
+                getReadyView.isHidden = true
             }
             else {
                 getReadyView.isHidden = false
@@ -136,5 +154,20 @@ class PerformWorkoutVC: UIViewController {
         
         currentSetLblText = "Set \(setIndex + 1) of \(targetSets)"
         currentSetLbl.text = currentSetLblText
+    }
+    
+    @IBAction func ratingSlider(_ sender: Any) {
+        rating = Int(ratingSlider.value)
+    }
+    
+    @IBAction func commentField(_ sender: Any) {
+        comment = commentField.text ?? ""
+    }
+    
+    @IBAction func doneBtnPressed(_ sender: Any) {
+        
+        WorkoutDataService.instance.finishWorkout(comment: comment, rating: rating)
+        
+        performSegue(withIdentifier: UNWIND_TO_DASHBOARD, sender: nil)
     }
 }

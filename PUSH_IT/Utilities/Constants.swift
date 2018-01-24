@@ -37,7 +37,7 @@ let SHOW_START_NEW_WORKOUT_VC = "showStartNewWorkoutVC"
 let SHOW_GOALS_FROM_MENU = "ShowGoalsFromMenu"
 let SHOW_WORKOUT_FROM_MENU = "ShowWorkoutFromMenu"
 let START_WORKOUT_FROM_BUILDER = "StartPerformWorkoutFromWorkoutBuilder"
-
+let UNWIND_TO_DASHBOARD = "unwindToDashboard"
 
 // User Defaults
 let TOKEN_KEY = "token"
