@@ -64,17 +64,17 @@
 		463A425F201520500016D18A /* GoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsVC.swift; sourceTree = "<group>"; };
 		463A4261201558960016D18A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		463A4263201566A40016D18A /* EditGoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalsVC.swift; sourceTree = "<group>"; };
-		463A426520157BB90016D18A /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Goal.swift; path = PUSH_IT/Controller/Goal.swift; sourceTree = SOURCE_ROOT; };
+		463A426520157BB90016D18A /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = SOURCE_ROOT; };
 		463A426720164FE60016D18A /* ExerciseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDataService.swift; sourceTree = "<group>"; };
 		46778E7B2016AF89001D7FE0 /* NewWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutVC.swift; sourceTree = "<group>"; };
-		46778E8120179F96001D7FE0 /* NewExerciseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewExerciseTVCell.swift; path = PUSH_IT/Controller/NewExerciseTVCell.swift; sourceTree = SOURCE_ROOT; };
-		46778E8220179F96001D7FE0 /* NewExerciseTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewExerciseTVCell.xib; path = PUSH_IT/Controller/NewExerciseTVCell.xib; sourceTree = SOURCE_ROOT; };
-		46778E852017A107001D7FE0 /* ExerciseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExerciseTVCell.swift; path = PUSH_IT/Controller/ExerciseTVCell.swift; sourceTree = SOURCE_ROOT; };
-		46778E862017A107001D7FE0 /* ExerciseTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExerciseTVCell.xib; path = PUSH_IT/Controller/ExerciseTVCell.xib; sourceTree = SOURCE_ROOT; };
+		46778E8120179F96001D7FE0 /* NewExerciseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewExerciseTVCell.swift; path = PUSH_IT/View/NewExerciseTVCell.swift; sourceTree = SOURCE_ROOT; };
+		46778E8220179F96001D7FE0 /* NewExerciseTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NewExerciseTVCell.xib; path = PUSH_IT/View/NewExerciseTVCell.xib; sourceTree = SOURCE_ROOT; };
+		46778E852017A107001D7FE0 /* ExerciseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExerciseTVCell.swift; path = PUSH_IT/View/ExerciseTVCell.swift; sourceTree = SOURCE_ROOT; };
+		46778E862017A107001D7FE0 /* ExerciseTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExerciseTVCell.xib; path = PUSH_IT/View/ExerciseTVCell.xib; sourceTree = SOURCE_ROOT; };
 		46778E892017A756001D7FE0 /* WorkoutDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataService.swift; sourceTree = "<group>"; };
-		46778E8B2017D19E001D7FE0 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = PUSH_IT/Services/Workout.swift; sourceTree = SOURCE_ROOT; };
-		46778E8D2017D33D001D7FE0 /* AddExerciseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddExerciseTVCell.swift; path = PUSH_IT/Services/AddExerciseTVCell.swift; sourceTree = SOURCE_ROOT; };
-		46778E8E2017D33D001D7FE0 /* AddExerciseTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddExerciseTVCell.xib; path = PUSH_IT/Services/AddExerciseTVCell.xib; sourceTree = SOURCE_ROOT; };
+		46778E8B2017D19E001D7FE0 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = SOURCE_ROOT; };
+		46778E8D2017D33D001D7FE0 /* AddExerciseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddExerciseTVCell.swift; path = PUSH_IT/View/AddExerciseTVCell.swift; sourceTree = SOURCE_ROOT; };
+		46778E8E2017D33D001D7FE0 /* AddExerciseTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddExerciseTVCell.xib; path = PUSH_IT/View/AddExerciseTVCell.xib; sourceTree = SOURCE_ROOT; };
 		46778E912017E260001D7FE0 /* BuildWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildWorkoutVC.swift; sourceTree = "<group>"; };
 		46C2B70220128312000BFF02 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		46C2B704201287DF000BFF02 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
@@ -137,6 +137,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4651B2C120181E95002665AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				46778E8120179F96001D7FE0 /* NewExerciseTVCell.swift */,
+				46778E8220179F96001D7FE0 /* NewExerciseTVCell.xib */,
+				46778E852017A107001D7FE0 /* ExerciseTVCell.swift */,
+				46778E862017A107001D7FE0 /* ExerciseTVCell.xib */,
+				46778E8D2017D33D001D7FE0 /* AddExerciseTVCell.swift */,
+				46778E8E2017D33D001D7FE0 /* AddExerciseTVCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4651B2C220181EB4002665AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				463A426520157BB90016D18A /* Goal.swift */,
+				46778E8B2017D19E001D7FE0 /* Workout.swift */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		46E5480E201161D800536426 = {
 			isa = PBXGroup;
 			children = (
@@ -163,8 +186,8 @@
 		46E54819201161D800536426 /* PUSH_IT */ = {
 			isa = PBXGroup;
 			children = (
-				46E548492012675700536426 /* View */,
-				46E548482012675200536426 /* Model */,
+				4651B2C120181E95002665AF /* View */,
+				4651B2C220181EB4002665AF /* Model */,
 				46E5484E2012680D00536426 /* Services */,
 				46E5484B2012676100536426 /* Utilities */,
 				46E5484A2012675B00536426 /* Controller */,
@@ -193,30 +216,6 @@
 				46E5483C201161D800536426 /* Info.plist */,
 			);
 			path = PUSH_ITUITests;
-			sourceTree = "<group>";
-		};
-		46E548482012675200536426 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				463A426520157BB90016D18A /* Goal.swift */,
-				46778E8B2017D19E001D7FE0 /* Workout.swift */,
-			);
-			name = Model;
-			path = ../Model;
-			sourceTree = "<group>";
-		};
-		46E548492012675700536426 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				46778E8120179F96001D7FE0 /* NewExerciseTVCell.swift */,
-				46778E8220179F96001D7FE0 /* NewExerciseTVCell.xib */,
-				46778E852017A107001D7FE0 /* ExerciseTVCell.swift */,
-				46778E862017A107001D7FE0 /* ExerciseTVCell.xib */,
-				46778E8D2017D33D001D7FE0 /* AddExerciseTVCell.swift */,
-				46778E8E2017D33D001D7FE0 /* AddExerciseTVCell.xib */,
-			);
-			name = View;
-			path = ../View;
 			sourceTree = "<group>";
 		};
 		46E5484A2012675B00536426 /* Controller */ = {
