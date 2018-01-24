@@ -21,7 +21,7 @@
 		46778E8C2017D19E001D7FE0 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46778E8B2017D19E001D7FE0 /* Workout.swift */; };
 		46778E8F2017D33D001D7FE0 /* AddExerciseTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46778E8D2017D33D001D7FE0 /* AddExerciseTVCell.swift */; };
 		46778E902017D33D001D7FE0 /* AddExerciseTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46778E8E2017D33D001D7FE0 /* AddExerciseTVCell.xib */; };
-		46778E922017E260001D7FE0 /* StartWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46778E912017E260001D7FE0 /* StartWorkoutVC.swift */; };
+		46778E922017E260001D7FE0 /* BuildWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46778E912017E260001D7FE0 /* BuildWorkoutVC.swift */; };
 		46C2B70320128312000BFF02 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70220128312000BFF02 /* DashboardVC.swift */; };
 		46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B704201287DF000BFF02 /* UserDataService.swift */; };
 		46C2B70920128BC3000BFF02 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70820128BC3000BFF02 /* OnboardingVC.swift */; };
@@ -75,7 +75,7 @@
 		46778E8B2017D19E001D7FE0 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = PUSH_IT/Services/Workout.swift; sourceTree = SOURCE_ROOT; };
 		46778E8D2017D33D001D7FE0 /* AddExerciseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddExerciseTVCell.swift; path = PUSH_IT/Services/AddExerciseTVCell.swift; sourceTree = SOURCE_ROOT; };
 		46778E8E2017D33D001D7FE0 /* AddExerciseTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddExerciseTVCell.xib; path = PUSH_IT/Services/AddExerciseTVCell.xib; sourceTree = SOURCE_ROOT; };
-		46778E912017E260001D7FE0 /* StartWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutVC.swift; sourceTree = "<group>"; };
+		46778E912017E260001D7FE0 /* BuildWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildWorkoutVC.swift; sourceTree = "<group>"; };
 		46C2B70220128312000BFF02 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		46C2B704201287DF000BFF02 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		46C2B70820128BC3000BFF02 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 				463A425F201520500016D18A /* GoalsVC.swift */,
 				463A4263201566A40016D18A /* EditGoalsVC.swift */,
 				46778E7B2016AF89001D7FE0 /* NewWorkoutVC.swift */,
-				46778E912017E260001D7FE0 /* StartWorkoutVC.swift */,
+				46778E912017E260001D7FE0 /* BuildWorkoutVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -465,7 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46E5481D201161D800536426 /* SplashPage.swift in Sources */,
-				46778E922017E260001D7FE0 /* StartWorkoutVC.swift in Sources */,
+				46778E922017E260001D7FE0 /* BuildWorkoutVC.swift in Sources */,
 				46778E872017A107001D7FE0 /* ExerciseTVCell.swift in Sources */,
 				46E5481B201161D800536426 /* AppDelegate.swift in Sources */,
 				46E548552012703F00536426 /* SWRevealViewController.m in Sources */,

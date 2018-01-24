@@ -34,6 +34,9 @@ let SHOW_SW_REVEAL_FROM_ONBOARDING = "showSWRevealFromOnboarding"
 let SHOW_EDIT_GOAL_VC = "showEditGoalVC"
 let UNWIND_TO_GOALS = "unwindSegueToGoalsVC"
 let SHOW_START_NEW_WORKOUT_VC = "showStartNewWorkoutVC"
+let SHOW_GOALS_FROM_MENU = "ShowGoalsFromMenu"
+let SHOW_WORKOUT_FROM_MENU = "ShowWorkoutFromMenu"
+
 
 // User Defaults
 let TOKEN_KEY = "token"

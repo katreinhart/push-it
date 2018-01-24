@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StartWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Outlets
     @IBOutlet weak var menuBtn: UIButton!

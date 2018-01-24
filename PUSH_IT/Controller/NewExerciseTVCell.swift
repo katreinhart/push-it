@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewExerciseTVCell: UITableViewCell,  UIPickerViewDelegate, UIPickerViewDataSource {
     
     // Outlets
     @IBOutlet weak var exPickedLbl: UILabel!
@@ -69,7 +69,16 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         guard (selectedExercise != nil) else {return}
         
         WorkoutDataService.instance.addExerciseToWorkout(workout: WorkoutDataService.instance.activeWorkout!, targetWeight: Int(weightSelectedTxt)!, exerciseName: selectedExercise!, exerciseReps: Int(repsSelectedTxt)!, exerciseSets: Int(setsSelectedTxt)!)
-        
-        
     }
+    
+    @IBAction func wtTextEdited(_ sender: Any) {
+        guard Int(weightTxt.text!) != nil else {return}
+    }
+    @IBAction func repTxtEdited(_ sender: Any) {
+        guard Int(repTxt.text!) != nil else {return}
+    }
+    @IBAction func setTextEdited(_ sender: Any) {
+        guard Int(setsTxt.text!) != nil else {return}
+    }
+    
 }

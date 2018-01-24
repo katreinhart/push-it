@@ -25,6 +25,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="240.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqK-OX-U9a">
+                        <rect key="frame" x="0.0" y="71" width="320" height="124"/>
+                        <color key="backgroundColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="124" id="XeU-09-dgc"/>
+                        </constraints>
+                    </pickerView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESq-T6-nbI">
                         <rect key="frame" x="16" y="15" width="288" height="45"/>
                         <subviews>
@@ -73,6 +80,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <action selector="updateSetsNum:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="Vs9-Qe-Vw6"/>
+                                            <action selector="wtTextEdited:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="TzG-8B-gbS"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -96,6 +104,7 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
+                                            <action selector="repTxtEdited:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="pd6-1W-s2L"/>
                                             <action selector="updateRepsNum:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="6Cg-4k-NBv"/>
                                         </connections>
                                     </textField>
@@ -119,6 +128,7 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
+                                            <action selector="setTextEdited:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="iCP-FT-osL"/>
                                             <action selector="updateSetsNum:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="cej-gE-Gpr"/>
                                         </connections>
                                     </textField>
@@ -142,13 +152,6 @@
                             <action selector="saveButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2OQ-vh-pPf"/>
                         </connections>
                     </button>
-                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqK-OX-U9a">
-                        <rect key="frame" x="0.0" y="71" width="320" height="124"/>
-                        <color key="backgroundColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="124" id="XeU-09-dgc"/>
-                        </constraints>
-                    </pickerView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="EBP-pA-nGT" secondAttribute="bottom" id="4C6-aJ-sgL"/>
@@ -169,7 +172,7 @@
             <connections>
                 <outlet property="exPickedLbl" destination="htr-4P-b6X" id="a9K-QX-Qyi"/>
                 <outlet property="exercisePicker" destination="wqK-OX-U9a" id="pdR-HS-XvA"/>
-                <outlet property="repTxt" destination="rhN-KX-5KQ" id="Yby-RP-Bfy"/>
+                <outlet property="repTxt" destination="rhN-KX-5KQ" id="rRH-hX-UGg"/>
                 <outlet property="setsTxt" destination="5BW-XB-SKQ" id="TnK-q2-UqW"/>
                 <outlet property="weightTxt" destination="bn3-05-HVH" id="n9m-Rc-OMj"/>
             </connections>
