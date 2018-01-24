@@ -20,6 +20,7 @@ class NewWorkoutVC: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
     }
+    @IBOutlet weak var loadWorkoutBtnPressed: UIButton!
     @IBAction func newWorkoutBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: SHOW_START_NEW_WORKOUT_VC , sender: nil)
     }

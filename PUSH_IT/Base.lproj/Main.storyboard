@@ -714,6 +714,7 @@
                         <viewLayoutGuide key="safeArea" id="0C1-lp-nS0"/>
                     </view>
                     <connections>
+                        <outlet property="loadWorkoutBtnPressed" destination="9pv-o3-xGm" id="XJT-T7-4CG"/>
                         <outlet property="menuBtn" destination="Wfs-Uh-uPR" id="WNh-1X-g0t"/>
                         <segue destination="r7d-Rq-r7K" kind="custom" identifier="showStartNewWorkoutVC" customClass="SWRevealViewControllerSeguePushController" id="wYN-tK-Oiy"/>
                     </connections>
@@ -742,6 +743,9 @@
                                         <state key="normal" image="Hamburger-1x">
                                             <color key="titleColor" red="0.19074219470000001" green="0.38095420600000002" blue="0.55544632670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="fuckAssBtnPressed:" destination="r7d-Rq-r7K" eventType="touchUpInside" id="Glb-1P-eWy"/>
+                                        </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="57S-8J-3Jm">
                                         <rect key="frame" x="0.0" y="74" width="375" height="593"/>
@@ -768,6 +772,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dTM-uL-qGd"/>
                     </view>
+                    <connections>
+                        <outlet property="menuBtn" destination="j6N-D2-CtZ" id="Udi-a9-1O8"/>
+                        <outlet property="tableView" destination="57S-8J-3Jm" id="vTy-hu-F0L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BH-U6-mqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1660,8 +1668,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="N7W-wl-8C7"/>
-        <segue reference="zTJ-cW-96y"/>
-        <segue reference="RId-AX-Wvz"/>
+        <segue reference="KUT-Dz-Bs0"/>
+        <segue reference="bV5-YU-lYX"/>
         <segue reference="TdR-xf-2e7"/>
         <segue reference="RdJ-OG-tmg"/>
         <segue reference="HVB-D1-b1j"/>

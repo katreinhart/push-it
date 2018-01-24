@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StartWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddCellDelegate, SaveExerciseCellDelegate {
+class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddCellDelegate, SaveExerciseCellDelegate {
     
     // Outlets
     @IBOutlet weak var menuBtn: UIButton!
@@ -90,18 +90,14 @@ class StartWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set up delegates & data source
         tableView.delegate = self
         tableView.dataSource = self
+        // Set up delegates & data source
         
-        // Menu btn stuff for SWReveal
-        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
-        if(WorkoutDataService.instance.activeWorkout == nil) {
-            WorkoutDataService.instance.createNewWorkout()
-        }
+       // Menu button stuff
+    menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
 }
