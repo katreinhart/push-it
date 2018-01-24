@@ -85,20 +85,28 @@ class PerformWorkoutVC: UIViewController {
         
     }
     @IBAction func nextBtnPressed(_ sender: Any) {
+        WorkoutDataService.instance.performSetOnActiveWorkout(exerciseIndex: exerciseIndex, setIndex: setIndex, repsAttempted: targetReps, repsCompleted: repsPerformed)
+        
         
         setIndex += 1
         
         if setIndex == targetSets {
             exerciseIndex += 1
             if exerciseIndex == WorkoutDataService.instance.activeWorkout!.exercises.count {
-                debugPrint("You're done! Booyah.")
+                debugPrint("You are done! Booyah.")
                 return
             }
             else {
                 setIndex = 0
+                targetWeight = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalWeight
+                targetReps = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalRepsPerSet
                 targetSets = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalSets
                 currentExercise = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].type
                 exerciseNameLbl.text = currentExercise
+                weightLbl.text = String(targetWeight)
+                repsLbl.text = String(targetReps)
+                setsLbl.text = String(targetSets)
+                
             }
         }
         

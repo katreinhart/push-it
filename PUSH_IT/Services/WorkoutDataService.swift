@@ -76,8 +76,23 @@ class WorkoutDataService {
         }
     }
     
-    func performSet(repsAttempted: Int, repsCompleted: Int) {
+    func performSetOnActiveWorkout(exerciseIndex: Int, setIndex: Int, repsAttempted: Int, repsCompleted: Int) {
+        let id = activeWorkoutID!
+        let weight = activeWorkout!.exercises[exerciseIndex].goalWeight
         
+        let body = [
+            "weight": weight,
+            "reps_att": repsAttempted,
+            "reps_comp": repsCompleted
+            ] as [String : Any]
+        
+        Alamofire.request("\(BASE_URL)/api/workouts/\(id)/exercises/\(exerciseIndex + 1)/sets", method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                debugPrint("Successfully added set")
+            } else {
+                debugPrint("Something went wrong adding set")
+            }
+        }
     }
     
     func allRepsAndSetsCompleted(exercise: Exercise) -> Bool {
