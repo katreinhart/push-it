@@ -8,16 +8,20 @@
 
 import UIKit
 
+protocol AddCellDelegate: class {
+    func didPressButton(_ sender: AddExerciseTVCell)
+}
+
 class AddExerciseTVCell: UITableViewCell {
     
+    weak var delegate: AddCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
     
-    @IBAction func AddExerciseBtnPressed(_ sender: Any) {
-        debugPrint("add exercise button pressed")
-        
+    @IBAction func AddExerciseBtnPressed(_ sender: AddExerciseTVCell) {
+        delegate?.didPressButton(self)
     }
-    
 }
