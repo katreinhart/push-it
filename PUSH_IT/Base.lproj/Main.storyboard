@@ -743,9 +743,6 @@
                                         <state key="normal" image="Hamburger-1x">
                                             <color key="titleColor" red="0.19074219470000001" green="0.38095420600000002" blue="0.55544632670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="fuckAssBtnPressed:" destination="r7d-Rq-r7K" eventType="touchUpInside" id="Glb-1P-eWy"/>
-                                        </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="57S-8J-3Jm">
                                         <rect key="frame" x="0.0" y="74" width="375" height="593"/>
