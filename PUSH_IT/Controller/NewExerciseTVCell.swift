@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SaveExerciseCellDelegate: class {
+    func didPressSaveBtn(_ sender: NewExerciseTVCell, exercise: Exercise)
+}
+
 class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // Outlets
@@ -20,9 +24,11 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
     
     // Variables
     var selectedExercise: String?
-    var targetWeight: Int = 0
-    var targetSets: Int = 0
-    var targetRepsPerSet: Int = 0
+    var targetWeight: Int?
+    var targetSets: Int?
+    var targetRepsPerSet: Int?
+    
+    weak var delegate: SaveExerciseCellDelegate?
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -58,18 +64,25 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        guard let repsSelectedTxt = repTxt.text  else {return}
-        guard let setsSelectedTxt = setsTxt.text  else {return}
-        guard let weightSelectedTxt = weightTxt.text else {return}
         
-        guard Int(weightSelectedTxt) != nil else {return}
-        guard Int(repsSelectedTxt) != nil else {return}
-        guard Int(setsSelectedTxt) != nil else {return}
+        // check all values are present
+        guard targetWeight != nil else {return}
+        guard targetRepsPerSet != nil else {return}
+        guard targetSets != nil else {return}
+        guard selectedExercise != nil else {return}
         
-        guard (selectedExercise != nil) else {return}
+        let newExercise = Exercise(type: selectedExercise!, goalWeight: targetWeight!, goalSets: targetSets!, goalRepsPerSet: targetRepsPerSet!, sets: [Set]())
         
-        WorkoutDataService.instance.addExerciseToWorkout(workout: WorkoutDataService.instance.activeWorkout!, targetWeight: Int(weightSelectedTxt)!, exerciseName: selectedExercise!, exerciseReps: Int(repsSelectedTxt)!, exerciseSets: Int(setsSelectedTxt)!)
+        delegate?.didPressSaveBtn(self, exercise: newExercise)
         
-        
+    }
+    @IBAction func didUpdateWeight(_ sender: Any) {
+        targetWeight = Int(weightTxt.text!)
+    }
+    @IBAction func didUpdateReps(_ sender: Any) {
+        targetRepsPerSet = Int(repTxt.text!)
+    }
+    @IBAction func didUpdateSets(_ sender: Any) {
+        targetSets = Int(setsTxt.text!)
     }
 }

@@ -8,14 +8,16 @@
 
 import UIKit
 
-class StartWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class StartWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddCellDelegate, SaveExerciseCellDelegate {
+    
+    
+   
     // Outlets
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     // Variables
-    let exercises = WorkoutDataService.instance.activeWorkout?.exercises
+    var exercises = WorkoutDataService.instance.activeWorkout?.exercises
     public var isAdding = false
     
     // TableView protocol functions
@@ -52,9 +54,11 @@ class StartWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             return cell
         } else if section == 1 {
             let cell = Bundle.main.loadNibNamed("NewExerciseTVCell", owner: self, options: nil)?.first as! NewExerciseTVCell
+            cell.delegate = self
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("AddExerciseTVCell", owner: self, options: nil)?.first as! AddExerciseTVCell
+            cell.delegate = self
             debugPrint("Cell for row at", indexPath.row)
             return cell
         }
@@ -72,6 +76,20 @@ class StartWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    // AddCellDelegate protocol
+    
+    func didPressButton(_ sender: AddExerciseTVCell) {
+        debugPrint("didPressButton")
+    }
+    
+    // SaveNewCellDelegate protocol function
+    
+    func didPressSaveBtn(_ sender: NewExerciseTVCell, exercise: Exercise) {
+        debugPrint("Did press save button")
+        debugPrint(exercise)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,7 +106,4 @@ class StartWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             WorkoutDataService.instance.createNewWorkout()
         }
     }
-    
-    
-
 }

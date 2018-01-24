@@ -8,25 +8,20 @@
 
 import UIKit
 
-class AddExerciseTVCell: UITableViewCell {
+protocol AddCellDelegate: class {
+    func didPressButton(_ sender: AddExerciseTVCell)
+}
 
+class AddExerciseTVCell: UITableViewCell {
+    
+    weak var delegate: AddCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
     
-    @IBAction func AddExerciseBtnPressed(_ sender: Any) {
-        debugPrint("add exercise button pressed")
+    @IBAction func AddExerciseBtnPressed(_ sender: AddExerciseTVCell) {
+        delegate?.didPressButton(self)
     }
-    
-//    func addRowToTable () {
-//        // Adding the new row to update the tableView
-//        let MyStartWorkoutVC = self.presentingViewController?.presentingViewController?.presentingViewController as! StartWorkoutVC
-//        let newExercise = 
-//        MyStartWorkoutVC.exercises.insert(, at: 0)
-//        MyStartWorkoutVC.myMaterials = (swim.materialsLocal?.allObjects as! [MaterialLocal]).sorted(by: {$0.createdAtLocal! > $1.createdAtLocal!})
-//        MyStartWorkoutVC.tableView.reloadData()
-//        MyStartWorkoutVC.dismiss(animated: true, completion: nil)
-//    }
-    
 }
