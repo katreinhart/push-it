@@ -78,6 +78,7 @@ class WorkoutDataService {
     
     func performSetOnActiveWorkout(exerciseIndex: Int, setIndex: Int, repsAttempted: Int, repsCompleted: Int) {
         let id = activeWorkoutID!
+        if exerciseIndex == activeWorkout!.exercises.count {return}
         let weight = activeWorkout!.exercises[exerciseIndex].goalWeight
         
         let body = [
@@ -97,5 +98,51 @@ class WorkoutDataService {
     
     func allRepsAndSetsCompleted(exercise: Exercise) -> Bool {
         return false
+    }
+    
+    func getWeightPlatesForWeight(weight: Int) -> String {
+        var plateString = ""
+        let barWeight = 45
+        let remaining = weight - barWeight
+        var perSide = Int(remaining / 2)
+        
+        var count45 = 0
+        
+        while perSide >= 45 {
+            count45 += 1
+            perSide -= 45
+        }
+        if count45 > 1 {
+            plateString += "\(count45)x 45#, "
+        } else if count45 == 1 {
+            plateString += "45#, "
+        }
+        if perSide >= 35 {
+            plateString += "35#, "
+            perSide -= 35
+        }
+        if perSide > 25 {
+            plateString += "25#, "
+            perSide -= 25
+        }
+        var count10 = 0
+        while perSide > 10 {
+            count10 += 1
+            perSide -= 10
+        }
+        if count10 > 1 {
+            plateString += "\(count10)x 10#"
+        } else if count10 == 1 {
+            plateString += "10#, "
+        }
+        if perSide > 5 {
+            plateString += "5#, "
+            perSide -= 5
+        }
+        if perSide > 1 {
+            plateString += "2.5#, "
+            perSide = 0
+        }
+        return plateString
     }
 }

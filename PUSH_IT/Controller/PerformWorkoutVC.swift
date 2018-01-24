@@ -23,6 +23,8 @@ class PerformWorkoutVC: UIViewController {
     
     @IBOutlet weak var InputWorkoutView: UIView!
     @IBOutlet weak var repsSlider: UISlider!
+    @IBOutlet weak var getReadyView: UIView!
+    @IBOutlet weak var weightPlatesLbl: UILabel!
     
     // Variables
     var currentExercise: String = ""
@@ -37,7 +39,7 @@ class PerformWorkoutVC: UIViewController {
     
     var repsDoneLblText = ""
     var currentSetLblText = ""
-
+    var platesLblText = ""
     
     // Life cycle methods
     override func viewDidLoad() {
@@ -49,7 +51,7 @@ class PerformWorkoutVC: UIViewController {
         targetReps = WorkoutDataService.instance.activeWorkout!.exercises[0].goalRepsPerSet
         targetSets = WorkoutDataService.instance.activeWorkout!.exercises[0].goalSets
         
-        // Load data into view
+        // Load data into main view
         exerciseNameLbl.text = currentExercise
         weightLbl.text = String(targetWeight)
         repsLbl.text = String(targetReps)
@@ -61,7 +63,11 @@ class PerformWorkoutVC: UIViewController {
         repsDoneLblText = "\(repsPerformed) out of \(targetReps)"
         repsDoneLbl.text = repsDoneLblText
         
+       // set up Get Ready view
+        
+        getReadyView.isHidden = false
         InputWorkoutView.isHidden = true
+        weightPlatesLbl.text = WorkoutDataService.instance.getWeightPlatesForWeight(weight: targetWeight)
         
         // Menu button stuff
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -75,7 +81,7 @@ class PerformWorkoutVC: UIViewController {
     
     @IBAction func GoBtnPressed(_ sender: Any) {
         InputWorkoutView.isHidden = false
-        
+        getReadyView.isHidden = true
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
@@ -87,7 +93,6 @@ class PerformWorkoutVC: UIViewController {
     @IBAction func nextBtnPressed(_ sender: Any) {
         WorkoutDataService.instance.performSetOnActiveWorkout(exerciseIndex: exerciseIndex, setIndex: setIndex, repsAttempted: targetReps, repsCompleted: repsPerformed)
         
-        
         setIndex += 1
         
         if setIndex == targetSets {
@@ -97,8 +102,11 @@ class PerformWorkoutVC: UIViewController {
                 return
             }
             else {
+                getReadyView.isHidden = false
+                
                 setIndex = 0
                 targetWeight = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalWeight
+                
                 targetReps = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalRepsPerSet
                 targetSets = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalSets
                 currentExercise = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].type
@@ -107,6 +115,9 @@ class PerformWorkoutVC: UIViewController {
                 repsLbl.text = String(targetReps)
                 setsLbl.text = String(targetSets)
                 
+                platesLblText = WorkoutDataService.instance.getWeightPlatesForWeight(weight: targetWeight)
+                
+                weightPlatesLbl.text = platesLblText                
             }
         }
         
