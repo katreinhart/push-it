@@ -768,10 +768,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dTM-uL-qGd"/>
                     </view>
-                    <connections>
-                        <outlet property="menuBtn" destination="j6N-D2-CtZ" id="hsI-uY-FjY"/>
-                        <outlet property="tableView" destination="57S-8J-3Jm" id="FkU-k2-GPl"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BH-U6-mqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1664,8 +1660,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="N7W-wl-8C7"/>
-        <segue reference="KUT-Dz-Bs0"/>
-        <segue reference="bV5-YU-lYX"/>
+        <segue reference="zTJ-cW-96y"/>
+        <segue reference="RId-AX-Wvz"/>
         <segue reference="TdR-xf-2e7"/>
         <segue reference="RdJ-OG-tmg"/>
         <segue reference="HVB-D1-b1j"/>

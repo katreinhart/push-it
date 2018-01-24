@@ -25,13 +25,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="240.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqK-OX-U9a">
-                        <rect key="frame" x="0.0" y="71" width="320" height="124"/>
-                        <color key="backgroundColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="124" id="XeU-09-dgc"/>
-                        </constraints>
-                    </pickerView>
+                    
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESq-T6-nbI">
                         <rect key="frame" x="16" y="15" width="288" height="45"/>
                         <subviews>
