@@ -81,7 +81,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func didPressSaveAndGoButton(_ sender: SaveWorkoutAndGoTVCell) {
         debugPrint("Did press save and go button!")
-        
+        self.performSegue(withIdentifier: START_WORKOUT_FROM_BUILDER, sender: nil)
     }
     
     // SaveNewCellDelegate protocol function

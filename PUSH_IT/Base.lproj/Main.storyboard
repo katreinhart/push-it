@@ -785,22 +785,66 @@
                     <connections>
                         <outlet property="menuBtn" destination="j6N-D2-CtZ" id="Udi-a9-1O8"/>
                         <outlet property="tableView" destination="57S-8J-3Jm" id="vTy-hu-F0L"/>
+                        <segue destination="xXe-bF-rzz" kind="custom" identifier="StartPerformWorkoutFromWorkoutBuilder" customClass="SWRevealViewControllerSeguePushController" id="WNU-cJ-RGm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BH-U6-mqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3481" y="181"/>
         </scene>
-        <!--View Controller-->
+        <!--Perform WorkoutVC-->
         <scene sceneID="8hu-Sv-zt3">
             <objects>
-                <viewController id="xXe-bF-rzz" sceneMemberID="viewController">
+                <viewController id="xXe-bF-rzz" customClass="PerformWorkoutVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PE9-Op-Hxr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIE-FR-HJe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-7g-A4T">
+                                        <rect key="frame" x="10" y="24" width="42" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="Abc-gF-lJ6"/>
+                                            <constraint firstAttribute="width" constant="42" id="DzE-bm-pHW"/>
+                                        </constraints>
+                                        <state key="normal" image="Hamburger-1x">
+                                            <color key="titleColor" red="0.19074219470000001" green="0.38095420600000002" blue="0.55544632670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's PUSH_IT!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4i-dU-xJ6">
+                                        <rect key="frame" x="50" y="24" width="275" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="275" id="G4P-Ud-haK"/>
+                                            <constraint firstAttribute="height" constant="45" id="YfK-wu-IB4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <color key="textColor" red="0.14901960780000001" green="0.30196078430000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.83137254900000002" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="x4i-dU-xJ6" firstAttribute="centerX" secondItem="UIE-FR-HJe" secondAttribute="centerX" id="D7r-3X-tAs"/>
+                                    <constraint firstItem="x4i-dU-xJ6" firstAttribute="top" secondItem="UIE-FR-HJe" secondAttribute="top" constant="24" id="ej1-Fs-AG1"/>
+                                    <constraint firstItem="JUv-7g-A4T" firstAttribute="top" secondItem="UIE-FR-HJe" secondAttribute="top" constant="24" id="fbp-Kk-hsC"/>
+                                    <constraint firstItem="JUv-7g-A4T" firstAttribute="leading" secondItem="UIE-FR-HJe" secondAttribute="leading" constant="10" id="ilp-ZF-gcR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UIE-FR-HJe" firstAttribute="trailing" secondItem="hQY-hp-FKR" secondAttribute="trailing" id="BGF-E8-rTa"/>
+                            <constraint firstItem="UIE-FR-HJe" firstAttribute="leading" secondItem="hQY-hp-FKR" secondAttribute="leading" id="QwU-UV-hjf"/>
+                            <constraint firstItem="UIE-FR-HJe" firstAttribute="top" secondItem="PE9-Op-Hxr" secondAttribute="top" id="RFr-NT-nGr"/>
+                            <constraint firstItem="UIE-FR-HJe" firstAttribute="bottom" secondItem="hQY-hp-FKR" secondAttribute="bottom" id="gqA-2b-7Gx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hQY-hp-FKR"/>
                     </view>
+                    <connections>
+                        <outlet property="menuBtn" destination="JUv-7g-A4T" id="Hxa-mo-Q7v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZd-Oj-Kor" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
