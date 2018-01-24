@@ -57,6 +57,10 @@ class PerformWorkoutVC: UIViewController {
         repsLbl.text = String(targetReps)
         setsLbl.text = String(targetSets)
         
+        // set up slider
+        repsSlider.maximumValue = Float(targetReps)
+        repsSlider.isContinuous = false
+        
         // set up sets and reps labels
         currentSetLblText = "Set \(setIndex + 1) of \(targetSets)"
         currentSetLbl.text = currentSetLblText
@@ -104,20 +108,29 @@ class PerformWorkoutVC: UIViewController {
             else {
                 getReadyView.isHidden = false
                 
+                // reset to first set of exercise
                 setIndex = 0
-                targetWeight = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalWeight
                 
+                // upate current exercise
+                currentExercise = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].type
+
+                // update targets
+                targetWeight = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalWeight
                 targetReps = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalRepsPerSet
                 targetSets = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].goalSets
-                currentExercise = WorkoutDataService.instance.activeWorkout!.exercises[exerciseIndex].type
+                
+                // update labels
                 exerciseNameLbl.text = currentExercise
                 weightLbl.text = String(targetWeight)
                 repsLbl.text = String(targetReps)
                 setsLbl.text = String(targetSets)
                 
-                platesLblText = WorkoutDataService.instance.getWeightPlatesForWeight(weight: targetWeight)
+                // update slider
+                repsSlider.maximumValue = Float(targetReps)
                 
-                weightPlatesLbl.text = platesLblText                
+                // update plate weights
+                platesLblText = WorkoutDataService.instance.getWeightPlatesForWeight(weight: targetWeight)
+                weightPlatesLbl.text = platesLblText
             }
         }
         

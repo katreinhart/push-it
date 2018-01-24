@@ -121,12 +121,12 @@ class WorkoutDataService {
             plateString += "35#, "
             perSide -= 35
         }
-        if perSide > 25 {
+        if perSide >= 25 {
             plateString += "25#, "
             perSide -= 25
         }
         var count10 = 0
-        while perSide > 10 {
+        while perSide >= 10 {
             count10 += 1
             perSide -= 10
         }
@@ -135,7 +135,7 @@ class WorkoutDataService {
         } else if count10 == 1 {
             plateString += "10#, "
         }
-        if perSide > 5 {
+        if perSide >= 5 {
             plateString += "5#, "
             perSide -= 5
         }
