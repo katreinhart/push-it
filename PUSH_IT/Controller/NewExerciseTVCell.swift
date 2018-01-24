@@ -70,22 +70,7 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         guard targetRepsPerSet != nil else {return}
         guard targetSets != nil else {return}
         guard selectedExercise != nil else {return}
-        
-<<<<<<< HEAD
-        WorkoutDataService.instance.addExerciseToWorkout(workout: WorkoutDataService.instance.activeWorkout!, targetWeight: Int(weightSelectedTxt)!, exerciseName: selectedExercise!, exerciseReps: Int(repsSelectedTxt)!, exerciseSets: Int(setsSelectedTxt)!)
-    }
-    
-    @IBAction func wtTextEdited(_ sender: Any) {
-        guard Int(weightTxt.text!) != nil else {return}
-    }
-    @IBAction func repTxtEdited(_ sender: Any) {
-        guard Int(repTxt.text!) != nil else {return}
-    }
-    @IBAction func setTextEdited(_ sender: Any) {
-        guard Int(setsTxt.text!) != nil else {return}
-    }
-    
-=======
+
         let newExercise = Exercise(type: selectedExercise!, goalWeight: targetWeight!, goalSets: targetSets!, goalRepsPerSet: targetRepsPerSet!, sets: [Set]())
         
         delegate?.didPressSaveBtn(self, exercise: newExercise)
@@ -100,5 +85,5 @@ class NewExerciseTVCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
     @IBAction func didUpdateSets(_ sender: Any) {
         targetSets = Int(setsTxt.text!)
     }
->>>>>>> trying-custom-protocol
+
 }
