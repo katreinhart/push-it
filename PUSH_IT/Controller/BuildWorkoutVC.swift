@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddCellDelegate, SaveExerciseCellDelegate {
+class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SaveAndGoDelegate, SaveExerciseCellDelegate {
     
     // Outlets
     @IBOutlet weak var menuBtn: UIButton!
@@ -58,7 +58,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.delegate = self
             return cell
         } else {
-            let cell = Bundle.main.loadNibNamed("AddExerciseTVCell", owner: self, options: nil)?.first as! AddExerciseTVCell
+            let cell = Bundle.main.loadNibNamed("SaveWorkoutAndGoTVCell", owner: self, options: nil)?.first as! SaveWorkoutAndGoTVCell
             cell.delegate = self
             debugPrint("Cell for row at", indexPath.row)
             return cell
@@ -79,9 +79,9 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // AddCellDelegate protocol
     
-    func didPressAddButton(_ sender: AddExerciseTVCell) {
-        debugPrint("didPressAddButton")
-        tableView.reloadData()
+    func didPressSaveAndGoButton(_ sender: SaveWorkoutAndGoTVCell) {
+        debugPrint("Did press save and go button!")
+        
     }
     
     // SaveNewCellDelegate protocol function

@@ -141,7 +141,7 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <state key="normal" title="Save"/>
+                        <state key="normal" title="Add to Workout"/>
                         <connections>
                             <action selector="saveButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2OQ-vh-pPf"/>
                         </connections>

@@ -748,15 +748,28 @@
                                         <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIg-dZ-GUe">
+                                        <rect key="frame" x="50" y="8" width="275" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="275" id="1sO-ec-Ndl"/>
+                                            <constraint firstAttribute="height" constant="75" id="agp-Z3-3kA"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="275" id="vFp-u7-8Fd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <color key="textColor" red="0.14901960780000001" green="0.30196078430000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.83137254900000002" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="j6N-D2-CtZ" firstAttribute="leading" secondItem="Ock-2Y-tGy" secondAttribute="leading" constant="10" id="3I1-9p-mNe"/>
+                                    <constraint firstItem="DIg-dZ-GUe" firstAttribute="centerX" secondItem="Ock-2Y-tGy" secondAttribute="centerX" id="5sG-2a-mXs"/>
                                     <constraint firstItem="57S-8J-3Jm" firstAttribute="leading" secondItem="Ock-2Y-tGy" secondAttribute="leading" id="A5z-Dw-lWK"/>
                                     <constraint firstAttribute="bottom" secondItem="57S-8J-3Jm" secondAttribute="bottom" id="Dtj-84-uLD"/>
                                     <constraint firstItem="j6N-D2-CtZ" firstAttribute="top" secondItem="Ock-2Y-tGy" secondAttribute="top" constant="24" id="Pyw-7u-A2i"/>
                                     <constraint firstItem="57S-8J-3Jm" firstAttribute="top" secondItem="j6N-D2-CtZ" secondAttribute="bottom" constant="8" id="cOG-me-4pS"/>
                                     <constraint firstAttribute="trailing" secondItem="57S-8J-3Jm" secondAttribute="trailing" id="cSy-MY-Oqy"/>
+                                    <constraint firstItem="DIg-dZ-GUe" firstAttribute="top" secondItem="Ock-2Y-tGy" secondAttribute="top" constant="8" id="plJ-KK-fF8"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -777,6 +790,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4BH-U6-mqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3481" y="181"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8hu-Sv-zt3">
+            <objects>
+                <viewController id="xXe-bF-rzz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PE9-Op-Hxr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="hQY-hp-FKR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oZd-Oj-Kor" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4316" y="184"/>
         </scene>
         <!--GoalsVC-->
         <scene sceneID="cdc-Pr-VNo">
