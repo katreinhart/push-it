@@ -30,6 +30,7 @@ extension Date
         let yourDate = formatter.date(from: myString)
         formatter.dateFormat = format
         
+        if yourDate == nil {return ""}
         return formatter.string(from: yourDate!)
     }
 

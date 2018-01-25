@@ -106,7 +106,26 @@ class WorkoutDataService {
             if response.result.error == nil {
                 debugPrint("Workout successfully completed")
             } else {
-                debugPrint("Something went wrong with alamofire")
+                debugPrint("Something went wrong completing workout")
+            }
+        }
+        
+        let startTime = activeWorkout!.date.toString(withFormat: "YYYYYY-MM-DDTHH:mm:ss.sssZ")
+        let finishTime = Date.init().toString(withFormat: "YYYYYY-MM-DDTHH:mm:ss.sssZ")
+        
+        debugPrint(startTime)
+        debugPrint(finishTime)
+        
+        let newBody = [
+            "started_at": startTime as Any,
+            "finished_at": finishTime
+        ] as [String: Any]
+        
+        Alamofire.request("\(BASE_URL)/api/workouts/\(id)", method: .patch, parameters: newBody, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                debugPrint("Workout timestamps successfully updated")
+            } else {
+                debugPrint("Something went wrong updating timestamps")
             }
         }
         

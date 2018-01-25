@@ -27,8 +27,12 @@ class HistoryDataService {
                 let json = JSON(data: data).array
                 for item in json! {
                     
-                    let dateString = item["start_time"].string
-                    let date = dateFormatter.date(from: dateString!)
+                    let dateString = item["start"].stringValue
+                    var date = dateFormatter.date(from: dateString)
+                    
+                    if date == nil {
+                        date = Date()
+                    }
                     
                     let rating = item["rating"].int
                     let comments = item["comments"].stringValue
@@ -75,6 +79,7 @@ class HistoryDataService {
                         let newSet = Set(weight: weight, repsCompleted: repsComp, repsAttempted: repsAtt)
                         
                         newWorkout.exercises[exIndex!].sets.append(newSet)
+                        newWorkout.exercises[exIndex!].goalWeight = weight
                     }
                     
                     self.history.append(newWorkout)
