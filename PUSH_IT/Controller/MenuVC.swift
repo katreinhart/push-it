@@ -29,6 +29,9 @@ class MenuVC: UIViewController {
         self.performSegue(withIdentifier: SHOW_GOALS_FROM_MENU, sender: nil)
     }
     
+    @IBAction func historyButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: SHOW_HISTORY_FROM_MENU, sender: nil)
+    }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
         UserDataService.instance.logoutUser()

@@ -45,22 +45,23 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         let section = indexPath.section
         
         if section == 0 {
-            debugPrint("section zero")
             let cell = Bundle.main.loadNibNamed("ExerciseTVCell", owner: self, options: nil)?.first as! ExerciseTVCell
-            debugPrint(exercises![indexPath.row])
+            
             cell.exerciseNameLbl.text = exercises![indexPath.row].type
             cell.weightLbl.text = String(exercises![indexPath.row].goalWeight)
             cell.repsLbl.text = String(exercises![indexPath.row].goalRepsPerSet)
             cell.setsLbl.text = String(exercises![indexPath.row].goalSets)
+            
             return cell
         } else if section == 1 {
             let cell = Bundle.main.loadNibNamed("NewExerciseTVCell", owner: self, options: nil)?.first as! NewExerciseTVCell
+            
             cell.delegate = self
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("SaveWorkoutAndGoTVCell", owner: self, options: nil)?.first as! SaveWorkoutAndGoTVCell
+            
             cell.delegate = self
-            debugPrint("Cell for row at", indexPath.row)
             return cell
         }
     }
@@ -80,7 +81,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     // AddCellDelegate protocol
     
     func didPressSaveAndGoButton(_ sender: SaveWorkoutAndGoTVCell) {
-        debugPrint("Did press save and go button!")
+        
         self.performSegue(withIdentifier: START_WORKOUT_FROM_BUILDER, sender: nil)
     }
     

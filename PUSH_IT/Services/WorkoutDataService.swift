@@ -21,6 +21,8 @@ class WorkoutDataService {
     public private(set) var activeWorkout: Workout?
     public private(set) var activeWorkoutID: Int?
     
+    public private(set) var activeExerciseID: Int?
+    
     func getWorkoutWithId(id: Int) -> Workout? {
         if(id < workouts.count) {
             return workouts[id]
@@ -34,27 +36,22 @@ class WorkoutDataService {
             "rating": 0,
             "comments": ""
             ] as [String : Any]
-        debugPrint("Create new workout function")
         Alamofire.request(CREATE_WORKOUT_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
-                debugPrint("Workout successfully created")
                 guard let data = response.data else { return }
                 let json = JSON(data: data)
                 debugPrint(json)
                 guard let id = json["ID"].int else {return}
                 self.activeWorkoutID = id
-                let workout = Workout(exercises: [Exercise](), rating: 0, comments: "")
+                let workout = Workout(exercises: [Exercise](), date: Date(), rating: 0, comments: "")
                 self.workouts.append(workout)
                 self.activeWorkout = workout
-                debugPrint("active workout ready")
             }
         }
     }
     
     func addExerciseToActiveWorkout(exercise: Exercise) {
-        debugPrint("Workout data service add exercise function")
         let id = activeWorkoutID!
-        debugPrint("active workout id is ", id)
         activeWorkout!.exercises.append(exercise)
         
         let body = [
@@ -63,13 +60,11 @@ class WorkoutDataService {
             "goal_reps": exercise.goalRepsPerSet
             ] as [String : Any]
         
-        debugPrint("about to make network request")
-        debugPrint(body)
+        
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)/exercises", method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             debugPrint(response)
             if response.result.error == nil {
-                debugPrint("Something worked")
-                debugPrint(WorkoutDataService.instance.activeWorkout!)
+                debugPrint(response.result)
             } else {
                 debugPrint("something didn't work")
             }
@@ -80,14 +75,17 @@ class WorkoutDataService {
         let id = activeWorkoutID!
         if exerciseIndex == activeWorkout!.exercises.count {return}
         let weight = activeWorkout!.exercises[exerciseIndex].goalWeight
+        let exerciseName = activeWorkout!.exercises[exerciseIndex].type
+        
         
         let body = [
+            "exercise_name": exerciseName,
             "weight": weight,
             "reps_att": repsAttempted,
             "reps_comp": repsCompleted
             ] as [String : Any]
         
-        Alamofire.request("\(BASE_URL)/api/workouts/\(id)/exercises/\(exerciseIndex + 1)/sets", method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+        Alamofire.request("\(BASE_URL)/api/workouts/\(id)/exercises/sets", method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
                 debugPrint("Successfully added set")
             } else {
@@ -112,9 +110,9 @@ class WorkoutDataService {
             }
         }
         
-        // reset active workout to nil??
-//        activeWorkoutID = nil
-//        activeWorkout = nil
+        // reset active workout to nil when workout has been completed
+        activeWorkoutID = nil
+        activeWorkout = nil
     }
     
     func getWeightPlatesForWeight(weight: Int) -> String {

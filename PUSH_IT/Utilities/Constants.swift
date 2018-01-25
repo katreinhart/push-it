@@ -19,6 +19,7 @@ let SECONDARY_GOALS_URL = "\(BASE_URL)/api/user/goals"
 let FETCH_EXERCISES_URL = "\(BASE_URL)/api/exercises"
 let UPDATE_PRIMARY_GOAL_URL = "\(BASE_URL)/api/user/primarygoal"
 let CREATE_WORKOUT_URL = "\(BASE_URL)/api/workouts"
+let HISTORY_URL = "\(BASE_URL)/api/history"
 
 // Segues
 
@@ -38,6 +39,8 @@ let SHOW_GOALS_FROM_MENU = "ShowGoalsFromMenu"
 let SHOW_WORKOUT_FROM_MENU = "ShowWorkoutFromMenu"
 let START_WORKOUT_FROM_BUILDER = "StartPerformWorkoutFromWorkoutBuilder"
 let UNWIND_TO_DASHBOARD = "unwindToDashboard"
+let SHOW_HISTORY_FROM_DASHBOARD = "showHistoryFromDashboard"
+let SHOW_HISTORY_FROM_MENU = "showHistoryFromMenu"
 
 // User Defaults
 let TOKEN_KEY = "token"

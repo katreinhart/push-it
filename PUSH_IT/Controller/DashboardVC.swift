@@ -26,8 +26,10 @@ class DashboardVC: UIViewController {
         greeting.text = "Hi, \(username)!"
         
         ExerciseDataService.instance.fetchExercisesFromServer()
+        HistoryDataService.instance.fetchHistory()
+        
         AuthService.instance.getSecondaryGoals { (success) in
-            debugPrint(UserDataService.instance.secondaryGoal1 as Any, UserDataService.instance.secondaryGoal2 as Any)
+//            
         }
     }
     
@@ -37,6 +39,12 @@ class DashboardVC: UIViewController {
         
         addChildViewController(newWorkoutVC!)
         self.revealViewController().pushFrontViewController(newWorkoutVC, animated: true)
+    }
+    
+    @IBAction func historyButtonPressed(_ sender: Any) {
+        let newHistoryVC = self.storyboard?.instantiateViewController(withIdentifier: "HistoryVC")
+        addChildViewController(newHistoryVC!)
+        self.revealViewController().pushFrontViewController(newHistoryVC, animated: true)
     }
     
     @IBAction func goalsButtonPressed(_ sender: Any) {
