@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		461A4BE820194D3A00C67A24 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A4BE720194D3A00C67A24 /* HistoryVC.swift */; };
 		461F033B20190BF400BA4C7B /* PerformWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461F033A20190BF400BA4C7B /* PerformWorkoutVC.swift */; };
 		463A4260201520500016D18A /* GoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A425F201520500016D18A /* GoalsVC.swift */; };
 		463A4262201558960016D18A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A4261201558960016D18A /* Extensions.swift */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		04FFC952A66998C4F5FCD90E /* Pods_PUSH_IT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PUSH_IT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E6B5CAC5070905611CF8DA /* Pods-PUSH_IT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PUSH_IT.release.xcconfig"; path = "Pods/Target Support Files/Pods-PUSH_IT/Pods-PUSH_IT.release.xcconfig"; sourceTree = "<group>"; };
+		461A4BE720194D3A00C67A24 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		461F033A20190BF400BA4C7B /* PerformWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformWorkoutVC.swift; sourceTree = "<group>"; };
 		463A425F201520500016D18A /* GoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsVC.swift; sourceTree = "<group>"; };
 		463A4261201558960016D18A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				46778E7B2016AF89001D7FE0 /* NewWorkoutVC.swift */,
 				46778E912017E260001D7FE0 /* BuildWorkoutVC.swift */,
 				461F033A20190BF400BA4C7B /* PerformWorkoutVC.swift */,
+				461A4BE720194D3A00C67A24 /* HistoryVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				46C2B70920128BC3000BFF02 /* OnboardingVC.swift in Sources */,
 				46778E8C2017D19E001D7FE0 /* Workout.swift in Sources */,
 				46778E8320179F96001D7FE0 /* NewExerciseTVCell.swift in Sources */,
+				461A4BE820194D3A00C67A24 /* HistoryVC.swift in Sources */,
 				46E548572012747000536426 /* SignUpVC.swift in Sources */,
 				463A426620157BB90016D18A /* Goal.swift in Sources */,
 				46E548502012682600536426 /* AuthService.swift in Sources */,
