@@ -20,26 +20,36 @@ extension UIViewController {
     }
 }
 
+extension DateFormatter {
+    
+    static var longStringDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter
+    }()
+    
+    static var medStringDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        return dateFormatter
+    }()
+    
+    static var shortStringDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy"
+        return dateFormatter
+    }()
+}
 
 extension Date
 {
-    func toString(withFormat format: String) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        let myString = formatter.string(from: self)
-        let yourDate = formatter.date(from: myString)
-        formatter.dateFormat = format
-        
-        if yourDate == nil {return ""}
-        return formatter.string(from: yourDate!)
-    }
     
     var startOfWeek: Date? {
         return Calendar.gregorian.date(from: Calendar.gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))
     }
     
     var threeWeeksAgoSunday: Date? {
-        // What was the date 4 weeks ago Sunday?
+        // What was the date 3 weeks ago Sunday?
         return Calendar.gregorian.date(byAdding: .weekOfYear, value: -3, to: self.startOfWeek!)
     }
 

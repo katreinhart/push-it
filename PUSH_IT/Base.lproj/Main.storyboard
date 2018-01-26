@@ -1206,10 +1206,10 @@
                                         <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R4G-7t-GI4">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="203.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="203.5" id="Q6O-Gu-xfc"/>
+                                                    <constraint firstAttribute="height" constant="245" id="Q6O-Gu-xfc"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="2" id="kzJ-B7-oxp">
                                                     <size key="itemSize" width="42" height="42"/>
@@ -1249,7 +1249,7 @@
                                             <constraint firstItem="R4G-7t-GI4" firstAttribute="top" secondItem="UYf-qm-0JG" secondAttribute="top" id="7fx-Xf-lU1"/>
                                             <constraint firstAttribute="trailing" secondItem="R4G-7t-GI4" secondAttribute="trailing" id="E5M-HK-8yx"/>
                                             <constraint firstItem="R4G-7t-GI4" firstAttribute="centerX" secondItem="UYf-qm-0JG" secondAttribute="centerX" id="GBX-vE-wgZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="R4G-7t-GI4" secondAttribute="bottom" constant="371.5" id="ugn-sh-IVF"/>
+                                            <constraint firstAttribute="bottom" secondItem="R4G-7t-GI4" secondAttribute="bottom" constant="338" id="nUD-He-5vQ"/>
                                         </constraints>
                                     </scrollView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aEd-Mh-pSo">

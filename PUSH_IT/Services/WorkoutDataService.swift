@@ -110,8 +110,8 @@ class WorkoutDataService {
             }
         }
         
-        let startTime = activeWorkout!.date.toString(withFormat: "YYYYYY-MM-DDTHH:mm:ss.sssZ")
-        let finishTime = Date.init().toString(withFormat: "YYYYYY-MM-DDTHH:mm:ss.sssZ")
+        let startTime = DateFormatter.longStringDateFormatter.string(from: activeWorkout!.date)
+        let finishTime = DateFormatter.longStringDateFormatter.string(from: Date.init())
         
         debugPrint(startTime)
         debugPrint(finishTime)

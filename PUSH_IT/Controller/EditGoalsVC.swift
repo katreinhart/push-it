@@ -168,7 +168,7 @@ class EditGoalsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         } else {
             saveGoalBtn.isHidden = false
             date1Picker.isHidden = true
-            let dateString = date1Picker.date.toString(withFormat: "MMM dd, yyyy")
+            let dateString = DateFormatter.medStringDateFormatter.string(from: date1Picker.date)
             sg1DateTxt.text = dateString
             sg1Date = date1Picker.date
         }
@@ -181,7 +181,7 @@ class EditGoalsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         } else {
             saveGoalBtn.isHidden = false
             date2Picker.isHidden = true
-            let dateString = date2Picker.date.toString(withFormat: "MMM dd, yyyy")
+            let dateString = DateFormatter.medStringDateFormatter.string(from: date2Picker.date)
             sg2DateTxt.text = dateString
             sg2Date = date2Picker.date
         }

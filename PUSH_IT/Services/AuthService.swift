@@ -181,13 +181,13 @@ class AuthService {
         let body: [String: Any] = [
             "goal1": [
                 "uid": String(self.id),
-                "goal_date": sg1.date.toString(withFormat: "MMM dd, yyyy"),
+                "goal_date": DateFormatter.medStringDateFormatter.string(from: sg1.date),
                 "goal_weight": String(sg1.weight),
                 "exercise": sg1.exercise
             ],
             "goal2": [
                 "uid": String(self.id),
-                "goal_date": sg2.date.toString(withFormat: "MMM dd, yyyy"),
+                "goal_date": DateFormatter.medStringDateFormatter.string(from: sg2.date),
                 "goal_weight": String(sg2.weight),
                 "exercise": sg2.exercise
             ]

@@ -33,6 +33,9 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         historyCalendarCV.dataSource = self
         historyCalendarCV.delegate = self
         
+        // collection view setup
+        historyCalendarCV?.collectionViewLayout = columnLayout
+        
        // Menu button stuff
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -53,7 +56,7 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         
             let cell = Bundle.main.loadNibNamed("HistoryItemTVCell", owner: self, options: nil)?.first as! HistoryItemTVCell
             let workout = history[indexPath.row]
-            cell.workoutDateLbl.text = workout.date.toString(withFormat: "MMM dd, yyyy")
+        cell.workoutDateLbl.text = DateFormatter.medStringDateFormatter.string(from: workout.date)
         
         if workout.exercises.count == 0 {
             cell.ex1NameLbl.text = ""
@@ -112,8 +115,17 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         return 146
     }
     
+    // Collection view variables
+    let columnLayout = HistoryCellFlowLayout(
+        cellsPerRow: 7,
+        minimumInteritemSpacing: 10,
+        minimumLineSpacing: 10,
+        sectionInset: UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
+    )
+    
     // Collection view protocol methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // Always show 4 weeks of training data
         return 28
     }
     
@@ -123,10 +135,12 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         let daysElapsed = Double(index * 86400)
         let cellDate = Date().threeWeeksAgoSunday?.addingTimeInterval(daysElapsed)
         
-        debugPrint("cell date is:", cellDate!)
-        
         if HistoryDataService.instance.hasEventforDate(date: cellDate!) {
+            
             cell.background.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        } else if cellDate! > Date() {
+            // cellDate is in the future
+            cell.background.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         } else {
             cell.background.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         }

@@ -15,11 +15,11 @@ class HistoryDataService {
     var history = [Workout]()
     
     func hasEventforDate(date: Date) -> Bool {
-        debugPrint("in function", date)
-        let stringDate = date.toString(withFormat:"MMM dd, YYYY")
-        debugPrint("result of tostring func", stringDate)
+        
+        let stringDate = DateFormatter.shortStringDateFormatter.string(from: date)
+        
         for item in history {
-            let itemStringDate = item.date.toString(withFormat:"MM/dd/YY")
+            let itemStringDate = DateFormatter.shortStringDateFormatter.string(from: item.date)
             if stringDate == itemStringDate {
                 return true
             }
@@ -39,11 +39,13 @@ class HistoryDataService {
                 guard let data = response.data else { return }
                 let json = JSON(data: data).array
                 for item in json! {
-                    
-                    let dateString = item["start"].stringValue
+                    debugPrint(item)
+                    let dateString = item["start_time"].stringValue
+                    debugPrint(dateString)
                     var date = dateFormatter.date(from: dateString)
                     
                     if date == nil {
+                        debugPrint("date not found")
                         date = Date()
                     }
                     
@@ -67,7 +69,6 @@ class HistoryDataService {
                         
                         newWorkout.exercises.append(newExercise)
                     }
-                    
                     
                     let responseSets = item["sets"].array
                     if responseSets == nil {
@@ -97,6 +98,10 @@ class HistoryDataService {
                     
                     self.history.append(newWorkout)
                 }
+                
+                self.history.sort(by: { (workout1, workout2) -> Bool in
+                    workout1.date > workout2.date
+                })
             }
         }
     }
