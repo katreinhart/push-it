@@ -1202,23 +1202,77 @@
                                             <color key="titleColor" red="0.19074219470000001" green="0.38095420600000002" blue="0.55544632670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYf-qm-0JG">
+                                        <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R4G-7t-GI4">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="203.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="203.5" id="Q6O-Gu-xfc"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="2" id="kzJ-B7-oxp">
+                                                    <size key="itemSize" width="42" height="42"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="8" minY="4" maxX="8" maxY="4"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="historyCell" id="jnJ-dp-UFE" customClass="HistoryCell" customModule="PUSH_IT" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="4" width="42" height="42"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B9N-HJ-rcB">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
+                                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </view>
+                                                            </subviews>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstItem="B9N-HJ-rcB" firstAttribute="leading" secondItem="jnJ-dp-UFE" secondAttribute="leading" id="4VG-gs-bhA"/>
+                                                            <constraint firstItem="B9N-HJ-rcB" firstAttribute="top" secondItem="jnJ-dp-UFE" secondAttribute="top" id="ICZ-Vi-oV4"/>
+                                                            <constraint firstAttribute="trailing" secondItem="B9N-HJ-rcB" secondAttribute="trailing" id="Zzu-YF-CYw"/>
+                                                            <constraint firstAttribute="bottom" secondItem="B9N-HJ-rcB" secondAttribute="bottom" id="x8x-Vn-FNP"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="background" destination="B9N-HJ-rcB" id="n8e-R7-85v"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="R4G-7t-GI4" firstAttribute="leading" secondItem="UYf-qm-0JG" secondAttribute="leading" id="1KQ-aX-LRB"/>
+                                            <constraint firstItem="R4G-7t-GI4" firstAttribute="top" secondItem="UYf-qm-0JG" secondAttribute="top" id="7fx-Xf-lU1"/>
+                                            <constraint firstAttribute="trailing" secondItem="R4G-7t-GI4" secondAttribute="trailing" id="E5M-HK-8yx"/>
+                                            <constraint firstItem="R4G-7t-GI4" firstAttribute="centerX" secondItem="UYf-qm-0JG" secondAttribute="centerX" id="GBX-vE-wgZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="R4G-7t-GI4" secondAttribute="bottom" constant="371.5" id="ugn-sh-IVF"/>
+                                        </constraints>
+                                    </scrollView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aEd-Mh-pSo">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="575"/>
+                                        <rect key="frame" x="0.0" y="295" width="375" height="372"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="575" id="Pkg-P2-qgi"/>
+                                            <constraint firstAttribute="height" constant="372" id="ZoM-O4-fLu"/>
                                         </constraints>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.83137254900000002" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="UYf-qm-0JG" secondAttribute="bottom" id="E7b-ra-rnS"/>
                                     <constraint firstItem="6cl-Vl-bvu" firstAttribute="top" secondItem="dmA-kf-u8r" secondAttribute="top" constant="9" id="aqL-QU-Kvq"/>
+                                    <constraint firstItem="UYf-qm-0JG" firstAttribute="top" secondItem="6cl-Vl-bvu" secondAttribute="bottom" id="czk-pe-D6a"/>
                                     <constraint firstAttribute="bottom" secondItem="aEd-Mh-pSo" secondAttribute="bottom" id="f7z-9d-2lt"/>
-                                    <constraint firstItem="aEd-Mh-pSo" firstAttribute="leading" secondItem="dmA-kf-u8r" secondAttribute="leading" id="haL-xT-mAb"/>
                                     <constraint firstItem="T7k-3n-hIR" firstAttribute="leading" secondItem="dmA-kf-u8r" secondAttribute="leading" constant="10" id="hay-x9-wnU"/>
                                     <constraint firstItem="T7k-3n-hIR" firstAttribute="top" secondItem="dmA-kf-u8r" secondAttribute="top" constant="24" id="q74-AU-tka"/>
+                                    <constraint firstAttribute="trailing" secondItem="UYf-qm-0JG" secondAttribute="trailing" id="t0Y-MK-sqW"/>
+                                    <constraint firstItem="UYf-qm-0JG" firstAttribute="leading" secondItem="dmA-kf-u8r" secondAttribute="leading" id="t7C-4y-dtV"/>
                                     <constraint firstAttribute="trailing" secondItem="aEd-Mh-pSo" secondAttribute="trailing" id="wm3-tQ-34Q"/>
                                     <constraint firstItem="6cl-Vl-bvu" firstAttribute="centerX" secondItem="dmA-kf-u8r" secondAttribute="centerX" id="yIg-0K-ok0"/>
+                                    <constraint firstItem="aEd-Mh-pSo" firstAttribute="leading" secondItem="dmA-kf-u8r" secondAttribute="leading" id="yvm-0K-Sg7"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1232,6 +1286,7 @@
                         <viewLayoutGuide key="safeArea" id="ECg-w5-HMF"/>
                     </view>
                     <connections>
+                        <outlet property="historyCalendarCV" destination="R4G-7t-GI4" id="IzX-5y-bEF"/>
                         <outlet property="historyTable" destination="aEd-Mh-pSo" id="bEV-yd-gjn"/>
                         <outlet property="menuBtn" destination="T7k-3n-hIR" id="exU-Gc-9V6"/>
                     </connections>
@@ -2128,11 +2183,11 @@
         <image name="Hamburger-1x" width="30" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FC6-pV-ruH"/>
+        <segue reference="e6a-lV-JoV"/>
         <segue reference="zTJ-cW-96y"/>
-        <segue reference="wuU-M4-JgY"/>
-        <segue reference="bV5-YU-lYX"/>
-        <segue reference="TdR-xf-2e7"/>
+        <segue reference="tob-Bw-JXB"/>
+        <segue reference="RId-AX-Wvz"/>
+        <segue reference="rvF-yG-foN"/>
         <segue reference="A5X-Eh-gss"/>
         <segue reference="HVB-D1-b1j"/>
     </inferredMetricsTieBreakers>

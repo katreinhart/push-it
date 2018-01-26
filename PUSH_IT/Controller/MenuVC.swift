@@ -23,9 +23,7 @@ class MenuVC: UIViewController {
         self.performSegue(withIdentifier: SHOW_DASHBOARD_FROM_MENU, sender: nil)
     }
     
- 
     @IBAction func goalsMenuButtonPressed(_ sender: Any) {
-        
         self.performSegue(withIdentifier: SHOW_GOALS_FROM_MENU, sender: nil)
     }
     
@@ -35,9 +33,6 @@ class MenuVC: UIViewController {
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
         UserDataService.instance.logoutUser()
-        
         self.performSegue(withIdentifier: SHOW_SPLASH, sender: nil)
     }
-    
-    
 }

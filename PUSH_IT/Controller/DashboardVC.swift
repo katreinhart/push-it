@@ -29,7 +29,7 @@ class DashboardVC: UIViewController {
         HistoryDataService.instance.fetchHistory()
         
         AuthService.instance.getSecondaryGoals { (success) in
-//            
+            
         }
     }
     

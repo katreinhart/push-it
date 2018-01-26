@@ -8,13 +8,19 @@
 
 import UIKit
 
-class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+    
 
     var history: [Workout] = [Workout]()
 
+    
+    // Outlets
+    
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var historyTable: UITableView!
+    @IBOutlet weak var historyCalendarCV: UICollectionView!
     
+    // Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +30,8 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         historyTable.dataSource = self
         historyTable.delegate = self
+        historyCalendarCV.dataSource = self
+        historyCalendarCV.delegate = self
         
        // Menu button stuff
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -31,17 +39,19 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
     
+    // Table view protocol methods
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-             return history.count
+            return history.count
         } else {
-           return 0
+            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-           let cell = Bundle.main.loadNibNamed("HistoryItemTVCell", owner: self, options: nil)?.first as! HistoryItemTVCell
+            let cell = Bundle.main.loadNibNamed("HistoryItemTVCell", owner: self, options: nil)?.first as! HistoryItemTVCell
             let workout = history[indexPath.row]
             cell.workoutDateLbl.text = workout.date.toString(withFormat: "MMM dd, yyyy")
         
@@ -101,6 +111,29 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         return 146
     }
+    
+    // Collection view protocol methods
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 28
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = historyCalendarCV.dequeueReusableCell(withReuseIdentifier: "historyCell", for: indexPath) as! HistoryCell
+        let index = indexPath.item
+        let daysElapsed = Double(index * 86400)
+        let cellDate = Date().threeWeeksAgoSunday?.addingTimeInterval(daysElapsed)
+        
+        debugPrint("cell date is:", cellDate!)
+        
+        if HistoryDataService.instance.hasEventforDate(date: cellDate!) {
+            cell.background.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        } else {
+            cell.background.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        }
+        
+        return cell
+    }
+    
     
     func repsToString(exercise: Exercise) -> String {
         var string = ""

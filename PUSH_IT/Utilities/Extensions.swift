@@ -33,6 +33,19 @@ extension Date
         if yourDate == nil {return ""}
         return formatter.string(from: yourDate!)
     }
+    
+    var startOfWeek: Date? {
+        return Calendar.gregorian.date(from: Calendar.gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))
+    }
+    
+    var threeWeeksAgoSunday: Date? {
+        // What was the date 4 weeks ago Sunday?
+        return Calendar.gregorian.date(byAdding: .weekOfYear, value: -3, to: self.startOfWeek!)
+    }
 
+}
+
+extension Calendar {
+    static let gregorian = Calendar(identifier: .gregorian)
 }
 

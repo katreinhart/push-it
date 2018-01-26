@@ -12,14 +12,27 @@ import SwiftyJSON
 
 class HistoryDataService {
     static let instance = HistoryDataService()
-    
     var history = [Workout]()
+    
+    func hasEventforDate(date: Date) -> Bool {
+        debugPrint("in function", date)
+        let stringDate = date.toString(withFormat:"MMM dd, YYYY")
+        debugPrint("result of tostring func", stringDate)
+        for item in history {
+            let itemStringDate = item.date.toString(withFormat:"MM/dd/YY")
+            if stringDate == itemStringDate {
+                return true
+            }
+        }
+        return false
+    }
     
     func fetchHistory() {
         
+        // re-instantiate history so it does not repeat workouts
+        history = [Workout]()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
-        
         
         Alamofire.request(HISTORY_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
