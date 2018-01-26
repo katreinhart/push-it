@@ -50,6 +50,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="chart" destination="aYJ-dz-3H7" id="ZL3-nt-ipD"/>
                 <outlet property="chartView" destination="aYJ-dz-3H7" id="II2-d0-IDi"/>
                 <outlet property="exerciseNameLbl" destination="3cJ-Ld-AUE" id="bet-hE-QKA"/>
             </connections>

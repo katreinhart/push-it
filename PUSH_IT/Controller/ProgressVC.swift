@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ProgressVC: UIViewController, UITableViewDataSource, UITableViewDelegate, ProgressChartDelegate {
-
+class ProgressVC: UIViewController, UITableViewDataSource, UITableViewDelegate, ProgressTVCellDataSource {
+    
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var progressTV: UITableView!
     
@@ -34,7 +34,15 @@ class ProgressVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("ProgressTVCell", owner: self, options: nil)?.first as! ProgressTVCell
-        cell.exerciseNameLbl.text = ExerciseDataService.instance.exercises[indexPath.row]
+        
+        let exercise = ExerciseDataService.instance.exercises[indexPath.row]
+        cell.exerciseName = exercise
+        cell.dataSource = self
+        
+        cell.exerciseNameLbl.text = exercise
+        
+        cell.loadData()
+
         return cell
     }
     
@@ -42,9 +50,9 @@ class ProgressVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         return 134
     }
     
-    // ProgressChartDelegate method
-    
-    func renderChart() {
-        
+    // ProgressTVCell Data Source Protocol method
+    func loadData(forExercise exercise: String) ->  [String : Int]{
+        return HistoryDataService.instance.getHistoryForExercise(exercise: exercise, fromDate: "asdf")
     }
+    
 }

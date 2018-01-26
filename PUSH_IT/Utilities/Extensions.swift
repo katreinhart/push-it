@@ -46,6 +46,12 @@ extension DateFormatter {
         dateFormatter.dateFormat = SHORT_FORMAT
         return dateFormatter
     }()
+    
+    static var numberDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYYMMdd"
+        return dateFormatter
+    }()
 }
 
 // Date extension members for computing the calendar view of the app

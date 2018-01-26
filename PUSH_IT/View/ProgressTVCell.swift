@@ -9,9 +9,8 @@
 import UIKit
 import Charts
 
-protocol ProgressChartDelegate {
-    // render chart function
-    func renderChart()
+protocol ProgressTVCellDataSource: class {
+    func loadData(forExercise exercise: String) -> [String: Int]
 }
 
 class ProgressTVCell: UITableViewCell {
@@ -19,21 +18,53 @@ class ProgressTVCell: UITableViewCell {
     // outlets
     @IBOutlet weak var exerciseNameLbl: UILabel!
     @IBOutlet weak var chartView: UIView!
+    @IBOutlet weak var chart: LineChartView!
     
     // variables
-    var chartData = [Int]()
-    
+    var chartData = [String: Int]()
+    var chartDataEntry = [ChartDataEntry]()
+    var exerciseName : String?
+    var dataSource: ProgressTVCellDataSource?
     
     // lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func loadData() {
+        
+        chartData = (self.dataSource?.loadData(forExercise: exerciseName!))!
+        
+        chartData.forEach { (item) in
+            let (key, value) = item
+            // have key as date in string format "mm/dd/YYYY"
+            let date = DateFormatter.shortStringDateFormatter.date(from: key)
+            // need a number value for x axis
+            if date == nil {return}
+            
+            let numDateString = DateFormatter.numberDateFormatter.string(from: date!)
+            
+            let numDate = Double(numDateString)
+            if numDate == nil {
+                debugPrint("Something went wrong with date conversion")
+                return
+            }
+            let doubleValue = Double(value)
+            debugPrint(numDate, doubleValue)
+            let chartDataPoint = ChartDataEntry(x: numDate!, y: doubleValue)
+            chartDataEntry.append(chartDataPoint)
+        }
+        let line = LineChartDataSet(values: chartDataEntry, label: "progress")
+        
+//        debugPrint(line)
+        line.colors = [NSUIColor.red]
+        
+        let data = LineChartData()
+        data.addDataSet(line)
+        
+        chart.data = data
+        chart.notifyDataSetChanged()
     }
     
 }
