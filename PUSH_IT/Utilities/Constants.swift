@@ -14,7 +14,7 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 let ISO_LONG_FORMAT = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
 let LONG_FORMAT = "yyyy-MM-dd HH:mm:ss"
 let MED_FORMAT = "MMM dd, yyyy"
-let SHORT_FORMAT = "yyyy/mm/dd"
+let SHORT_FORMAT = "MM/dd/yyyy"
 
 // URL Constants
 let BASE_URL = "https://push-it-api.herokuapp.com"

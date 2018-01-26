@@ -51,7 +51,7 @@ class ProgressTVCell: UITableViewCell {
                 return
             }
             let doubleValue = Double(value)
-
+            debugPrint(numDate as Any, doubleValue)
             let chartDataPoint = ChartDataEntry(x: numDate!, y: doubleValue)
             chartDataEntry.append(chartDataPoint)
         }
@@ -63,8 +63,7 @@ class ProgressTVCell: UITableViewCell {
         data.addDataSet(line)
         
         chart.data = data
-        
-        chart.drawGridBackgroundEnabled = false
+        chart.gridBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         chart.notifyDataSetChanged()
     }
     
