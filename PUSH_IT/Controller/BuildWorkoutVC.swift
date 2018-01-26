@@ -88,8 +88,6 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     // SaveNewCellDelegate protocol function
     
     func didPressSaveBtn(_ sender: NewExerciseTVCell, exercise: Exercise) {
-        debugPrint("Did press save button")
-        debugPrint(exercise)
         WorkoutDataService.instance.addExerciseToActiveWorkout(exercise: exercise)
         exercises = WorkoutDataService.instance.activeWorkout?.exercises
         tableView.reloadData()

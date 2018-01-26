@@ -40,7 +40,6 @@ class WorkoutDataService {
             if response.result.error == nil {
                 guard let data = response.data else { return }
                 let json = JSON(data: data)
-                debugPrint(json)
                 guard let id = json["ID"].int else {return}
                 self.activeWorkoutID = id
                 let workout = Workout(exercises: [Exercise](), date: Date(), rating: 0, comments: "")
@@ -62,11 +61,10 @@ class WorkoutDataService {
         
         
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)/exercises", method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            debugPrint(response)
             if response.result.error == nil {
-                debugPrint(response.result)
+                debugPrint("exercise successfully added")
             } else {
-                debugPrint("something didn't work")
+                debugPrint("something went wrong adding exercise")
             }
         }
     }
@@ -112,15 +110,13 @@ class WorkoutDataService {
         
         let startTime = DateFormatter.veryLongStringDateFormatter.string(from: activeWorkout!.date)
         let finishTime = DateFormatter.veryLongStringDateFormatter.string(from: Date.init())
-        debugPrint(startTime)
-        debugPrint(finishTime)
+
         let newBody = [
             "started_at": startTime,
             "finished_at": finishTime
         ] as [String: Any]
         
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)", method: .patch, parameters: newBody, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            debugPrint(response)
             if response.result.error == nil {
                 debugPrint("Workout timestamps successfully updated")
             } else {

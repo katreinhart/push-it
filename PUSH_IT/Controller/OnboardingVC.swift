@@ -94,14 +94,11 @@ class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     @IBAction func experienceButtonPressed(_ sender: Any) {
-        debugPrint("exp level clicked")
         levelPicker.isHidden = false
         finishBtn.isHidden = true
     }
     
     @IBAction func primaryGoalButtonPressed(_ sender: Any) {
-        
-        debugPrint("goal clicked")
         goalPicker.isHidden = false
         finishBtn.isHidden = true
     }

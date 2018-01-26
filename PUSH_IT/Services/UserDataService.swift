@@ -50,7 +50,7 @@ class UserDataService {
         AuthService.instance.updateUserGoal(goal: primaryGoal) {
             (success) in
             if success != false {
-                debugPrint("Did it work?")
+                debugPrint("Something went wrong updating primary goal")
             } 
         }
     }
