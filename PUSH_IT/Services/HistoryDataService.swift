@@ -39,9 +39,7 @@ class HistoryDataService {
                 guard let data = response.data else { return }
                 let json = JSON(data: data).array
                 for item in json! {
-                    debugPrint(item)
                     let dateString = item["start_time"].stringValue
-                    debugPrint(dateString)
                     var date = dateFormatter.date(from: dateString)
                     
                     if date == nil {

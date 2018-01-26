@@ -39,6 +39,12 @@ extension DateFormatter {
         dateFormatter.dateFormat = "MM/dd/yy"
         return dateFormatter
     }()
+    
+    static var veryLongStringDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return dateFormatter
+    }()
 }
 
 extension Date

@@ -110,18 +110,17 @@ class WorkoutDataService {
             }
         }
         
-        let startTime = DateFormatter.longStringDateFormatter.string(from: activeWorkout!.date)
-        let finishTime = DateFormatter.longStringDateFormatter.string(from: Date.init())
-        
+        let startTime = DateFormatter.veryLongStringDateFormatter.string(from: activeWorkout!.date)
+        let finishTime = DateFormatter.veryLongStringDateFormatter.string(from: Date.init())
         debugPrint(startTime)
         debugPrint(finishTime)
-        
         let newBody = [
-            "started_at": startTime as Any,
+            "started_at": startTime,
             "finished_at": finishTime
         ] as [String: Any]
         
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)", method: .patch, parameters: newBody, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            debugPrint(response)
             if response.result.error == nil {
                 debugPrint("Workout timestamps successfully updated")
             } else {
