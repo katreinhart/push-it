@@ -20,15 +20,16 @@ class GoalsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        
-        
+        // Display goal info
         primaryGoalLbl.text = UserDataService.instance.primaryGoal
         secondaryGoal1.text =
             UserDataService.instance.secondaryGoal1 != nil ? UserDataService.instance.secondaryGoal1!.returnAsString() : "Not set yet!"
         secondaryGoal2.text = UserDataService.instance.secondaryGoal2 != nil ?   UserDataService.instance.secondaryGoal2!.returnAsString() : "Not set yet!"
+        
+        // SWReveal menu stuff
+        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
     }
     

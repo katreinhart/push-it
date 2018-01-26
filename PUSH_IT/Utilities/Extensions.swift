@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Hide keyboard when tap outside of it
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
@@ -20,45 +21,45 @@ extension UIViewController {
     }
 }
 
+// Date formatter extensions
 extension DateFormatter {
+    static var veryLongStringDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = ISO_LONG_FORMAT
+        return dateFormatter
+    }()
     
     static var longStringDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = LONG_FORMAT
         return dateFormatter
     }()
     
     static var medStringDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateFormatter.dateFormat = MED_FORMAT
         return dateFormatter
     }()
     
     static var shortStringDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yy"
-        return dateFormatter
-    }()
-    
-    static var veryLongStringDateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.dateFormat = SHORT_FORMAT
         return dateFormatter
     }()
 }
 
+// Date extension members for computing the calendar view of the app
 extension Date
 {
-    
+    // What is the date of the start of this week?
     var startOfWeek: Date? {
         return Calendar.gregorian.date(from: Calendar.gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))
     }
     
+    // What was the date 3 weeks ago Sunday?
     var threeWeeksAgoSunday: Date? {
-        // What was the date 3 weeks ago Sunday?
         return Calendar.gregorian.date(byAdding: .weekOfYear, value: -3, to: self.startOfWeek!)
     }
-
 }
 
 extension Calendar {

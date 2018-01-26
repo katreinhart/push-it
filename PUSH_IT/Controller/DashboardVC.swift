@@ -12,7 +12,6 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
     
-    
     var username = ""
     
     override func viewDidLoad() {
@@ -29,7 +28,9 @@ class DashboardVC: UIViewController {
         HistoryDataService.instance.fetchHistory()
         
         AuthService.instance.getSecondaryGoals { (success) in
-            
+            if !success {
+                debugPrint("error getting goals")
+            }
         }
     }
     

@@ -10,17 +10,17 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+// WorkoutDataService handles posting and fetching workout data from the API.
+
 class WorkoutDataService {
     
     static let instance = WorkoutDataService()
-    static let token = AuthService.instance.authToken
     
     var workouts = [Workout]()
     var workoutNumber = 0
     
     public private(set) var activeWorkout: Workout?
     public private(set) var activeWorkoutID: Int?
-    
     public private(set) var activeExerciseID: Int?
     
     func getWorkoutWithId(id: Int) -> Workout? {

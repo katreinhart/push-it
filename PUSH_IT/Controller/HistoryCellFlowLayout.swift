@@ -2,10 +2,9 @@
 //  HistoryCellFlowLayout.swift
 //  PUSH_IT
 //
-//  Modified by Katherine Reinhart on 1/26/18.
-//  Copyright © 2018 reinhart.digital. All rights reserved.
-//  From: https://stackoverflow.com/questions/14674986/uicollectionview-set-number-of-columns/41409642#41409642
+//  Adapted by Katherine Reinhart on 1/26/18.
 //  By Imanou Petit
+//  From: https://stackoverflow.com/questions/14674986/uicollectionview-set-number-of-columns/41409642#41409642
 
 import UIKit
 

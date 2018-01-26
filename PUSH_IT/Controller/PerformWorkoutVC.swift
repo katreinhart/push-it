@@ -165,9 +165,7 @@ class PerformWorkoutVC: UIViewController {
     }
     
     @IBAction func doneBtnPressed(_ sender: Any) {
-        
         WorkoutDataService.instance.finishWorkout(comment: comment, rating: rating)
-        
         performSegue(withIdentifier: UNWIND_TO_DASHBOARD, sender: nil)
     }
 }

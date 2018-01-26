@@ -10,14 +10,19 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+// HistoryDataService handles the history functions fetching from API.
+
 class HistoryDataService {
+    
     static let instance = HistoryDataService()
+    
+    // history is an array of workout objects
     var history = [Workout]()
     
+    // Boolean for displaying the calendar view
     func hasEventforDate(date: Date) -> Bool {
-        
+        // Compare short format date strings "mm/dd/yy" for equality
         let stringDate = DateFormatter.shortStringDateFormatter.string(from: date)
-        
         for item in history {
             let itemStringDate = DateFormatter.shortStringDateFormatter.string(from: item.date)
             if stringDate == itemStringDate {
@@ -29,10 +34,10 @@ class HistoryDataService {
     
     func fetchHistory() {
         
-        // re-instantiate history so it does not repeat workouts
+        // re-instantiate history when fetching so it does not continue adding
         history = [Workout]()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+        dateFormatter.dateFormat = ISO_LONG_FORMAT
         
         Alamofire.request(HISTORY_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {

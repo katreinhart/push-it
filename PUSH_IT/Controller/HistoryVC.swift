@@ -10,9 +10,9 @@ import UIKit
 
 class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
     
-
+    // Variables
+    
     var history: [Workout] = [Workout]()
-
     
     // Outlets
     
@@ -21,6 +21,7 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     @IBOutlet weak var historyCalendarCV: UICollectionView!
     
     // Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -124,6 +125,7 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     )
     
     // Collection view protocol methods
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // Always show 4 weeks of training data
         return 28
@@ -148,14 +150,18 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         return cell
     }
     
-    
+    // Helper function for creating string out of reps/sets
     func repsToString(exercise: Exercise) -> String {
-        var string = ""
+        var setString = ""
         
         for item in exercise.sets {
-            string += String(item.repsCompleted)
-            string += "/"
+            setString += String(item.repsCompleted)
+            setString += "/"
         }
-        return string
+        
+        // remove the last "/"
+        setString.remove(at: setString.index(before: setString.endIndex))
+        
+        return setString
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Onboarding gathers user data on first signup 
 class OnboardingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
  
     // define outlets
