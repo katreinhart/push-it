@@ -47,6 +47,7 @@ let START_WORKOUT_FROM_BUILDER = "StartPerformWorkoutFromWorkoutBuilder"
 let UNWIND_TO_DASHBOARD = "unwindToDashboard"
 let SHOW_HISTORY_FROM_DASHBOARD = "showHistoryFromDashboard"
 let SHOW_HISTORY_FROM_MENU = "showHistoryFromMenu"
+let SHOW_PROGRESS = "showProgressVC"
 
 // User Defaults
 let TOKEN_KEY = "token"

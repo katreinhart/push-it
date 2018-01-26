@@ -32,6 +32,33 @@ class HistoryDataService {
         return false
     }
     
+    func getHistoryForExercise(exercise: String, fromDate date: String) -> [String: Int] {
+        // Takes in a string which is an exercise name, and returns the history of that lift in the format of [datestring: weight]
+        // check to see if the exercise is in ExerciseDataService.instance.exercises
+        let index = ExerciseDataService.instance.exercises.index(of: exercise)
+        if index == nil {
+            // if not found, return a default value of ["":0] (will check for this at calling)
+            return ["":0]
+        }
+        // Instantiate the return value
+        var returnValue = [String: Int]()
+        // then go through history array looking for each instance of that exercise
+        for workout in HistoryDataService.instance.history {
+            for wkoEx in workout.exercises {
+                if wkoEx.type == exercise {
+                    let weight = wkoEx.goalWeight
+                    let dateStr = DateFormatter.shortStringDateFormatter.string(from: workout.date)
+        
+                    // each time the exercise is found, add a "date": weight member to the return value
+                    
+                    returnValue.updateValue(weight, forKey: dateStr)
+                }
+            }
+        }
+        
+        return returnValue
+    }
+    
     func fetchHistory() {
         
         // re-instantiate history when fetching so it does not continue adding

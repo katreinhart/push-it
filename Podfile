@@ -11,6 +11,7 @@ target 'PUSH_IT' do
 
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'Charts'
   
 
 end

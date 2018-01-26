@@ -33,7 +33,9 @@ class MenuVC: UIViewController {
         self.performSegue(withIdentifier: SHOW_GOALS_FROM_MENU, sender: nil)
     }
     
-    // Progress
+    @IBAction func progressButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: SHOW_PROGRESS, sender: nil)
+    }
     
     // Personal Records
     
