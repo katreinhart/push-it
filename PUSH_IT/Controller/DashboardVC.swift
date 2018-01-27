@@ -11,12 +11,14 @@ import UIKit
 class DashboardVC: UIViewController {
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
+ 
     
     var username = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // menu button 
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
