@@ -22,7 +22,11 @@ class DashboardVC: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
         username = UserDataService.instance.name
-        greeting.text = "Hi, \(username)!"
+        if username == "" {
+            greeting.text = "Hello!"
+        } else {
+            greeting.text = "Hi, \(username)!"
+        }
         
         ExerciseDataService.instance.fetchExercisesFromServer()
         HistoryDataService.instance.fetchHistory()

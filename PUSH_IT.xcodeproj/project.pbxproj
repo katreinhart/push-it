@@ -48,6 +48,9 @@
 		46F7DB1E201BAF720082374D /* ProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7DB1D201BAF720082374D /* ProgressVC.swift */; };
 		46F7DB21201BB1340082374D /* ProgressTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7DB1F201BB1340082374D /* ProgressTVCell.swift */; };
 		46F7DB22201BB1340082374D /* ProgressTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46F7DB20201BB1340082374D /* ProgressTVCell.xib */; };
+		46F7DB24201BDE310082374D /* PersonalBestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7DB23201BDE310082374D /* PersonalBestsVC.swift */; };
+		46F7DB27201BE1590082374D /* PersonalBestTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7DB25201BE1590082374D /* PersonalBestTVCell.swift */; };
+		46F7DB28201BE1590082374D /* PersonalBestTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46F7DB26201BE1590082374D /* PersonalBestTVCell.xib */; };
 		B6069BBFA4BD94A98B17FAE2 /* Pods_PUSH_IT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FFC952A66998C4F5FCD90E /* Pods_PUSH_IT.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +123,9 @@
 		46F7DB1D201BAF720082374D /* ProgressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressVC.swift; sourceTree = "<group>"; };
 		46F7DB1F201BB1340082374D /* ProgressTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTVCell.swift; sourceTree = "<group>"; };
 		46F7DB20201BB1340082374D /* ProgressTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProgressTVCell.xib; path = PUSH_IT/View/ProgressTVCell.xib; sourceTree = SOURCE_ROOT; };
+		46F7DB23201BDE310082374D /* PersonalBestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBestsVC.swift; sourceTree = "<group>"; };
+		46F7DB25201BE1590082374D /* PersonalBestTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBestTVCell.swift; sourceTree = "<group>"; };
+		46F7DB26201BE1590082374D /* PersonalBestTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalBestTVCell.xib; sourceTree = "<group>"; };
 		57FB22A2EBEF7CC71BCCFD73 /* Pods-PUSH_IT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PUSH_IT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PUSH_IT/Pods-PUSH_IT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +176,8 @@
 				46559328201A50AC00FD8FF5 /* HistoryItemTVCell.xib */,
 				46F7DB1F201BB1340082374D /* ProgressTVCell.swift */,
 				46F7DB20201BB1340082374D /* ProgressTVCell.xib */,
+				46F7DB25201BE1590082374D /* PersonalBestTVCell.swift */,
+				46F7DB26201BE1590082374D /* PersonalBestTVCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +268,7 @@
 				46559333201AA68400FD8FF5 /* HistoryCell.swift */,
 				46725DE5201B9A1B005CBE6B /* HistoryCellFlowLayout.swift */,
 				46F7DB1D201BAF720082374D /* ProgressVC.swift */,
+				46F7DB23201BDE310082374D /* PersonalBestsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -415,6 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F7DB28201BE1590082374D /* PersonalBestTVCell.xib in Resources */,
 				46E54825201161D800536426 /* LaunchScreen.storyboard in Resources */,
 				46E54822201161D800536426 /* Assets.xcassets in Resources */,
 				46F7DB22201BB1340082374D /* ProgressTVCell.xib in Resources */,
@@ -509,9 +519,11 @@
 				46725DE6201B9A1B005CBE6B /* HistoryCellFlowLayout.swift in Sources */,
 				46F7DB21201BB1340082374D /* ProgressTVCell.swift in Sources */,
 				46E548592012757000536426 /* SignInVC.swift in Sources */,
+				46F7DB24201BDE310082374D /* PersonalBestsVC.swift in Sources */,
 				463A426820164FE60016D18A /* ExerciseDataService.swift in Sources */,
 				46C2B70D2012C066000BFF02 /* MenuVC.swift in Sources */,
 				46778E7C2016AF89001D7FE0 /* NewWorkoutVC.swift in Sources */,
+				46F7DB27201BE1590082374D /* PersonalBestTVCell.swift in Sources */,
 				463A4262201558960016D18A /* Extensions.swift in Sources */,
 				463A4264201566A40016D18A /* EditGoalsVC.swift in Sources */,
 				461F033B20190BF400BA4C7B /* PerformWorkoutVC.swift in Sources */,

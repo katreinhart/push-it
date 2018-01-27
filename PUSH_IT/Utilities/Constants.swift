@@ -48,6 +48,7 @@ let UNWIND_TO_DASHBOARD = "unwindToDashboard"
 let SHOW_HISTORY_FROM_DASHBOARD = "showHistoryFromDashboard"
 let SHOW_HISTORY_FROM_MENU = "showHistoryFromMenu"
 let SHOW_PROGRESS = "showProgressVC"
+let SHOW_PERSONAL_BESTS = "showPersonalBests"
 
 // User Defaults
 let TOKEN_KEY = "token"

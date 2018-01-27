@@ -138,7 +138,7 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         let cellDate = Date().threeWeeksAgoSunday?.addingTimeInterval(daysElapsed)
         
         if HistoryDataService.instance.hasEventforDate(date: cellDate!) {
-            cell.background.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            cell.background.backgroundColor = #colorLiteral(red: 1, green: 0.3882352941, blue: 0.6588235294, alpha: 1)
         } else if cellDate! > Date() {
             // cellDate is in the future
             cell.background.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)

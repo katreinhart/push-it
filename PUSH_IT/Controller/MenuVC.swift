@@ -36,8 +36,10 @@ class MenuVC: UIViewController {
     @IBAction func progressButtonPressed(_ sender: Any) {
         self.performSegue(withIdentifier: SHOW_PROGRESS, sender: nil)
     }
-    
-    // Personal Records
+   
+    @IBAction func personalBestsButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: SHOW_PERSONAL_BESTS, sender: nil)
+    }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
         UserDataService.instance.logoutUser()

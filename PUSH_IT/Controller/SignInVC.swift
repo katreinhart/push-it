@@ -30,4 +30,7 @@ class SignInVC: UIViewController {
             }
         }
     }
+    @IBAction func notYetRegisteredClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: TO_REGISTER, sender: nil)
+    }
 }

@@ -32,6 +32,34 @@ class HistoryDataService {
         return false
     }
     
+    // getPBForExercise takes in a string exercise name and returns a date, weight tuple.
+    func getPBForExercise(exercise:String) -> (String, Int) {
+        let index = ExerciseDataService.instance.exercises.index(of: exercise)
+        if index == nil {
+            // if not found, return a default value of ["":0] (will check for this at calling)
+            return ("", 0)
+        }
+        
+        var maxDate = ""
+        var maxWt = 0
+        
+        for workout in HistoryDataService.instance.history {
+            for wkoEx in workout.exercises {
+                if wkoEx.type == exercise {
+                    let weight = wkoEx.goalWeight
+                    let dateStr = DateFormatter.shortStringDateFormatter.string(from: workout.date)
+                    
+                    if weight > maxWt {
+                        maxDate = dateStr
+                        maxWt = weight
+                    }
+                }
+            }
+        }
+        
+        return (maxDate, maxWt)
+    }
+    
     func getHistoryForExercise(exercise: String, fromDate date: String) -> [String: Int] {
         // Takes in a string which is an exercise name, and returns the history of that lift in the format of [datestring: weight]
         // check to see if the exercise is in ExerciseDataService.instance.exercises

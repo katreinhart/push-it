@@ -30,4 +30,7 @@ class SignUpVC: UIViewController {
             }
         }
     }
+    @IBAction func alreadyRegisteredClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: TO_LOGIN, sender: nil)
+    }
 }
