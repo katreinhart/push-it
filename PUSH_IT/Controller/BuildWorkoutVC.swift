@@ -41,6 +41,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 1
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         
@@ -72,9 +73,9 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         if section == 0 {
             return 155.5
         } else if section == 1 {
-            return 241
+            return 253
         } else {
-            return 45
+            return 64
         }
     }
     

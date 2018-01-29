@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ak-7O-8WX">
-                        <rect key="frame" x="35.5" y="30" width="250" height="33"/>
+                        <rect key="frame" x="35.5" y="27" width="250" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="33" id="FlM-1S-ErL"/>
                             <constraint firstAttribute="width" constant="250" id="OAy-1w-uiF"/>
@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Nkg-SA-LbL">
-                        <rect key="frame" x="8" y="77.5" width="304" height="66"/>
+                        <rect key="frame" x="8" y="69.5" width="304" height="66"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T0A-pK-OCl">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="66"/>
@@ -92,13 +92,23 @@
                             </stackView>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKH-OX-9dY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
+                        <color key="backgroundColor" red="1" green="0.38823529410000002" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="6" id="C77-4X-KM1"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Nkg-SA-LbL" secondAttribute="bottom" constant="12" id="207-ur-j0c"/>
+                    <constraint firstAttribute="bottom" secondItem="Nkg-SA-LbL" secondAttribute="bottom" constant="20" id="207-ur-j0c"/>
+                    <constraint firstItem="YKH-OX-9dY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5Fo-75-feT"/>
                     <constraint firstAttribute="trailing" secondItem="Nkg-SA-LbL" secondAttribute="trailing" constant="8" id="93J-Jh-wFL"/>
                     <constraint firstItem="7Ak-7O-8WX" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="GQB-pJ-yli"/>
+                    <constraint firstItem="YKH-OX-9dY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VeR-Ym-H9w"/>
                     <constraint firstItem="Nkg-SA-LbL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="aqV-ZD-Wby"/>
-                    <constraint firstItem="7Ak-7O-8WX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="19" id="tCV-88-Igi"/>
+                    <constraint firstAttribute="trailing" secondItem="YKH-OX-9dY" secondAttribute="trailing" id="fhJ-4T-Dgn"/>
+                    <constraint firstItem="7Ak-7O-8WX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="tCV-88-Igi"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

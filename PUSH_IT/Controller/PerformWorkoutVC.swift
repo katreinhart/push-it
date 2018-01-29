@@ -73,6 +73,7 @@ class PerformWorkoutVC: UIViewController {
         // set up slider
         repsSlider.maximumValue = Float(targetReps)
         repsSlider.isContinuous = false
+        repsSlider.value = 0
         
         // set up sets and reps labels
         currentSetLblText = "Set \(setIndex + 1) of \(targetSets)"
