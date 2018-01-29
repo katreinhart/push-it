@@ -11,7 +11,7 @@ import Foundation
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
 // Date format strings
-let ISO_LONG_FORMAT = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+let ISO_LONG_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
 let LONG_FORMAT = "yyyy-MM-dd HH:mm:ss"
 let MED_FORMAT = "MMM dd, yyyy"
 let SHORT_FORMAT = "MM/dd/yyyy"

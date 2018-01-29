@@ -159,7 +159,9 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         }
         
         // remove the last "/"
-        setString.remove(at: setString.index(before: setString.endIndex))
+        if(setString.count > 1) {
+            setString.remove(at: setString.index(before: setString.endIndex))
+        }
         
         return setString
     }
