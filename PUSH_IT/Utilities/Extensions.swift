@@ -29,6 +29,12 @@ extension DateFormatter {
         return dateFormatter
     }()
     
+    static var isoDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ssZ"
+        return dateFormatter
+    }()
+    
     static var longStringDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = LONG_FORMAT

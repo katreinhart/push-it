@@ -189,12 +189,26 @@ class EditGoalsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     
     // Save Button Pressed
     @IBAction func saveGoalsBtn(_ sender: Any) {
-        let sg1 = Goal(exercise: sg1Exercise!, weight: Int64(sg1Wt!), date: sg1Date!)
-        let sg2 = Goal(exercise: sg2Exercise!, weight: Int64(sg2Wt!), date: sg2Date!)
-        UserDataService.instance.setSecondaryGoals(goal1: (sg1), goal2: sg2)
-        UserDataService.instance.updatePrimaryGoal(primaryGoal: primaryGoal)
+        let sg1 = Goal(exercise: sg1Exercise!, weight: Int64(sg1Wt!)!, date: sg1Date!)
+        let sg2 = Goal(exercise: sg2Exercise!, weight: Int64(sg2Wt!)!, date: sg2Date!)
+        UserDataService.instance.setSecondaryGoals(sg1: (sg1), sg2: sg2) {
+            (success) in
+            if success {
+                debugPrint("Successfully set secondary goals")
+            } else {
+                debugPrint("something went wrong setting secondary goals")
+            }
+        }
+        UserDataService.instance.updateUserGoal(goal: primaryGoal) {
+            (success) in
+            if success {
+                debugPrint("Success updating primary goal")
+            } else {
+                debugPrint("somethign went wrong updating primary goal")
+            }
+        }
         
-        self.performSegue(withIdentifier: UNWIND_TO_GOALS, sender: self)
+        self.performSegue(withIdentifier: UNWIND_TO_DASHBOARD_FROM_SET_GOALS, sender: self)
     }  
     
 }

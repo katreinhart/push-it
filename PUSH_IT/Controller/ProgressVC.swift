@@ -52,7 +52,7 @@ class ProgressVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     // ProgressTVCell Data Source Protocol method
     func loadData(forExercise exercise: String) ->  [String : Int]{
-        return HistoryDataService.instance.getHistoryForExercise(exercise: exercise, fromDate: "asdf")
+        return HistoryDataService.instance.getHistoryForExercise(exercise: exercise)
     }
     
 }

@@ -35,6 +35,9 @@ class PersonalBestsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func calculateBests() {
         let exercises = ExerciseDataService.instance.exercises
+        
+        // wipe it out so it does not repeat itself
+        bests = [(String, (String, Int))]()
         for exercise in exercises {
             let best = HistoryDataService.instance.getPBForExercise(exercise: exercise)
             bests.append((exercise, best))

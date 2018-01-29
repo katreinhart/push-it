@@ -37,5 +37,4 @@ class GoalsVC: UIViewController {
         self.performSegue(withIdentifier: SHOW_EDIT_GOAL_VC, sender: nil)
     }
     
-    @IBAction func unwindToGoalsVC(segue:UIStoryboardSegue) {}
 }

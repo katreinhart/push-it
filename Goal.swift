@@ -9,12 +9,12 @@
 import Foundation
 
 struct Goal {
-    public private(set) var exercise: String!
-    public private(set) var weight: Int64!
-    public private(set) var date: Date!
+    public private(set) var exercise: String
+    public private(set) var weight: Int64
+    public private(set) var date: Date
     
     func returnAsString() -> String {
-        let dateString = DateFormatter.medStringDateFormatter.string(from: self.date)
-        return "\(String(exercise)) \(String(weight)) by \(dateString)"
+        let dateString = DateFormatter.shortStringDateFormatter.string(from: date)
+        return "\(String(exercise)) \(String(weight))# by \(dateString)"
     }
 }

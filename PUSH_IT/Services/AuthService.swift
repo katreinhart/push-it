@@ -134,95 +134,12 @@ class AuthService {
         let expLevel = json["level"].stringValue
         let primaryGoal = json["goal"].stringValue
         let token = json["token"].stringValue
-
+        
         self.authToken = token
+        
+        debugPrint("User \(id) is logged in")
         
         UserDataService.instance.setUserDataOnLogin(id: id, email: email, name: name, primaryGoal: primaryGoal, expLevel: expLevel)
         
     }
-    
-    
-    
-    func getSecondaryGoals(completion: @escaping CompletionHandler) {
-        if self.isLoggedIn == false {
-            completion(false)
-        } else {
-            Alamofire.request(SECONDARY_GOALS_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-                if response.result.error == nil {
-                    guard let data = response.data else { return }
-                    let json = JSON(data: data)
-                    let responseData = json["data"]
-                    
-//                    Date stuff is causing issues here
-//                    let df = DateFormatter()
-//
-//                    guard let ds1 = json[0]["goal_date"].string else {return}
-//                    let date1 = df.date(from: ds1)
-//                    guard let ds2 = json[1]["goal_date"].string else {return}
-//                    let date2 = df.date(from: ds2)
-                    
-                    let gw1 = responseData[0]["goal_weight"].int64!
-                    let gw2 = responseData[1]["goal_weight"].int64!
-                    
-                    let goal1 = Goal(exercise: responseData[0]["exercise"].string, weight: gw1, date: Date())
-                    let goal2 = Goal(exercise: responseData[1]["exercise"].string, weight: gw2, date: Date())
-                    
-                    UserDataService.instance.setSecondaryGoals(goal1: goal1, goal2: goal2)
-                    completion(true)
-                } else {
-                    completion(false)
-                    debugPrint("did goals not get found?")
-                }
-            }
-        }
-    }
-    
-    func setSecondaryGoals(sg1: Goal, sg2: Goal, completion: @escaping CompletionHandler) {
-        let body: [String: Any] = [
-            "goal1": [
-                "uid": String(self.id),
-                "goal_date": DateFormatter.medStringDateFormatter.string(from: sg1.date),
-                "goal_weight": String(sg1.weight),
-                "exercise": sg1.exercise
-            ],
-            "goal2": [
-                "uid": String(self.id),
-                "goal_date": DateFormatter.medStringDateFormatter.string(from: sg2.date),
-                "goal_weight": String(sg2.weight),
-                "exercise": sg2.exercise
-            ]
-        ]
-        
-        Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                guard let data = response.data else { return }
-                
-                let json = JSON(data: data)
-                let message = json["message"]
-                if message == "Goals added successfully" {
-                    completion(true)
-                }
-            } else {
-                completion(false)
-            }
-            debugPrint("Secondary goals posted to db")
-        }
-    }
-    
-    func updateUserGoal(goal: String, completion: @escaping CompletionHandler) {
-        
-        let body = [
-            "goal": goal
-        ]
-        
-        Alamofire.request(UPDATE_PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
-            (response) in
-            if response.result.error != nil {
-                completion(false)
-            } else {
-                debugPrint("pgoal successfully updated")
-            }
-        }
-    }
-
 }

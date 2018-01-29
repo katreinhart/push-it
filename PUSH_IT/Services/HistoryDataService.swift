@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 // HistoryDataService handles the history functions fetching from API.
-
 class HistoryDataService {
     
+    // HistoryDataService is a singleton class, so set the instance.
     static let instance = HistoryDataService()
     
     // history is an array of workout objects
@@ -21,7 +21,7 @@ class HistoryDataService {
     
     // Boolean for displaying the calendar view
     func hasEventforDate(date: Date) -> Bool {
-        // Compare short format date strings "mm/dd/yy" for equality
+        // Compare short format date strings "mm/dd/yy" for equality, since we don't care about more granular lengths of time
         let stringDate = DateFormatter.shortStringDateFormatter.string(from: date)
         for item in history {
             let itemStringDate = DateFormatter.shortStringDateFormatter.string(from: item.date)
@@ -60,7 +60,7 @@ class HistoryDataService {
         return (maxDate, maxWt)
     }
     
-    func getHistoryForExercise(exercise: String, fromDate date: String) -> [String: Int] {
+    func getHistoryForExercise(exercise: String) -> [String: Int] {
         // Takes in a string which is an exercise name, and returns the history of that lift in the format of [datestring: weight]
         // check to see if the exercise is in ExerciseDataService.instance.exercises
         let index = ExerciseDataService.instance.exercises.index(of: exercise)

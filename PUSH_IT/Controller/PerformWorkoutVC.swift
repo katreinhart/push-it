@@ -174,6 +174,7 @@ class PerformWorkoutVC: UIViewController {
         performSegue(withIdentifier: UNWIND_TO_DASHBOARD, sender: nil)
     }
     
+    // Keyboard slide up and down functions
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
