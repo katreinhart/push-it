@@ -87,6 +87,10 @@ class PerformWorkoutVC: UIViewController {
         InputWorkoutView.isHidden = true
         weightPlatesLbl.text = WorkoutDataService.instance.getWeightPlatesForWeight(weight: targetWeight)
         
+        // Keyboard slide up/down stuff
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         
         // Menu button stuff
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -168,5 +172,21 @@ class PerformWorkoutVC: UIViewController {
     @IBAction func doneBtnPressed(_ sender: Any) {
         WorkoutDataService.instance.finishWorkout(comment: comment, rating: rating)
         performSegue(withIdentifier: UNWIND_TO_DASHBOARD, sender: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
 }
