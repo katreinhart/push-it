@@ -164,7 +164,7 @@ class WorkoutDataService {
             perSide -= 10
         }
         if count10 > 1 {
-            plateString += "\(count10)x 10#"
+            plateString += "\(count10)x 10#, "
         } else if count10 == 1 {
             plateString += "10#, "
         }
@@ -175,6 +175,11 @@ class WorkoutDataService {
         if perSide > 1 {
             plateString += "2.5#, "
             perSide = 0
+        }
+        
+        if plateString.count > 2 {
+            plateString.remove(at: plateString.index(before: plateString.endIndex))
+            plateString.remove(at: plateString.index(before: plateString.endIndex))
         }
         return plateString
     }
