@@ -92,9 +92,10 @@ class AuthService {
         ]
         
         Alamofire.request(LOGIN_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
-            
+            debugPrint(response)
             if response.result.error == nil {
                 guard let data = response.data else { return }
+                
                 self.setUserInfo(data: data)
                 
                 completion(true)
@@ -141,5 +142,12 @@ class AuthService {
         
         UserDataService.instance.setUserDataOnLogin(id: id, email: email, name: name, primaryGoal: primaryGoal, expLevel: expLevel)
         
+    }
+    
+    func logUserOut() {
+        isLoggedIn = false
+        userEmail = ""
+        authToken = ""
+        id = 0
     }
 }

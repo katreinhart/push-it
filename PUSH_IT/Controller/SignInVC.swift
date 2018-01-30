@@ -12,9 +12,12 @@ class SignInVC: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginFailedMessage: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
+        loginFailedMessage.isHidden = true
     }
 
     @IBAction func signinButtonPressed(_ sender: Any) {
@@ -26,7 +29,8 @@ class SignInVC: UIViewController {
                 self.performSegue(withIdentifier: SHOW_SW_REVEAL, sender: nil)
                 
             } else {
-                debugPrint("failed")
+                self.loginFailedMessage.isHidden = false
+                return
             }
         }
     }

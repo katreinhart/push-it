@@ -36,12 +36,9 @@ class UserDataService {
         
         Alamofire.request(SECONDARY_GOALS_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
-                debugPrint("data fetched from server")
                 guard let data = response.data else { return }
                 let json = JSON(data: data)
                 let responseData = json["data"]
-                
-                debugPrint(responseData)
                 
                 let df = DateFormatter()
                 df.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -53,9 +50,7 @@ class UserDataService {
                 let ds2 = responseData[1]["goal_date"].string
                 
                 guard let date1 = df.date(from: ds1!) else {return}
-                debugPrint(date1 as Any)
                 guard let date2 = df.date(from: ds2!) else {return}
-                debugPrint(date2 as Any)
                 
                 let gw1 = responseData[0]["goal_weight"].int64!
                 let gw2 = responseData[1]["goal_weight"].int64!
@@ -69,19 +64,16 @@ class UserDataService {
                 completion(true)
     
             } else {
-                debugPrint("did goals not get found?")
+                debugPrint("error retrieving goals")
                 completion(false)
             }
         }
     }
 
     func setSecondaryGoals(sg1: Goal, sg2: Goal, completion: @escaping CompletionHandler) {
-        debugPrint("set secondary goals")
         
         self.secondaryGoal1! = sg1
         self.secondaryGoal2! = sg2
-        debugPrint(sg1)
-        debugPrint(sg2)
         
         let body: [String: [String: Any]] = [
             "goal1": [
@@ -95,7 +87,6 @@ class UserDataService {
                 "exercise": sg2.exercise
             ]
         ]
-        debugPrint(body)
         
         Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
@@ -125,7 +116,7 @@ class UserDataService {
             if response.result.error != nil {
                 completion(false)
             } else {
-                debugPrint("pgoal successfully updated")
+                debugPrint("primary goal successfully updated")
             }
         }
     }
@@ -137,9 +128,7 @@ class UserDataService {
         primaryGoal = ""
         expLevel = ""
         
-        AuthService.instance.isLoggedIn = false
-        AuthService.instance.userEmail = ""
-        AuthService.instance.authToken = ""
+        AuthService.instance.logUserOut()
         
         WorkoutDataService.instance.workouts = [Workout]()
         HistoryDataService.instance.history = [Workout]()
