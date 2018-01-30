@@ -137,6 +137,9 @@ class AuthService {
         let token = json["token"].stringValue
         
         self.authToken = token
+        self.isLoggedIn = true
+        self.userEmail = email
+        self.id = Int(id)!
         
         debugPrint("User \(id) is logged in")
         

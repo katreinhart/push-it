@@ -2301,6 +2301,7 @@
                         <segue destination="Jaa-t4-pd9" kind="custom" identifier="showProgressVC" customClass="SWRevealViewControllerSeguePushController" id="Jav-Tr-3JZ"/>
                         <segue destination="l60-qo-ZQU" kind="custom" identifier="showPersonalBests" customClass="SWRevealViewControllerSeguePushController" id="5SJ-dw-Ozk"/>
                         <segue destination="SD7-qe-u9L" kind="custom" identifier="showHistoryFromMenu" customClass="SWRevealViewControllerSeguePushController" id="jNH-LZ-V24"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showSplashScreen" id="0ai-1x-5rg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9o-1c-4uk" userLabel="First Responder" sceneMemberID="firstResponder"/>

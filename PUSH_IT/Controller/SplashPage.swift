@@ -12,10 +12,12 @@ class SplashPage: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         if AuthService.instance.isLoggedIn {
             debugPrint("User already logged in")
-            performSegue(withIdentifier: TO_DASHBOARD, sender: nil)
+            self.performSegue(withIdentifier: TO_DASHBOARD, sender: nil)
         } else {
             debugPrint("no user logged in?")
         }
