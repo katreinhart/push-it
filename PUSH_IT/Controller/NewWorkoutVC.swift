@@ -14,6 +14,9 @@ class NewWorkoutVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // hide keyboard when tapped around
+        self.hideKeyboardWhenTappedAround()
+        
         // Menu btn stuff for SWReveal
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())

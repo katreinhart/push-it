@@ -26,6 +26,10 @@ class GoalsVC: UIViewController {
             UserDataService.instance.secondaryGoal1 != nil ? UserDataService.instance.secondaryGoal1!.returnAsString() : "Not set yet!"
         secondaryGoal2.text = UserDataService.instance.secondaryGoal2 != nil ?   UserDataService.instance.secondaryGoal2!.returnAsString() : "Not set yet!"
         
+        // Keyboard slide up/down stuff
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         // SWReveal menu stuff
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -33,8 +37,30 @@ class GoalsVC: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+    }
+    
     @IBAction func editGoalsBtnPressed(_ sender: Any) {
         self.performSegue(withIdentifier: SHOW_EDIT_GOAL_VC, sender: nil)
+    }
+    
+    // Keyboard slide up and down functions
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     
 }
