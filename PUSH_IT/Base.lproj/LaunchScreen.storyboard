@@ -34,9 +34,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH_IT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pa-rR-0Og">
-                                        <rect key="frame" x="63" y="295" width="248" height="76"/>
+                                        <rect key="frame" x="69.5" y="295" width="235" height="76"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="248" id="Ue5-XY-KAJ"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="248" id="Ue5-XY-KAJ"/>
                                             <constraint firstAttribute="height" constant="76" id="s6A-ue-9Ye"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="54"/>
@@ -44,9 +44,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pick up stuff that's heavy and put it back down again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djp-ik-aNu">
-                                        <rect key="frame" x="18" y="569" width="340" height="76"/>
+                                        <rect key="frame" x="20.5" y="569" width="335" height="76"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="340" id="Lll-Oe-AhM"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="340" id="Lll-Oe-AhM"/>
                                             <constraint firstAttribute="height" constant="76" id="ZJs-43-ccK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="18"/>
