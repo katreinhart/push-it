@@ -140,5 +140,8 @@ class UserDataService {
         AuthService.instance.isLoggedIn = false
         AuthService.instance.userEmail = ""
         AuthService.instance.authToken = ""
+        
+        WorkoutDataService.instance.workouts = [Workout]()
+        HistoryDataService.instance.history = [Workout]()
     }
 }
