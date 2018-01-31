@@ -17,7 +17,6 @@ class WorkoutDataService {
     static let instance = WorkoutDataService()
     
     var workouts = [Workout]()
-    var savedWorkouts = [Workout]()
     var workoutNumber = 0
     
     public private(set) var activeWorkout: Workout?
