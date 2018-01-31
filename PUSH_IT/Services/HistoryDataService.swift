@@ -60,12 +60,12 @@ class HistoryDataService {
         return (maxDate, maxWt)
     }
     
+    // Get History For Exercise takes in a string which is an exercise name, and returns the history of that lift in the format of [datestring: weight]
     func getHistoryForExercise(exercise: String) -> [String: Int] {
-        // Takes in a string which is an exercise name, and returns the history of that lift in the format of [datestring: weight]
         // check to see if the exercise is in ExerciseDataService.instance.exercises
         let index = ExerciseDataService.instance.exercises.index(of: exercise)
         if index == nil {
-            // if not found, return a default value of ["":0] (will check for this at calling)
+            // if not found, return a default value of ["":0]
             return ["":0]
         }
         // Instantiate the return value

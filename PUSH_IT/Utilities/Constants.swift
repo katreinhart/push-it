@@ -51,6 +51,7 @@ let SHOW_HISTORY_FROM_DASHBOARD = "showHistoryFromDashboard"
 let SHOW_HISTORY_FROM_MENU = "showHistoryFromMenu"
 let SHOW_PROGRESS = "showProgressVC"
 let SHOW_PERSONAL_BESTS = "showPersonalBests"
+let BACK_TO_DASHBOARD = "workoutSavedReturnToDashboard"
 
 // User Defaults
 let TOKEN_KEY = "token"

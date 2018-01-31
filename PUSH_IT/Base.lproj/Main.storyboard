@@ -2463,11 +2463,81 @@
                         <segue destination="l60-qo-ZQU" kind="custom" identifier="showPersonalBests" customClass="SWRevealViewControllerSeguePushController" id="5SJ-dw-Ozk"/>
                         <segue destination="SD7-qe-u9L" kind="custom" identifier="showHistoryFromMenu" customClass="SWRevealViewControllerSeguePushController" id="jNH-LZ-V24"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showSplashScreen" id="0ai-1x-5rg"/>
+                        <segue destination="bw8-aq-kl2" kind="custom" identifier="showPlanWorkout" customClass="SWRevealViewControllerSeguePushController" id="pL6-GA-hFA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9o-1c-4uk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1748" y="891"/>
+        </scene>
+        <!--Plan WorkoutVC-->
+        <scene sceneID="yGu-4e-UUa">
+            <objects>
+                <viewController id="bw8-aq-kl2" customClass="PlanWorkoutVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ban-W5-J4v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kvz-xM-MwX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPV-B6-ho9">
+                                        <rect key="frame" x="10" y="24" width="42" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="42" id="HNe-RF-9La"/>
+                                            <constraint firstAttribute="height" constant="42" id="qhS-p6-jFX"/>
+                                        </constraints>
+                                        <state key="normal" image="Hamburger-1x">
+                                            <color key="titleColor" red="0.19074219470000001" green="0.38095420600000002" blue="0.55544632670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="URL-IH-bCu">
+                                        <rect key="frame" x="0.0" y="74" width="375" height="593"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXC-5M-xup">
+                                        <rect key="frame" x="50" y="8" width="275" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="275" id="aUA-nJ-GbR"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="275" id="km0-YT-Sn3"/>
+                                            <constraint firstAttribute="height" constant="75" id="qzh-0N-SUI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                        <color key="textColor" red="0.14901960780000001" green="0.30196078430000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.7725490196" green="0.81176470590000005" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="URL-IH-bCu" secondAttribute="bottom" id="1nN-5M-UQh"/>
+                                    <constraint firstAttribute="trailing" secondItem="URL-IH-bCu" secondAttribute="trailing" id="Im0-Rn-tVG"/>
+                                    <constraint firstItem="IPV-B6-ho9" firstAttribute="top" secondItem="Kvz-xM-MwX" secondAttribute="top" constant="24" id="S2f-2w-JEC"/>
+                                    <constraint firstItem="IPV-B6-ho9" firstAttribute="leading" secondItem="Kvz-xM-MwX" secondAttribute="leading" constant="10" id="VhV-vb-Vaz"/>
+                                    <constraint firstItem="eXC-5M-xup" firstAttribute="top" secondItem="Kvz-xM-MwX" secondAttribute="top" constant="8" id="WbP-Lq-vug"/>
+                                    <constraint firstItem="URL-IH-bCu" firstAttribute="leading" secondItem="Kvz-xM-MwX" secondAttribute="leading" id="kc7-ba-932"/>
+                                    <constraint firstItem="eXC-5M-xup" firstAttribute="centerX" secondItem="Kvz-xM-MwX" secondAttribute="centerX" id="pIa-Kv-uhb"/>
+                                    <constraint firstItem="URL-IH-bCu" firstAttribute="top" secondItem="IPV-B6-ho9" secondAttribute="bottom" constant="8" id="pcd-ou-wRk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kvz-xM-MwX" firstAttribute="top" secondItem="ban-W5-J4v" secondAttribute="top" id="4xW-qP-XJI"/>
+                            <constraint firstItem="Kvz-xM-MwX" firstAttribute="bottom" secondItem="G3Y-Na-G8J" secondAttribute="bottom" id="HKz-Fh-elT"/>
+                            <constraint firstItem="Kvz-xM-MwX" firstAttribute="leading" secondItem="G3Y-Na-G8J" secondAttribute="leading" id="WT3-95-eRh"/>
+                            <constraint firstItem="Kvz-xM-MwX" firstAttribute="trailing" secondItem="G3Y-Na-G8J" secondAttribute="trailing" id="ihZ-HJ-JrQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G3Y-Na-G8J"/>
+                    </view>
+                    <connections>
+                        <outlet property="menuBtn" destination="IPV-B6-ho9" id="CxM-b9-wtH"/>
+                        <outlet property="planWorkoutTV" destination="URL-IH-bCu" id="qev-2R-bCN"/>
+                        <segue destination="ahA-RG-w8o" kind="custom" identifier="workoutSavedReturnToDashboard" customClass="SWRevealViewControllerSeguePushController" id="dLc-LT-DBu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ySy-uu-AOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2623" y="857"/>
         </scene>
         <!--ProgressVC-->
         <scene sceneID="4u9-Df-KNu">
@@ -2536,7 +2606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcW-ad-K6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2615.1999999999998" y="935.98200899550227"/>
+            <point key="canvasLocation" x="2617" y="1595"/>
         </scene>
         <!--Personal BestsVC-->
         <scene sceneID="pdZ-82-PWq">
@@ -2603,7 +2673,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Wo-Z3-VVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2620" y="1693.4032983508248"/>
+            <point key="canvasLocation" x="2618" y="2332"/>
         </scene>
     </scenes>
     <resources>
@@ -2612,11 +2682,12 @@
         <image name="pexels-photo-703014" width="5184" height="3456"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dLc-LT-DBu"/>
         <segue reference="fdM-ej-VGg"/>
-        <segue reference="zTJ-cW-96y"/>
-        <segue reference="tob-Bw-JXB"/>
-        <segue reference="RId-AX-Wvz"/>
-        <segue reference="rvF-yG-foN"/>
+        <segue reference="KUT-Dz-Bs0"/>
+        <segue reference="jNH-LZ-V24"/>
+        <segue reference="bV5-YU-lYX"/>
+        <segue reference="TdR-xf-2e7"/>
         <segue reference="06S-at-Nbd"/>
         <segue reference="QSp-BC-tgV"/>
     </inferredMetricsTieBreakers>

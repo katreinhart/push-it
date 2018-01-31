@@ -31,6 +31,9 @@
 		46778E922017E260001D7FE0 /* BuildWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46778E912017E260001D7FE0 /* BuildWorkoutVC.swift */; };
 		46B219DE20213519002D3355 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B219DD20213519002D3355 /* GradientView.swift */; };
 		46B219E020213549002D3355 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B219DF20213549002D3355 /* RoundedButton.swift */; };
+		46B219E220214A18002D3355 /* PlanWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B219E120214A18002D3355 /* PlanWorkoutVC.swift */; };
+		46B219E520214B46002D3355 /* SaveWorkoutTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B219E320214B46002D3355 /* SaveWorkoutTVCell.swift */; };
+		46B219E620214B46002D3355 /* SaveWorkoutTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B219E420214B46002D3355 /* SaveWorkoutTVCell.xib */; };
 		46C2B70320128312000BFF02 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70220128312000BFF02 /* DashboardVC.swift */; };
 		46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B704201287DF000BFF02 /* UserDataService.swift */; };
 		46C2B70920128BC3000BFF02 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70820128BC3000BFF02 /* OnboardingVC.swift */; };
@@ -100,6 +103,9 @@
 		46778E912017E260001D7FE0 /* BuildWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildWorkoutVC.swift; sourceTree = "<group>"; };
 		46B219DD20213519002D3355 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		46B219DF20213549002D3355 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		46B219E120214A18002D3355 /* PlanWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanWorkoutVC.swift; sourceTree = "<group>"; };
+		46B219E320214B46002D3355 /* SaveWorkoutTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveWorkoutTVCell.swift; sourceTree = "<group>"; };
+		46B219E420214B46002D3355 /* SaveWorkoutTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveWorkoutTVCell.xib; sourceTree = "<group>"; };
 		46C2B70220128312000BFF02 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		46C2B704201287DF000BFF02 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		46C2B70820128BC3000BFF02 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
@@ -184,6 +190,8 @@
 				46F7DB26201BE1590082374D /* PersonalBestTVCell.xib */,
 				46B219DD20213519002D3355 /* GradientView.swift */,
 				46B219DF20213549002D3355 /* RoundedButton.swift */,
+				46B219E320214B46002D3355 /* SaveWorkoutTVCell.swift */,
+				46B219E420214B46002D3355 /* SaveWorkoutTVCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,6 +283,7 @@
 				46725DE5201B9A1B005CBE6B /* HistoryCellFlowLayout.swift */,
 				46F7DB1D201BAF720082374D /* ProgressVC.swift */,
 				46F7DB23201BDE310082374D /* PersonalBestsVC.swift */,
+				46B219E120214A18002D3355 /* PlanWorkoutVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -434,6 +443,7 @@
 				46E54825201161D800536426 /* LaunchScreen.storyboard in Resources */,
 				46E54822201161D800536426 /* Assets.xcassets in Resources */,
 				46F7DB22201BB1340082374D /* ProgressTVCell.xib in Resources */,
+				46B219E620214B46002D3355 /* SaveWorkoutTVCell.xib in Resources */,
 				46778E8420179F96001D7FE0 /* NewExerciseTVCell.xib in Resources */,
 				4655932A201A50AC00FD8FF5 /* HistoryItemTVCell.xib in Resources */,
 				46778E902017D33D001D7FE0 /* SaveWorkoutAndGoTVCell.xib in Resources */,
@@ -516,6 +526,7 @@
 				46778E872017A107001D7FE0 /* ExerciseTVCell.swift in Sources */,
 				46E5481B201161D800536426 /* AppDelegate.swift in Sources */,
 				46E548552012703F00536426 /* SWRevealViewController.m in Sources */,
+				46B219E520214B46002D3355 /* SaveWorkoutTVCell.swift in Sources */,
 				463A4260201520500016D18A /* GoalsVC.swift in Sources */,
 				46778E8F2017D33D001D7FE0 /* SaveWorkoutAndGoTVCell.swift in Sources */,
 				46559329201A50AC00FD8FF5 /* HistoryItemTVCell.swift in Sources */,
@@ -528,6 +539,7 @@
 				46E548592012757000536426 /* SignInVC.swift in Sources */,
 				46F7DB24201BDE310082374D /* PersonalBestsVC.swift in Sources */,
 				463A426820164FE60016D18A /* ExerciseDataService.swift in Sources */,
+				46B219E220214A18002D3355 /* PlanWorkoutVC.swift in Sources */,
 				46C2B70D2012C066000BFF02 /* MenuVC.swift in Sources */,
 				46778E7C2016AF89001D7FE0 /* NewWorkoutVC.swift in Sources */,
 				46F7DB27201BE1590082374D /* PersonalBestTVCell.swift in Sources */,

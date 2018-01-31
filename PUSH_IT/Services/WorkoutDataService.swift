@@ -17,6 +17,7 @@ class WorkoutDataService {
     static let instance = WorkoutDataService()
     
     var workouts = [Workout]()
+    var savedWorkouts = [Workout]()
     var workoutNumber = 0
     
     public private(set) var activeWorkout: Workout?
@@ -131,6 +132,16 @@ class WorkoutDataService {
         // reset active workout to nil when workout has been completed
         activeWorkoutID = nil
         activeWorkout = nil
+    }
+    
+    func markWorkoutSaved() {
+        // reset active workout to nil when workout has been completed
+        activeWorkoutID = nil
+        activeWorkout = nil
+    }
+    
+    func getSavedWorkouts() {
+        
     }
     
     func getWeightPlatesForWeight(weight: Int) -> String {
