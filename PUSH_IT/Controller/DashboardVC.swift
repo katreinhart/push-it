@@ -33,6 +33,11 @@ class DashboardVC: UIViewController {
         ExerciseDataService.instance.fetchExercisesFromServer()
         HistoryDataService.instance.fetchHistory()
         
+        UserDataService.instance.getUserPrimaryGoal { (success) in
+            if !success {
+                debugPrint("error fetching primary goal")
+            }
+        }
         UserDataService.instance.getSecondaryGoals { (success) in
             if !success {
                 debugPrint("error getting goals")

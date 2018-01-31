@@ -58,6 +58,12 @@ extension DateFormatter {
         dateFormatter.dateFormat = "YYYYMMdd"
         return dateFormatter
     }()
+    
+    static var monthYearDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = MONTH_YEAR_ONLY
+        return dateFormatter
+    }()
 }
 
 // Date extension members for computing the calendar view of the app

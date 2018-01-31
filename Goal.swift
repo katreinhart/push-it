@@ -14,7 +14,7 @@ struct Goal {
     public private(set) var date: Date
     
     func returnAsString() -> String {
-        let dateString = DateFormatter.shortStringDateFormatter.string(from: date)
+        let dateString = DateFormatter.monthYearDateFormatter.string(from: date)
         return "\(String(exercise)) \(String(weight))# by \(dateString)"
     }
 }

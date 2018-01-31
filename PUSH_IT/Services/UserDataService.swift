@@ -111,12 +111,29 @@ class UserDataService {
             "goal": goal
         ]
         
-        Alamofire.request(UPDATE_PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
+        Alamofire.request(PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
             (response) in
             if response.result.error != nil {
                 completion(false)
             } else {
                 debugPrint("primary goal successfully updated")
+            }
+        }
+    }
+    
+    func getUserPrimaryGoal(completion: @escaping CompletionHandler) {
+        Alamofire.request(PRIMARY_GOAL_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
+            (response) in
+            if response.result.error != nil {
+                completion(false)
+            } else {
+                guard let data = response.data else {return}
+                let json = JSON(data: data)
+                
+                let goal = json["goal"].stringValue
+                self.primaryGoal = goal
+                
+                debugPrint("Primary goal fetched")
             }
         }
     }

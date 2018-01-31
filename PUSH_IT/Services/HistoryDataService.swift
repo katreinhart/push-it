@@ -104,7 +104,11 @@ class HistoryDataService {
                     
                     if date == nil {
                         debugPrint("date not found")
+                        debugPrint(dateString)
                         date = Date()
+                    } else {
+                        debugPrint("this date was found")
+                        debugPrint(dateString)
                     }
                     
                     let rating = item["rating"].int
