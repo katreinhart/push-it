@@ -16,11 +16,8 @@ class SplashPage: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if AuthService.instance.isLoggedIn {
-            debugPrint("User already logged in")
             let next = self.storyboard?.instantiateViewController(withIdentifier: "RevealVC")
             self.present(next!, animated: true, completion: nil)
-        } else {
-            debugPrint("no user logged in?")
         }
     }
     @IBAction func logInBtnPressed(_ sender: Any) {
