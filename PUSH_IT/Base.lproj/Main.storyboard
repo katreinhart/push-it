@@ -1184,7 +1184,7 @@
                                             <constraint firstItem="ZVk-qH-Cfx" firstAttribute="top" secondItem="28y-Dc-PlJ" secondAttribute="bottom" constant="12" id="rhu-CK-2QJ"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qK7-4L-QVJ">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qK7-4L-QVJ">
                                         <rect key="frame" x="0.0" y="216" width="375" height="451"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bZP-a0-fci">
