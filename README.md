@@ -3,13 +3,13 @@
 by Kat Reinhart  
 
 ## Motivation
-As a busy Web Development Immersive student, I don't have as much time for working out as I once did, so I focus on "bang for your buck" workouts like running and weightlifting. As a geek and former endurance athlete, I enjoy tracking my workouts with metrics so that I can see progress over time.    
+As a busy Web Development Immersive student, I don't have as much time for working out as I once did, so I focus on "bang for your buck" workouts like running and weightlifting. As a huge nerd and endurance athlete, I enjoy tracking my workouts with metrics so that I can see progress over time.    
 
 Many apps exist on the market for tracking running and cycling workouts, but I have not found one that I like for tracking weightlifting progress. 
 
 Issues that I have found with existing apps:
 1. Too "bro-y"
-1. Focused too much on beginners
+1. Too focused on beginners
 1. Lock you in to a specific program
 1. Are not free
 
@@ -32,10 +32,13 @@ Therefore, I decided to build my own app to track my weightlifting workouts.
 <img src="https://cdn.pbrd.co/images/H5wLpOr.png" width="250" alt="history" />
 
 ## Installation
-If you want to run this app locally, you will need Xcode 9 running on a Mac.
+If you want to run this app locally, you will need Xcode 9 running on a Mac (OS 10.12 or later).
 - Fork and clone this repository to your local Xcode projects directory. 
 - Open the PUSH_IT.xcworkspace file 
 - Select an iPhone from the emulator list (designed with 6/7/8 screen sizes in mind)
 - Build and run the project. 
 - Create a login at the prompt or use test user login credentials: ```test@example.com password```
 
+If you want to run it on your own hardware, you will need an iPhone running iOS 11. You will also need to allow apps from my developer certificate in your device's Settings -> General -> Profiles & Device Management. 
+
+If you would like to be placed on the list to beta test the app when I release it in Test Flight, please contact me at kat.reinhart@gmail.com or via Twitter @katreinhart.
