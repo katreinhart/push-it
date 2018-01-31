@@ -653,7 +653,7 @@
                                                 <state key="normal" title="Workout Now!"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
+                                                        <real key="value" value="9"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -1129,6 +1129,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28y-Dc-PlJ" customClass="PlateGraphicsView" customModule="PUSH_IT" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="77" width="375" height="159"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ZVk-qH-Cfx">
                                                 <rect key="frame" x="62" y="248" width="250" height="75"/>
                                                 <subviews>
@@ -1169,14 +1173,18 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="440" id="058-K4-9bi"/>
                                             <constraint firstAttribute="bottom" secondItem="UQZ-9r-dmV" secondAttribute="bottom" constant="42" id="7Fj-lC-Cdq"/>
+                                            <constraint firstItem="28y-Dc-PlJ" firstAttribute="leading" secondItem="l0q-0j-Uxg" secondAttribute="leading" id="BvZ-kg-Lj1"/>
                                             <constraint firstItem="UQZ-9r-dmV" firstAttribute="centerX" secondItem="l0q-0j-Uxg" secondAttribute="centerX" id="Vkm-4S-LVV"/>
                                             <constraint firstItem="kPB-R7-BsH" firstAttribute="centerX" secondItem="l0q-0j-Uxg" secondAttribute="centerX" id="WUu-q2-2Yw"/>
+                                            <constraint firstAttribute="trailing" secondItem="28y-Dc-PlJ" secondAttribute="trailing" id="WeU-c0-h63"/>
                                             <constraint firstItem="kPB-R7-BsH" firstAttribute="top" secondItem="l0q-0j-Uxg" secondAttribute="top" constant="32" id="aav-bT-pIU"/>
+                                            <constraint firstItem="28y-Dc-PlJ" firstAttribute="top" secondItem="kPB-R7-BsH" secondAttribute="bottom" constant="12" id="aqD-de-Xn4"/>
                                             <constraint firstItem="UQZ-9r-dmV" firstAttribute="top" secondItem="ZVk-qH-Cfx" secondAttribute="bottom" constant="33" id="h58-hQ-3JF"/>
                                             <constraint firstItem="ZVk-qH-Cfx" firstAttribute="centerX" secondItem="l0q-0j-Uxg" secondAttribute="centerX" id="kEO-fv-wGN"/>
+                                            <constraint firstItem="ZVk-qH-Cfx" firstAttribute="top" secondItem="28y-Dc-PlJ" secondAttribute="bottom" constant="12" id="rhu-CK-2QJ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qK7-4L-QVJ">
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qK7-4L-QVJ">
                                         <rect key="frame" x="0.0" y="216" width="375" height="451"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bZP-a0-fci">
@@ -1346,6 +1354,7 @@
                         <outlet property="exerciseNameLbl" destination="kyo-Ya-LEw" id="T4v-ST-FHM"/>
                         <outlet property="getReadyView" destination="l0q-0j-Uxg" id="jgC-P0-BQm"/>
                         <outlet property="menuBtn" destination="JUv-7g-A4T" id="Hxa-mo-Q7v"/>
+                        <outlet property="plateGraphicsView" destination="28y-Dc-PlJ" id="YJV-5w-eNP"/>
                         <outlet property="ratingSlider" destination="OpM-V5-Yq0" id="w8n-D6-xsF"/>
                         <outlet property="repsDoneLbl" destination="3i0-W7-slp" id="Xih-5H-tei"/>
                         <outlet property="repsLbl" destination="pfj-Bs-j65" id="4re-cA-CRC"/>
@@ -2689,7 +2698,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dLc-LT-DBu"/>
-        <segue reference="fdM-ej-VGg"/>
+        <segue reference="e6a-lV-JoV"/>
         <segue reference="zTJ-cW-96y"/>
         <segue reference="tob-Bw-JXB"/>
         <segue reference="RId-AX-Wvz"/>

@@ -150,6 +150,41 @@ class WorkoutDataService {
         }
     }
     
+    func getWeightPlates(weight: Int) -> [Int] {
+        var plates = [Int]()
+        
+        let barWeight = 45
+        let remaining = weight - barWeight
+        var perSide = Int(remaining / 2)
+        
+        while perSide >= 45 {
+            plates.append(45)
+            perSide -= 45
+        }
+        if perSide >= 35 {
+            plates.append(35)
+            perSide -= 35
+        }
+        if perSide >= 25 {
+            plates.append(25)
+            perSide -= 25
+        }
+        while perSide >= 10 {
+            plates.append(10)
+            perSide -= 10
+        }
+        if perSide >= 5 {
+            plates.append(5)
+            perSide -= 5
+        }
+        if perSide >= 2 {
+            plates.append(2)
+            perSide -= 2
+        }
+        
+        return plates
+    }
+    
     func getWeightPlatesForWeight(weight: Int) -> String {
         var plateString = ""
         let barWeight = 45

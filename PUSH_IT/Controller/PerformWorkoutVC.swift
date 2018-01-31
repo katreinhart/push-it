@@ -26,6 +26,7 @@ class PerformWorkoutVC: UIViewController {
     @IBOutlet weak var getReadyView: UIView!
     @IBOutlet weak var weightPlatesLbl: UILabel!
     @IBOutlet weak var weightPlatesStackView: UIStackView!
+    @IBOutlet weak var plateGraphicsView: PlateGraphicsView!
     
     // done view outlets
     @IBOutlet weak var doneView: UIView!
@@ -86,6 +87,8 @@ class PerformWorkoutVC: UIViewController {
         getReadyView.isHidden = false
         InputWorkoutView.isHidden = true
         weightPlatesLbl.text = WorkoutDataService.instance.getWeightPlatesForWeight(weight: targetWeight)
+        
+        plateGraphicsView.plates = WorkoutDataService.instance.getWeightPlates(weight: targetWeight)
         
         // hide keyboard
         self.hideKeyboardWhenTappedAround()

@@ -34,6 +34,7 @@
 		46B219E220214A18002D3355 /* PlanWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B219E120214A18002D3355 /* PlanWorkoutVC.swift */; };
 		46B219E520214B46002D3355 /* SaveWorkoutTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B219E320214B46002D3355 /* SaveWorkoutTVCell.swift */; };
 		46B219E620214B46002D3355 /* SaveWorkoutTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B219E420214B46002D3355 /* SaveWorkoutTVCell.xib */; };
+		46B219E820222CBD002D3355 /* PlateGraphicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B219E720222CBD002D3355 /* PlateGraphicsView.swift */; };
 		46C2B70320128312000BFF02 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70220128312000BFF02 /* DashboardVC.swift */; };
 		46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B704201287DF000BFF02 /* UserDataService.swift */; };
 		46C2B70920128BC3000BFF02 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2B70820128BC3000BFF02 /* OnboardingVC.swift */; };
@@ -106,6 +107,7 @@
 		46B219E120214A18002D3355 /* PlanWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanWorkoutVC.swift; sourceTree = "<group>"; };
 		46B219E320214B46002D3355 /* SaveWorkoutTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveWorkoutTVCell.swift; sourceTree = "<group>"; };
 		46B219E420214B46002D3355 /* SaveWorkoutTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveWorkoutTVCell.xib; sourceTree = "<group>"; };
+		46B219E720222CBD002D3355 /* PlateGraphicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateGraphicsView.swift; sourceTree = "<group>"; };
 		46C2B70220128312000BFF02 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		46C2B704201287DF000BFF02 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		46C2B70820128BC3000BFF02 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				46B219DF20213549002D3355 /* RoundedButton.swift */,
 				46B219E320214B46002D3355 /* SaveWorkoutTVCell.swift */,
 				46B219E420214B46002D3355 /* SaveWorkoutTVCell.xib */,
+				46B219E720222CBD002D3355 /* PlateGraphicsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				46B219E520214B46002D3355 /* SaveWorkoutTVCell.swift in Sources */,
 				463A4260201520500016D18A /* GoalsVC.swift in Sources */,
 				46778E8F2017D33D001D7FE0 /* SaveWorkoutAndGoTVCell.swift in Sources */,
+				46B219E820222CBD002D3355 /* PlateGraphicsView.swift in Sources */,
 				46559329201A50AC00FD8FF5 /* HistoryItemTVCell.swift in Sources */,
 				46778E8A2017A756001D7FE0 /* WorkoutDataService.swift in Sources */,
 				46C2B705201287DF000BFF02 /* UserDataService.swift in Sources */,
