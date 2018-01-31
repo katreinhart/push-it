@@ -2084,7 +2084,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="iaL-Xk-dkY">
             <objects>
-                <viewController id="EAL-DI-vz0" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RevealVC" id="EAL-DI-vz0" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="prT-Bk-1af" customClass="SWRevealView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2616,7 +2616,7 @@
         <segue reference="zTJ-cW-96y"/>
         <segue reference="tob-Bw-JXB"/>
         <segue reference="RId-AX-Wvz"/>
-        <segue reference="TdR-xf-2e7"/>
+        <segue reference="rvF-yG-foN"/>
         <segue reference="CaC-mH-2Zf"/>
         <segue reference="QSp-BC-tgV"/>
     </inferredMetricsTieBreakers>
