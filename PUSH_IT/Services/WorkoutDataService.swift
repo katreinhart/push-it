@@ -140,7 +140,14 @@ class WorkoutDataService {
     }
     
     func getSavedWorkouts() {
-        
+        Alamofire.request(SAVED_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                debugPrint("fetched saved workouts")
+                debugPrint(response.result)
+            } else {
+                debugPrint("error fetching saved workouts")
+            }
+        }
     }
     
     func getWeightPlatesForWeight(weight: Int) -> String {

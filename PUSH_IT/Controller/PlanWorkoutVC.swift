@@ -85,6 +85,18 @@ class PlanWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let section = indexPath.section
+        
+        if section == 0 {
+            return 155.5
+        } else if section == 1 {
+            return 253
+        } else {
+            return 64
+        }
+    }
+    
     // Custom delegate methods
     func didPressSaveWorkoutButton(_ sender: SaveWorkoutTVCell) {
         WorkoutDataService.instance.markWorkoutSaved()

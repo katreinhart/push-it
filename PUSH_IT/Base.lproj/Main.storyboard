@@ -674,6 +674,9 @@
                                                         <real key="value" value="6"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="planWorkoutButtonPressed:" destination="7bo-Jd-GdI" eventType="touchUpInside" id="9SX-W6-Bjo"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V02-cz-way" customClass="RoundedButton" customModule="PUSH_IT" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="164" width="275" height="50"/>
@@ -2201,6 +2204,9 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufi-xK-s5b">
                                                         <rect key="frame" x="0.0" y="0.0" width="301" height="60"/>
+                                                        <connections>
+                                                            <action selector="planWorkoutButtonPressed:" destination="ahA-RG-w8o" eventType="touchUpInside" id="h13-3S-Kua"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.89438957249999995" green="0.89438957249999995" blue="0.89438957249999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2473,7 +2479,7 @@
         <!--Plan WorkoutVC-->
         <scene sceneID="yGu-4e-UUa">
             <objects>
-                <viewController id="bw8-aq-kl2" customClass="PlanWorkoutVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlanWorkoutVC" id="bw8-aq-kl2" customClass="PlanWorkoutVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ban-W5-J4v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2684,9 +2690,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="dLc-LT-DBu"/>
         <segue reference="fdM-ej-VGg"/>
-        <segue reference="KUT-Dz-Bs0"/>
-        <segue reference="jNH-LZ-V24"/>
-        <segue reference="bV5-YU-lYX"/>
+        <segue reference="zTJ-cW-96y"/>
+        <segue reference="tob-Bw-JXB"/>
+        <segue reference="RId-AX-Wvz"/>
         <segue reference="TdR-xf-2e7"/>
         <segue reference="06S-at-Nbd"/>
         <segue reference="QSp-BC-tgV"/>

@@ -23,7 +23,9 @@ class MenuVC: UIViewController {
         self.performSegue(withIdentifier: SHOW_WORKOUT_FROM_MENU, sender: nil)
     }
     
-    // Plan a Workout
+    @IBAction func planWorkoutButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: SHOW_PLAN_WORKOUT, sender: nil)
+    }
     
     @IBAction func historyButtonPressed(_ sender: Any) {
         self.performSegue(withIdentifier: SHOW_HISTORY_FROM_MENU, sender: nil)

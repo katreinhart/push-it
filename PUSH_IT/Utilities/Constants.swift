@@ -26,6 +26,7 @@ let FETCH_EXERCISES_URL = "\(BASE_URL)/api/exercises"
 let UPDATE_PRIMARY_GOAL_URL = "\(BASE_URL)/api/user/primarygoal"
 let CREATE_WORKOUT_URL = "\(BASE_URL)/api/workouts"
 let HISTORY_URL = "\(BASE_URL)/api/history"
+let SAVED_URL = "\(BASE_URL)/api/saved"
 
 // Segues
 
@@ -52,6 +53,7 @@ let SHOW_HISTORY_FROM_MENU = "showHistoryFromMenu"
 let SHOW_PROGRESS = "showProgressVC"
 let SHOW_PERSONAL_BESTS = "showPersonalBests"
 let BACK_TO_DASHBOARD = "workoutSavedReturnToDashboard"
+let SHOW_PLAN_WORKOUT = "showPlanWorkout"
 
 // User Defaults
 let TOKEN_KEY = "token"

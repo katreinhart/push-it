@@ -48,6 +48,13 @@ class DashboardVC: UIViewController {
         self.revealViewController().pushFrontViewController(newWorkoutVC, animated: true)
     }
     
+    @IBAction func planWorkoutButtonPressed(_ sender: Any) {
+        let newPlanWorkoutVC = self.storyboard?.instantiateViewController(withIdentifier: "PlanWorkoutVC")
+        addChildViewController(newPlanWorkoutVC!)
+        self.revealViewController().pushFrontViewController(newPlanWorkoutVC, animated: true)
+    }
+    
+    
     @IBAction func historyButtonPressed(_ sender: Any) {
         let newHistoryVC = self.storyboard?.instantiateViewController(withIdentifier: "HistoryVC")
         addChildViewController(newHistoryVC!)
