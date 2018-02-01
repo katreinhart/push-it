@@ -55,7 +55,7 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-            let cell = Bundle.main.loadNibNamed("HistoryItemTVCell", owner: self, options: nil)?.first as! HistoryItemTVCell
+            let cell = Bundle.main.loadNibNamed(HISTORY_ITEM_TV_CELL, owner: self, options: nil)?.first as! HistoryItemTVCell
             let workout = history[indexPath.row]
         cell.workoutDateLbl.text = DateFormatter.medStringDateFormatter.string(from: workout.date)
         
@@ -132,7 +132,7 @@ class HistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = historyCalendarCV.dequeueReusableCell(withReuseIdentifier: "historyCell", for: indexPath) as! HistoryCell
+        let cell = historyCalendarCV.dequeueReusableCell(withReuseIdentifier: HISTORY_CELL, for: indexPath) as! HistoryCell
         let index = indexPath.item
         let daysElapsed = Double(index * 86400)
         let cellDate = Date().threeWeeksAgoSunday?.addingTimeInterval(daysElapsed)

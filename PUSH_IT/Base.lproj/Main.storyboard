@@ -260,7 +260,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDA-hJ-OW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zaG-xt-ZH6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-290" y="-453"/>
+            <point key="canvasLocation" x="-290.39999999999998" y="-453.82308845577217"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="O9W-Ek-Hob">
@@ -873,7 +873,6 @@
                         <viewLayoutGuide key="safeArea" id="0C1-lp-nS0"/>
                     </view>
                     <connections>
-                        <outlet property="loadWorkoutBtnPressed" destination="9pv-o3-xGm" id="XJT-T7-4CG"/>
                         <outlet property="menuBtn" destination="Wfs-Uh-uPR" id="WNh-1X-g0t"/>
                         <segue destination="r7d-Rq-r7K" kind="custom" identifier="showStartNewWorkoutVC" customClass="SWRevealViewControllerSeguePushController" id="wYN-tK-Oiy"/>
                     </connections>
@@ -2698,12 +2697,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dLc-LT-DBu"/>
-        <segue reference="e6a-lV-JoV"/>
+        <segue reference="nso-CO-Kwj"/>
         <segue reference="zTJ-cW-96y"/>
         <segue reference="tob-Bw-JXB"/>
         <segue reference="RId-AX-Wvz"/>
         <segue reference="TdR-xf-2e7"/>
-        <segue reference="06S-at-Nbd"/>
+        <segue reference="CaC-mH-2Zf"/>
         <segue reference="QSp-BC-tgV"/>
     </inferredMetricsTieBreakers>
 </document>

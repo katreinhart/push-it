@@ -8,6 +8,7 @@
 
 import Foundation
 
+// typealias for our completion handler
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
 // Date format strings
@@ -30,7 +31,7 @@ let HISTORY_URL = "\(BASE_URL)/api/history"
 let SAVED_URL = "\(BASE_URL)/api/saved"
 
 // Segues
-
+let REVEAL_VC = "RevealVC"
 let TO_LOGIN = "toLogin"
 let TO_REGISTER = "toRegister"
 let SHOW_ONBOARDING = "showOnboarding"
@@ -56,11 +57,22 @@ let SHOW_PERSONAL_BESTS = "showPersonalBests"
 let BACK_TO_DASHBOARD = "workoutSavedReturnToDashboard"
 let SHOW_PLAN_WORKOUT = "showPlanWorkout"
 
+// XIB and Cell Names
+let EXERCISE_TV_CELL = "ExerciseTVCell"
+let NEW_EX_TV_CELL = "NewExerciseTVCell"
+let SAVE_AND_GO_TV_CELL = "SaveWorkoutAndGoTVCell"
+let SAVE_TV_CELL = "SaveWorkoutTVCell"
+let HISTORY_ITEM_TV_CELL = "HistoryItemTVCell"
+let HISTORY_CELL = "historyCell"
+let PROGRESS_TV_CELL = "ProgressTVCell"
+let PERSONAL_BEST_TV_CELL = "PersonalBestTVCell"
+
 // User Defaults
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
 let USER_ID = "userId"
+let USER_NAME = "userName"
 
 // Headers
 let HEADER = [

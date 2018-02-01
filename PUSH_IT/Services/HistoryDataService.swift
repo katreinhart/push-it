@@ -22,6 +22,7 @@ class HistoryDataService {
     // Boolean for displaying the calendar view
     func hasEventforDate(date: Date) -> Bool {
         // Compare short format date strings "mm/dd/yy" for equality, since we don't care about more granular lengths of time
+        
         let stringDate = DateFormatter.shortStringDateFormatter.string(from: date)
         for item in history {
             let itemStringDate = DateFormatter.shortStringDateFormatter.string(from: item.date)
@@ -104,24 +105,25 @@ class HistoryDataService {
             let json = JSON(data: data).array
             for item in json! {
                 let dateString = item["start_time"].stringValue
-                var date = dateFormatter.date(from: dateString)
+                let date = dateFormatter.date(from: dateString)
                 
-                if date == nil {
-                    debugPrint("date not found")
-                    date = Date()
-                }
+                // ignore history items without valid start time
+                if date == nil {continue}
                 
+                // parse rating and comments from JSON
                 let rating = item["rating"].int
                 let comments = item["comments"].stringValue
                 
+                // create new workout object
                 var newWorkout = Workout(exercises: [], date: date!, rating: rating!, comments: comments)
                 
+                // parse exercises and sets from JSON
                 let responseExercises = item["exercises"].array
+                let responseSets = item["sets"].array
                 
-                if responseExercises == nil {
-                    self.history.append(newWorkout)
-                    continue
-                }
+                // ignore workouts with no exercises or sets
+                if responseExercises == nil {continue}
+                if responseSets == nil {continue}
                 
                 for ex in responseExercises! {
                     let exName = ex["exercise_name"].stringValue
@@ -132,12 +134,6 @@ class HistoryDataService {
                     newWorkout.exercises.append(newExercise)
                 }
                 
-                let responseSets = item["sets"].array
-                if responseSets == nil {
-                    self.history.append(newWorkout)
-                    continue
-                }
-                
                 for set in responseSets! {
                     
                     let exName = set["exercise"].stringValue
@@ -145,9 +141,7 @@ class HistoryDataService {
                         return (item.type == exName)
                     })
                     
-                    if exIndex == nil {
-                        continue
-                    }
+                    if exIndex == nil {continue}
                     
                     let repsAtt = set["reps_att"].intValue
                     let repsComp = set["reps_comp"].intValue
@@ -161,6 +155,7 @@ class HistoryDataService {
                 self.history.append(newWorkout)
             }
             
+            // Sort the history in descending order
             self.history.sort(by: { (workout1, workout2) -> Bool in
                 workout1.date > workout2.date
             })

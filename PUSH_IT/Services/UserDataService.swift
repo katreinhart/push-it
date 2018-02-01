@@ -100,7 +100,6 @@ class UserDataService {
             } else {
                 completion(false)
             }
-            debugPrint("Secondary goals posted to db")
         }
     }
     
@@ -114,9 +113,8 @@ class UserDataService {
         Alamofire.request(PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
             (response) in
             if response.result.error != nil {
+                debugPrint("something went wrong updating primary goal")
                 completion(false)
-            } else {
-                debugPrint("primary goal successfully updated")
             }
         }
     }
@@ -133,13 +131,11 @@ class UserDataService {
                 let goal = json["goal"].stringValue
                 self.primaryGoal = goal
                 
-                debugPrint("Primary goal fetched")
             }
         }
     }
     
     func logoutUser() {
-        debugPrint("Logging out user")
         id = ""
         email = ""
         name = ""
@@ -147,7 +143,6 @@ class UserDataService {
         expLevel = ""
         
         AuthService.instance.logUserOut()
-        
         WorkoutDataService.instance.workouts = [Workout]()
         HistoryDataService.instance.history = [Workout]()
     }

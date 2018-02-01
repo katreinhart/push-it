@@ -33,7 +33,7 @@ class ProgressVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("ProgressTVCell", owner: self, options: nil)?.first as! ProgressTVCell
+        let cell = Bundle.main.loadNibNamed(PROGRESS_TV_CELL, owner: self, options: nil)?.first as! ProgressTVCell
         
         let exercise = ExerciseDataService.instance.exercises[indexPath.row]
         cell.exerciseName = exercise

@@ -62,7 +62,7 @@ class PersonalBestsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("PersonalBestTVCell", owner: nil, options: nil)?.first as! PersonalBestTVCell
+        let cell = Bundle.main.loadNibNamed(PERSONAL_BEST_TV_CELL, owner: nil, options: nil)?.first as! PersonalBestTVCell
         
         let (exercise, (date, weight)) = bests[indexPath.row]
         

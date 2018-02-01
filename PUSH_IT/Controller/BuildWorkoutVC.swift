@@ -16,7 +16,6 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Variables
     var exercises = WorkoutDataService.instance.activeWorkout?.exercises
-    public var isAdding = false
     
     // TableView protocol functions
     
@@ -32,11 +31,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                 return exercises!.count
             }
         } else if section == 1 {
-            if isAdding {
-                return 0
-            } else {
-                return 1
-            }
+            return 1
         }
         return 1
     }
@@ -46,7 +41,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         let section = indexPath.section
         
         if section == 0 {
-            let cell = Bundle.main.loadNibNamed("ExerciseTVCell", owner: self, options: nil)?.first as! ExerciseTVCell
+            let cell = Bundle.main.loadNibNamed(EXERCISE_TV_CELL, owner: self, options: nil)?.first as! ExerciseTVCell
             
             cell.exerciseNameLbl.text = exercises![indexPath.row].type
             cell.weightLbl.text = String(exercises![indexPath.row].goalWeight)
@@ -57,13 +52,13 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             return cell
         } else if section == 1 {
-            let cell = Bundle.main.loadNibNamed("NewExerciseTVCell", owner: self, options: nil)?.first as! NewExerciseTVCell
+            let cell = Bundle.main.loadNibNamed(NEW_EX_TV_CELL, owner: self, options: nil)?.first as! NewExerciseTVCell
             cell.selectionStyle = .none
             
             cell.delegate = self
             return cell
         } else {
-            let cell = Bundle.main.loadNibNamed("SaveWorkoutAndGoTVCell", owner: self, options: nil)?.first as! SaveWorkoutAndGoTVCell
+            let cell = Bundle.main.loadNibNamed(SAVE_AND_GO_TV_CELL, owner: self, options: nil)?.first as! SaveWorkoutAndGoTVCell
             cell.selectionStyle = .none
             cell.delegate = self
             return cell

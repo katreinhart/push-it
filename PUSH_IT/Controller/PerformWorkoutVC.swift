@@ -53,6 +53,7 @@ class PerformWorkoutVC: UIViewController {
     var comment = ""
     
     // encouraging messages
+    // TODO: Randomly display these in the finished view
     var messages = [
         "You crushed it!",
         "Great job!",

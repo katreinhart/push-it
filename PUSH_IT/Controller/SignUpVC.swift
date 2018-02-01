@@ -15,7 +15,6 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.hideKeyboardWhenTappedAround() 
     }
 
@@ -27,6 +26,9 @@ class SignUpVC: UIViewController {
             if (success) {
                 // perform segue to dashboard
                 self.performSegue(withIdentifier: SHOW_ONBOARDING, sender: nil)
+            } else {
+                // TODO: show error message
+                
             }
         }
     }

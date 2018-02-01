@@ -64,7 +64,7 @@ class PlanWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         let section = indexPath.section
         
         if section == 0 {
-            let cell = Bundle.main.loadNibNamed("ExerciseTVCell", owner: self, options: nil)?.first as! ExerciseTVCell
+            let cell = Bundle.main.loadNibNamed(EXERCISE_TV_CELL, owner: self, options: nil)?.first as! ExerciseTVCell
             
             cell.exerciseNameLbl.text = exercises![indexPath.row].type
             cell.weightLbl.text = String(exercises![indexPath.row].goalWeight)
@@ -73,12 +73,12 @@ class PlanWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             
             return cell
         } else if section == 1 {
-            let cell = Bundle.main.loadNibNamed("NewExerciseTVCell", owner: self, options: nil)?.first as! NewExerciseTVCell
+            let cell = Bundle.main.loadNibNamed(NEW_EX_TV_CELL, owner: self, options: nil)?.first as! NewExerciseTVCell
             
             cell.delegate = self
             return cell
         } else {
-            let cell = Bundle.main.loadNibNamed("SaveWorkoutTVCell", owner: self, options: nil)?.first as! SaveWorkoutTVCell
+            let cell = Bundle.main.loadNibNamed(SAVE_TV_CELL, owner: self, options: nil)?.first as! SaveWorkoutTVCell
             
             cell.delegate = self
             return cell

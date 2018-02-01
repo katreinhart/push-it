@@ -45,6 +45,15 @@ class AuthService {
         }
     }
     
+    var name : String {
+        get {
+            return defaults.string(forKey: USER_NAME) as! String
+        }
+        set {
+            defaults.set(newValue, forKey: USER_NAME)
+        }
+    }
+    
     var id : Int {
         get {
             return defaults.integer(forKey: USER_ID)
@@ -53,8 +62,6 @@ class AuthService {
             defaults.set(newValue, forKey: USER_ID)
         }
     }
-    
-    
     
     func registerUser(email: String, password: String, completion: @escaping CompletionHandler) {
         
@@ -76,15 +83,14 @@ class AuthService {
                 self.isLoggedIn = true
                 completion(true)
             } else {
-                completion(false)
                 debugPrint(response.result.error as Any)
+                completion(false)
             }
         }
     }
     
     func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
         let lowerCaseEmail = email.lowercased()
-        
         
         let body: [String: Any] = [
             "email": lowerCaseEmail,
