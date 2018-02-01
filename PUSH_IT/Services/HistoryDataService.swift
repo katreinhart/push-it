@@ -95,76 +95,75 @@ class HistoryDataService {
         dateFormatter.dateFormat = ISO_LONG_FORMAT
         
         Alamofire.request(HISTORY_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                guard let data = response.data else { return }
-                let json = JSON(data: data).array
-                for item in json! {
-                    let dateString = item["start_time"].stringValue
-                    var date = dateFormatter.date(from: dateString)
-                    
-                    if date == nil {
-                        debugPrint("date not found")
-                        debugPrint(dateString)
-                        date = Date()
-                    } else {
-                        debugPrint("this date was found")
-                        debugPrint(dateString)
-                    }
-                    
-                    let rating = item["rating"].int
-                    let comments = item["comments"].stringValue
-                    
-                    var newWorkout = Workout(exercises: [], date: date!, rating: rating!, comments: comments)
-                    
-                    let responseExercises = item["exercises"].array
-                    
-                    if responseExercises == nil {
-                        self.history.append(newWorkout)
-                        continue
-                    }
-                    
-                    for ex in responseExercises! {
-                        let exName = ex["exercise_name"].stringValue
-                        let sets = ex["goal_sets"].intValue
-                        let reps = ex["goal_reps_per_set"].intValue
-                        let newExercise = Exercise(type: exName, goalWeight: 0, goalSets: sets, goalRepsPerSet: reps, sets: [])
-                        
-                        newWorkout.exercises.append(newExercise)
-                    }
-                    
-                    let responseSets = item["sets"].array
-                    if responseSets == nil {
-                        self.history.append(newWorkout)
-                        continue
-                    }
-                    
-                    for set in responseSets! {
-                        
-                        let exName = set["exercise"].stringValue
-                        let exIndex = newWorkout.exercises.index(where: { (item) -> Bool in
-                            return (item.type == exName)
-                        })
-                        
-                        if exIndex == nil {
-                            continue
-                        }
-                        
-                        let repsAtt = set["reps_att"].intValue
-                        let repsComp = set["reps_comp"].intValue
-                        let weight = set["weight"].intValue
-                        let newSet = Set(weight: weight, repsCompleted: repsComp, repsAttempted: repsAtt)
-                        
-                        newWorkout.exercises[exIndex!].sets.append(newSet)
-                        newWorkout.exercises[exIndex!].goalWeight = weight
-                    }
-                    
-                    self.history.append(newWorkout)
+            if response.result.error != nil {
+                debugPrint("error fetching history")
+                return
+            }
+            
+            guard let data = response.data else { return }
+            let json = JSON(data: data).array
+            for item in json! {
+                let dateString = item["start_time"].stringValue
+                var date = dateFormatter.date(from: dateString)
+                
+                if date == nil {
+                    debugPrint("date not found")
+                    date = Date()
                 }
                 
-                self.history.sort(by: { (workout1, workout2) -> Bool in
-                    workout1.date > workout2.date
-                })
+                let rating = item["rating"].int
+                let comments = item["comments"].stringValue
+                
+                var newWorkout = Workout(exercises: [], date: date!, rating: rating!, comments: comments)
+                
+                let responseExercises = item["exercises"].array
+                
+                if responseExercises == nil {
+                    self.history.append(newWorkout)
+                    continue
+                }
+                
+                for ex in responseExercises! {
+                    let exName = ex["exercise_name"].stringValue
+                    let sets = ex["goal_sets"].intValue
+                    let reps = ex["goal_reps_per_set"].intValue
+                    let newExercise = Exercise(type: exName, goalWeight: 0, goalSets: sets, goalRepsPerSet: reps, sets: [])
+                    
+                    newWorkout.exercises.append(newExercise)
+                }
+                
+                let responseSets = item["sets"].array
+                if responseSets == nil {
+                    self.history.append(newWorkout)
+                    continue
+                }
+                
+                for set in responseSets! {
+                    
+                    let exName = set["exercise"].stringValue
+                    let exIndex = newWorkout.exercises.index(where: { (item) -> Bool in
+                        return (item.type == exName)
+                    })
+                    
+                    if exIndex == nil {
+                        continue
+                    }
+                    
+                    let repsAtt = set["reps_att"].intValue
+                    let repsComp = set["reps_comp"].intValue
+                    let weight = set["weight"].intValue
+                    let newSet = Set(weight: weight, repsCompleted: repsComp, repsAttempted: repsAtt)
+                    
+                    newWorkout.exercises[exIndex!].sets.append(newSet)
+                    newWorkout.exercises[exIndex!].goalWeight = weight
+                }
+                
+                self.history.append(newWorkout)
             }
+            
+            self.history.sort(by: { (workout1, workout2) -> Bool in
+                workout1.date > workout2.date
+            })
         }
     }
 }
