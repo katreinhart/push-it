@@ -139,6 +139,7 @@ class UserDataService {
     }
     
     func logoutUser() {
+        debugPrint("Logging out user")
         id = ""
         email = ""
         name = ""

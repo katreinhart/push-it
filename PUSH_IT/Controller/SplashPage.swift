@@ -15,11 +15,15 @@ class SplashPage: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if AuthService.instance.isLoggedIn {
+        if UserDefaults.standard.bool(forKey: LOGGED_IN_KEY) {
             let next = self.storyboard?.instantiateViewController(withIdentifier: "RevealVC")
             self.present(next!, animated: true, completion: nil)
+            debugPrint("user is logged in")
+        } else {
+            debugPrint("no user logged in, stay at splash scren")
         }
     }
+    
     @IBAction func logInBtnPressed(_ sender: Any) {
         self.performSegue(withIdentifier: TO_LOGIN, sender: nil)
     }

@@ -52,6 +52,17 @@ class PerformWorkoutVC: UIViewController {
     var rating = 0
     var comment = ""
     
+    // encouraging messages
+    var messages = [
+        "You crushed it!",
+        "Great job!",
+        "Way to go!",
+        "You're a beast!",
+        "H*ck yes!",
+        "Great Work!",
+        "Way to push it!"
+    ]
+    
     // Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()

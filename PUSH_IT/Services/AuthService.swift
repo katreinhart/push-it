@@ -152,5 +152,9 @@ class AuthService {
         userEmail = ""
         authToken = ""
         id = 0
+        debugPrint("user logged out")
+        if defaults.bool(forKey: LOGGED_IN_KEY) {
+            debugPrint("what the hell")
+        }
     }
 }

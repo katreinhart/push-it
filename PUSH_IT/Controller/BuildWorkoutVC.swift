@@ -53,15 +53,18 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.repsLbl.text = String(exercises![indexPath.row].goalRepsPerSet)
             cell.setsLbl.text = String(exercises![indexPath.row].goalSets)
             
+            cell.selectionStyle = .none
+            
             return cell
         } else if section == 1 {
             let cell = Bundle.main.loadNibNamed("NewExerciseTVCell", owner: self, options: nil)?.first as! NewExerciseTVCell
+            cell.selectionStyle = .none
             
             cell.delegate = self
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed("SaveWorkoutAndGoTVCell", owner: self, options: nil)?.first as! SaveWorkoutAndGoTVCell
-            
+            cell.selectionStyle = .none
             cell.delegate = self
             return cell
         }
@@ -82,7 +85,9 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     // AddCellDelegate protocol
     
     func didPressSaveAndGoButton(_ sender: SaveWorkoutAndGoTVCell) {
-        
+        if WorkoutDataService.instance.activeWorkout == nil || WorkoutDataService.instance.activeWorkout!.exercises.count == 0 {
+            return
+        }
         self.performSegue(withIdentifier: START_WORKOUT_FROM_BUILDER, sender: nil)
     }
     
