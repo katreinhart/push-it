@@ -56,27 +56,31 @@ class PlateGraphicsView: UIView {
         }
     }
     
+    func reset() {
+        drawRectangle(from: CGPoint(x: 0, y: 0), to: CGPoint(x: self.frame.width, y: self.frame.height), color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+    }
+    
     func drawPlate(start: CGFloat, size: Int, frameHeight: CGFloat) {
         let height45 = 7 * self.frame.height/8
         let height35 = 3 * self.frame.height/4
-        let height25 = self.frame.height/2
-        let height10 = self.frame.height/3
+        let height25 = 5 * self.frame.height/8
+        let height10 = self.frame.height/2
         let height5 = self.frame.height/4
         let height2 = self.frame.height/6
         
         switch size {
         case 45:
-            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height45 / 2), to: CGPoint(x: start + width45, y: frameHeight / 2 + height45 / 2), color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height45 / 2), to: CGPoint(x: start + width45, y: frameHeight / 2 + height45 / 2), color: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1))
         case 35:
-            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height35 / 2), to: CGPoint(x: start + width35, y: frameHeight / 2 + height35 / 2), color: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
+            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height35 / 2), to: CGPoint(x: start + width35, y: frameHeight / 2 + height35 / 2), color: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1))
         case 25:
-            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height25 / 2), to: CGPoint(x: start + width25, y: frameHeight / 2 + height25 / 2), color: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
+            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height25 / 2), to: CGPoint(x: start + width25, y: frameHeight / 2 + height25 / 2), color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))
         case 10:
-            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height10 / 2), to: CGPoint(x: start + width10, y: frameHeight / 2 + height10 / 2), color: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))
+            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - (height10 / 2)), to: CGPoint(x: start + width10, y: frameHeight / 2 + (height10 / 2)), color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))
         case 5:
-            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height5 / 2), to: CGPoint(x: start + width5, y: frameHeight / 2 + height5 / 2), color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1))
+            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height5 / 2), to: CGPoint(x: start + width5, y: frameHeight / 2 + height5 / 2), color: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
         case 2:
-            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height2 / 2), to: CGPoint(x: start + width2, y: frameHeight / 2 + height2 / 2), color: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+            drawRectangle(from: CGPoint(x: start, y: frameHeight / 2 - height2 / 2), to: CGPoint(x: start + width2, y: frameHeight / 2 + height2 / 2), color: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1))
         default:
             return
         }

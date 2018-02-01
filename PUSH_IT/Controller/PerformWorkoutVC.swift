@@ -33,6 +33,8 @@ class PerformWorkoutVC: UIViewController {
     @IBOutlet weak var doneFinishBtn: UIButton!
     @IBOutlet weak var ratingSlider: UISlider!
     @IBOutlet weak var commentField: UITextField!
+    @IBOutlet weak var betweenSetMessageView: UIVisualEffectView!
+    @IBOutlet weak var encouragingMessageLbl: UILabel!
     
     // Variables
     var currentExercise: String = ""
@@ -70,6 +72,7 @@ class PerformWorkoutVC: UIViewController {
         
         // hide done view
         doneView.isHidden = true
+        betweenSetMessageView.isHidden = true
         
         // load current exercise stats
         currentExercise = WorkoutDataService.instance.activeWorkout!.exercises[0].type
@@ -138,6 +141,15 @@ class PerformWorkoutVC: UIViewController {
     @IBAction func nextBtnPressed(_ sender: Any) {
         WorkoutDataService.instance.performSetOnActiveWorkout(exerciseIndex: exerciseIndex, setIndex: setIndex, repsAttempted: targetReps, repsCompleted: repsPerformed)
         
+        self.encouragingMessageLbl.text = displayEncouragement()
+        self.betweenSetMessageView.isHidden = false
+        
+        UIView.animate(withDuration: 2, animations: {
+            self.betweenSetMessageView.alpha = 0
+        }) { (finished) in
+            self.betweenSetMessageView.isHidden = true
+            self.betweenSetMessageView.alpha = 1
+        }
         setIndex += 1
         
         if setIndex == targetSets {
@@ -177,6 +189,10 @@ class PerformWorkoutVC: UIViewController {
                 // update plate weights
                 platesLblText = WorkoutDataService.instance.getWeightPlatesForWeight(weight: targetWeight)
                 weightPlatesLbl.text = platesLblText
+                plateGraphicsView.reset() 
+                plateGraphicsView.plates = WorkoutDataService.instance.getWeightPlates(weight: targetWeight)
+                plateGraphicsView.draw(plateGraphicsView.frame)
+                
             }
         }
         
@@ -195,6 +211,12 @@ class PerformWorkoutVC: UIViewController {
     @IBAction func doneBtnPressed(_ sender: Any) {
         WorkoutDataService.instance.finishWorkout(comment: comment, rating: rating)
         performSegue(withIdentifier: UNWIND_TO_DASHBOARD, sender: nil)
+    }
+    
+    // Helper function for encouraging messages
+    func displayEncouragement() -> (String) {
+        let num = Int(arc4random_uniform(UInt32(messages.count)))
+        return messages[num]
     }
     
     // Keyboard slide up and down functions

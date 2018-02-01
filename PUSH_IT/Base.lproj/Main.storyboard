@@ -1300,16 +1300,44 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="L9K-GM-kZt"/>
                                     </view>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCY-b5-hjz">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EVB-AU-736">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="h*ck yes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42F-na-gxz">
+                                                    <rect key="frame" x="63.5" y="304" width="248" height="59"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="248" id="gL2-Xw-ghY"/>
+                                                        <constraint firstAttribute="height" constant="59" id="taV-GG-DHO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                                    <color key="textColor" red="0.19074219470000001" green="0.38095420600000002" blue="0.55544632670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="42F-na-gxz" firstAttribute="centerX" secondItem="EVB-AU-736" secondAttribute="centerX" id="IDR-hF-29c"/>
+                                                <constraint firstItem="42F-na-gxz" firstAttribute="centerY" secondItem="EVB-AU-736" secondAttribute="centerY" id="czJ-8p-om0"/>
+                                            </constraints>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.77254901960784317" green="0.81176470588235294" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oCY-b5-hjz" secondAttribute="trailing" id="0rT-lF-Jo6"/>
                                     <constraint firstItem="qK7-4L-QVJ" firstAttribute="leading" secondItem="UIE-FR-HJe" secondAttribute="leading" id="0vM-Kp-WUx"/>
                                     <constraint firstItem="qK7-4L-QVJ" firstAttribute="top" secondItem="kyo-Ya-LEw" secondAttribute="bottom" constant="90" id="2Ti-yO-une"/>
                                     <constraint firstItem="kyo-Ya-LEw" firstAttribute="top" secondItem="x4i-dU-xJ6" secondAttribute="bottom" constant="24" id="64m-y8-jKp"/>
+                                    <constraint firstAttribute="bottom" secondItem="oCY-b5-hjz" secondAttribute="bottom" id="6p9-S7-QTI"/>
                                     <constraint firstItem="Pcp-EU-VrT" firstAttribute="top" secondItem="i1m-js-b19" secondAttribute="bottom" constant="32" id="BZc-Xt-eBF"/>
                                     <constraint firstItem="x4i-dU-xJ6" firstAttribute="centerX" secondItem="UIE-FR-HJe" secondAttribute="centerX" id="D7r-3X-tAs"/>
+                                    <constraint firstItem="oCY-b5-hjz" firstAttribute="top" secondItem="UIE-FR-HJe" secondAttribute="top" id="Eeu-sn-hkB"/>
                                     <constraint firstItem="Pcp-EU-VrT" firstAttribute="centerX" secondItem="UIE-FR-HJe" secondAttribute="centerX" id="KRj-pi-Gnr"/>
                                     <constraint firstAttribute="trailing" secondItem="qK7-4L-QVJ" secondAttribute="trailing" id="Tdk-I2-Drz"/>
+                                    <constraint firstItem="oCY-b5-hjz" firstAttribute="leading" secondItem="UIE-FR-HJe" secondAttribute="leading" id="Ty2-Lm-c3I"/>
                                     <constraint firstAttribute="bottom" secondItem="qK7-4L-QVJ" secondAttribute="bottom" id="Yon-02-mff"/>
                                     <constraint firstItem="Pcp-EU-VrT" firstAttribute="leading" secondItem="UIE-FR-HJe" secondAttribute="leading" id="dQI-M4-66F"/>
                                     <constraint firstItem="i1m-js-b19" firstAttribute="centerX" secondItem="UIE-FR-HJe" secondAttribute="centerX" id="drk-Va-fuH"/>
@@ -1346,10 +1374,12 @@
                     </view>
                     <connections>
                         <outlet property="InputWorkoutView" destination="Pcp-EU-VrT" id="kHa-dx-HUN"/>
+                        <outlet property="betweenSetMessageView" destination="oCY-b5-hjz" id="bmh-DD-nOg"/>
                         <outlet property="commentField" destination="vYr-rc-wQp" id="p1C-sh-Z9y"/>
                         <outlet property="currentSetLbl" destination="JfS-IZ-2xn" id="AVb-Dj-nJm"/>
                         <outlet property="doneFinishBtn" destination="gvq-XS-7a1" id="sOR-V1-4BH"/>
                         <outlet property="doneView" destination="qK7-4L-QVJ" id="P9a-p9-UdV"/>
+                        <outlet property="encouragingMessageLbl" destination="42F-na-gxz" id="qHo-EV-opU"/>
                         <outlet property="exerciseNameLbl" destination="kyo-Ya-LEw" id="T4v-ST-FHM"/>
                         <outlet property="getReadyView" destination="l0q-0j-Uxg" id="jgC-P0-BQm"/>
                         <outlet property="menuBtn" destination="JUv-7g-A4T" id="Hxa-mo-Q7v"/>
@@ -2697,7 +2727,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dLc-LT-DBu"/>
-        <segue reference="nso-CO-Kwj"/>
+        <segue reference="e6a-lV-JoV"/>
         <segue reference="zTJ-cW-96y"/>
         <segue reference="tob-Bw-JXB"/>
         <segue reference="RId-AX-Wvz"/>
