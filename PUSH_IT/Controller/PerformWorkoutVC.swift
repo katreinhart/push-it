@@ -165,6 +165,7 @@ class PerformWorkoutVC: UIViewController {
             }
             else {
                 getReadyView.isHidden = false
+                InputWorkoutView.isHidden = true
                 
                 // reset to first set of exercise
                 setIndex = 0

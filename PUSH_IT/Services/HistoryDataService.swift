@@ -88,6 +88,10 @@ class HistoryDataService {
         return returnValue
     }
     
+    func clearHistory() {
+        self.history = [Workout]()
+    }
+    
     func fetchHistory() {
         
         // re-instantiate history when fetching so it does not continue adding

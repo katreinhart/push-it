@@ -142,6 +142,10 @@ class WorkoutDataService {
         }
     }
     
+    func clearHistory() {
+        self.workouts = [Workout]()
+    }
+    
     func getWeightPlates(weight: Int) -> [Int] {
         var plates = [Int]()
         

@@ -47,7 +47,7 @@ class UserDataService {
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
             
-            let ex1 = responseData[0]["exercise"].string!
+            guard let ex1 = responseData[0]["exercise"].string else {return}
             let ex2 = responseData[1]["exercise"].string!
             
             let ds1 = responseData[0]["goal_date"].string
@@ -142,7 +142,7 @@ class UserDataService {
         expLevel = ""
         
         AuthService.instance.logUserOut()
-        WorkoutDataService.instance.workouts = [Workout]()
-        HistoryDataService.instance.history = [Workout]()
+        WorkoutDataService.instance.clearHistory()
+        HistoryDataService.instance.clearHistory()
     }
 }
