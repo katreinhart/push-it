@@ -21,15 +21,15 @@ class ExerciseDataService {
     func fetchExercisesFromServer() {
         
         Alamofire.request(FETCH_EXERCISES_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                self.exercises = [String]()
-                
-                guard let data = response.data else { return }
-                let json = JSON(data: data)
-                for item in json {
-                    let exName = item.1["ex_name"].stringValue
-                    self.exercises.append(exName)
-                }
+            if response.result.error != nil {return}
+            
+            self.exercises = [String]()
+            
+            guard let data = response.data else { return }
+            let json = JSON(data: data)
+            for item in json {
+                let exName = item.1["ex_name"].stringValue
+                self.exercises.append(exName)
             }
         }
     }

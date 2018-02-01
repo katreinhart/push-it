@@ -96,12 +96,10 @@ class HistoryDataService {
         dateFormatter.dateFormat = ISO_LONG_FORMAT
         
         Alamofire.request(HISTORY_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error != nil {
-                debugPrint("error fetching history")
-                return
-            }
             
-            guard let data = response.data else { return }
+            if response.result.error != nil {return}
+            guard let data = response.data else {return}
+            
             let json = JSON(data: data).array
             for item in json! {
                 let dateString = item["start_time"].stringValue

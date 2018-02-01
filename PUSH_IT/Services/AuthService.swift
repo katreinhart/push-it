@@ -73,19 +73,18 @@ class AuthService {
         ]
         
         Alamofire.request(REGISTER_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
-            
-            if response.result.error == nil {
-                guard let data = response.data else { return }
-                let json = JSON(data: data)
-                self.userEmail = json["email"].stringValue
-                self.authToken = json["token"].stringValue
-                
-                self.isLoggedIn = true
-                completion(true)
-            } else {
+            if response.result.error != nil {
                 debugPrint(response.result.error as Any)
                 completion(false)
+                return
             }
+            guard let data = response.data else { return }
+            let json = JSON(data: data)
+            self.userEmail = json["email"].stringValue
+            self.authToken = json["token"].stringValue
+            
+            self.isLoggedIn = true
+            completion(true)
         }
     }
     
@@ -99,17 +98,16 @@ class AuthService {
         
         Alamofire.request(LOGIN_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             debugPrint(response)
-            if response.result.error == nil {
-                guard let data = response.data else { return }
-                
-                self.setUserInfo(data: data)
-                
-                completion(true)
-                
-            } else {
-                completion(false)
+            
+            if response.result.error != nil {
                 debugPrint(response.result.error as Any)
+                completion(false)
+                return
             }
+            
+            guard let data = response.data else { return }
+            self.setUserInfo(data: data)
+            completion(true)
         }
     }
     
@@ -123,13 +121,15 @@ class AuthService {
         ]
         
         Alamofire.request(SET_INFO_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                guard let data = response.data else { return }
-                
-                self.setUserInfo(data: data)
-                
-                completion(true)
+            if response.result.error != nil {
+                completion(false)
+                return
             }
+            guard let data = response.data else { return }
+            
+            self.setUserInfo(data: data)
+                
+            completion(true)
         }
     }
     

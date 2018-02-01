@@ -36,16 +36,19 @@ class WorkoutDataService {
             "rating": 0,
             "comments": ""
             ] as [String : Any]
+        
         Alamofire.request(CREATE_WORKOUT_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                guard let data = response.data else { return }
-                let json = JSON(data: data)
-                guard let id = json["ID"].int else {return}
-                self.activeWorkoutID = id
-                let workout = Workout(exercises: [Exercise](), date: Date(), rating: 0, comments: "")
-                self.workouts.append(workout)
-                self.activeWorkout = workout
-            }
+            
+            if response.result.error != nil {return}
+            guard let data = response.data else { return }
+            
+            let json = JSON(data: data)
+            guard let id = json["ID"].int else {return}
+            
+            self.activeWorkoutID = id
+            let workout = Workout(exercises: [Exercise](), date: Date(), rating: 0, comments: "")
+            self.workouts.append(workout)
+            self.activeWorkout = workout
         }
     }
     
@@ -61,9 +64,7 @@ class WorkoutDataService {
         
         
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)/exercises", method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                debugPrint("exercise successfully added")
-            } else {
+            if response.result.error != nil {
                 debugPrint("something went wrong adding exercise")
             }
         }
@@ -84,9 +85,7 @@ class WorkoutDataService {
             ] as [String : Any]
         
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)/exercises/sets", method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                debugPrint("Successfully added set")
-            } else {
+            if response.result.error != nil {
                 debugPrint("Something went wrong adding set")
             }
         }
@@ -101,9 +100,7 @@ class WorkoutDataService {
         ] as [String: Any]
         
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)", method: .put, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                debugPrint("Workout successfully completed")
-            } else {
+            if response.result.error != nil {
                 debugPrint("Something went wrong completing workout")
             }
         }
@@ -121,9 +118,7 @@ class WorkoutDataService {
         
         debugPrint("completing workout number \(id), sending request")
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)", method: .patch, parameters: newBody, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                debugPrint("Workout timestamps successfully updated")
-            } else {
+            if response.result.error != nil {
                 debugPrint("Something went wrong updating timestamps")
             }
         }
@@ -141,10 +136,7 @@ class WorkoutDataService {
     
     func getSavedWorkouts() {
         Alamofire.request(SAVED_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                debugPrint("fetched saved workouts")
-                debugPrint(response.result)
-            } else {
+            if response.result.error != nil {
                 debugPrint("error fetching saved workouts")
             }
         }

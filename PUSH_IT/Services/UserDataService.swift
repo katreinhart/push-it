@@ -35,38 +35,37 @@ class UserDataService {
     func getSecondaryGoals(completion: @escaping CompletionHandler) {
         
         Alamofire.request(SECONDARY_GOALS_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                guard let data = response.data else { return }
-                let json = JSON(data: data)
-                let responseData = json["data"]
-                
-                let df = DateFormatter()
-                df.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                
-                let ex1 = responseData[0]["exercise"].string!
-                let ex2 = responseData[1]["exercise"].string!
-                
-                let ds1 = responseData[0]["goal_date"].string
-                let ds2 = responseData[1]["goal_date"].string
-                
-                guard let date1 = df.date(from: ds1!) else {return}
-                guard let date2 = df.date(from: ds2!) else {return}
-                
-                let gw1 = responseData[0]["goal_weight"].int64!
-                let gw2 = responseData[1]["goal_weight"].int64!
-                
-                let goal1 = Goal(exercise: ex1, weight: gw1, date: date1)
-                let goal2 = Goal(exercise: ex2, weight: gw2, date: date2)
-                
-                self.secondaryGoal1 = goal1
-                self.secondaryGoal2 = goal2
-                
-                completion(true)
-    
-            } else {
-                debugPrint("error retrieving goals")
+            if response.result.error != nil {
+                debugPrint("Something went wrong getting goals")
                 completion(false)
             }
+            
+            guard let data = response.data else { return }
+            let json = JSON(data: data)
+            let responseData = json["data"]
+            
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            
+            let ex1 = responseData[0]["exercise"].string!
+            let ex2 = responseData[1]["exercise"].string!
+            
+            let ds1 = responseData[0]["goal_date"].string
+            let ds2 = responseData[1]["goal_date"].string
+            
+            guard let date1 = df.date(from: ds1!) else {return}
+            guard let date2 = df.date(from: ds2!) else {return}
+            
+            let gw1 = responseData[0]["goal_weight"].int64!
+            let gw2 = responseData[1]["goal_weight"].int64!
+            
+            let goal1 = Goal(exercise: ex1, weight: gw1, date: date1)
+            let goal2 = Goal(exercise: ex2, weight: gw2, date: date2)
+            
+            self.secondaryGoal1 = goal1
+            self.secondaryGoal2 = goal2
+            
+            completion(true)
         }
     }
 
@@ -89,16 +88,17 @@ class UserDataService {
         ]
         
         Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                guard let data = response.data else { return }
-                
-                let json = JSON(data: data)
-                let message = json["message"]
-                if message == "Goals added successfully" {
-                    completion(true)
-                }
-            } else {
+            if response.result.error != nil {
+                debugPrint("Something went wrong updating goals")
                 completion(false)
+                return
+            }
+            guard let data = response.data else { return }
+            
+            let json = JSON(data: data)
+            let message = json["message"]
+            if message == "Goals added successfully" {
+                completion(true)
             }
         }
     }
@@ -124,14 +124,13 @@ class UserDataService {
             (response) in
             if response.result.error != nil {
                 completion(false)
-            } else {
-                guard let data = response.data else {return}
-                let json = JSON(data: data)
-                
-                let goal = json["goal"].stringValue
-                self.primaryGoal = goal
-                
+                return
             }
+            guard let data = response.data else {return}
+            let json = JSON(data: data)
+            
+            let goal = json["goal"].stringValue
+            self.primaryGoal = goal
         }
     }
     
