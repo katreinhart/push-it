@@ -19,6 +19,8 @@ class HistoryDataService {
     // history is an array of workout objects
     var history = [Workout]()
     
+    var saved = [Workout]()
+    
     // Boolean for displaying the calendar view
     func hasEventforDate(date: Date) -> Bool {
         // Compare short format date strings "mm/dd/yy" for equality, since we don't care about more granular lengths of time
@@ -86,6 +88,40 @@ class HistoryDataService {
         }
         
         return returnValue
+    }
+    
+    func fetchSavedWorkouts() {
+        // reset so it doesn't duplicate
+        self.saved = [Workout]()
+        debugPrint("fetching saved workouts")
+        // Make the request
+        Alamofire.request(SAVED_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            if response.result.error != nil {return}
+            guard let data = response.data else {return}
+            
+            let json = JSON(data: data).arrayValue
+            debugPrint(json)
+            for item in json {
+                debugPrint("in foreach")
+                let responseExercises = item["exercises"].array
+                if responseExercises == nil {continue}
+                let dateString = item["created"].stringValue
+                let date = DateFormatter.veryLongStringDateFormatter.date(from: dateString)
+                var newWorkout = Workout(exercises: [], date: date!, rating: 0, comments: "")
+                
+                debugPrint("made new workout")
+                for ex in responseExercises! {
+                    let exName = ex["exercise_name"].stringValue
+                    let goalWt = ex["goal_weight"].intValue
+                    let sets = ex["goal_sets"].intValue
+                    let reps = ex["goal_reps_per_set"].intValue
+                    let newExercise = Exercise(type: exName, goalWeight: goalWt, goalSets: sets, goalRepsPerSet: reps, sets: [])
+                    
+                    newWorkout.exercises.append(newExercise)
+                }
+                self.saved.append(newWorkout)
+            }
+        }
     }
     
     func clearHistory() {

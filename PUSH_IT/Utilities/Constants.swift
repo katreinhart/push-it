@@ -56,6 +56,8 @@ let SHOW_PROGRESS = "showProgressVC"
 let SHOW_PERSONAL_BESTS = "showPersonalBests"
 let BACK_TO_DASHBOARD = "workoutSavedReturnToDashboard"
 let SHOW_PLAN_WORKOUT = "showPlanWorkout"
+let TO_LOAD_WORKOUT = "toLoadWorkout"
+let PERFORM_SAVED_WORKOUT = "performSavedWorkout"
 
 // XIB and Cell Names
 let EXERCISE_TV_CELL = "ExerciseTVCell"
@@ -66,6 +68,7 @@ let HISTORY_ITEM_TV_CELL = "HistoryItemTVCell"
 let HISTORY_CELL = "historyCell"
 let PROGRESS_TV_CELL = "ProgressTVCell"
 let PERSONAL_BEST_TV_CELL = "PersonalBestTVCell"
+let LOAD_WORKOUT_TV_CELL = "LoadWorkoutTVCell"
 
 // User Defaults
 let TOKEN_KEY = "token"

@@ -21,7 +21,7 @@ class SaveWorkoutTVCell: UITableViewCell {
         
     }
     
-    @IBAction func AddExerciseBtnPressed(_ sender: SaveWorkoutTVCell) {
+    @IBAction func SaveWorkoutBtnPressed(_ sender: Any) {
         delegate?.didPressSaveWorkoutButton(self)
     }
 }
