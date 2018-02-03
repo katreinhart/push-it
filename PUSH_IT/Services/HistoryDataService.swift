@@ -138,7 +138,7 @@ class HistoryDataService {
                 
                 for set in responseSets! {
                     
-                    let exName = set["exercise"].stringValue
+                    let exName = set["exercise_name"].stringValue
                     let exIndex = newWorkout.exercises.index(where: { (item) -> Bool in
                         return (item.type == exName)
                     })
@@ -148,6 +148,7 @@ class HistoryDataService {
                     let repsAtt = set["reps_att"].intValue
                     let repsComp = set["reps_comp"].intValue
                     let weight = set["weight"].intValue
+                    debugPrint(weight)
                     let newSet = Set(weight: weight, repsCompleted: repsComp, repsAttempted: repsAtt)
                     
                     newWorkout.exercises[exIndex!].sets.append(newSet)
