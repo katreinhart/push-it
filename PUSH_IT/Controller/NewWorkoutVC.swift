@@ -24,6 +24,9 @@ class NewWorkoutVC: UIViewController {
         
     }
 
+    @IBAction func loadWorkoutBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: TO_LOAD_WORKOUT, sender: nil)
+    }
     @IBAction func newWorkoutBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: SHOW_START_NEW_WORKOUT_VC , sender: nil)
     }

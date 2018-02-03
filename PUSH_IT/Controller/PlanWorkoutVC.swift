@@ -99,8 +99,11 @@ class PlanWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     // Custom delegate methods
     func didPressSaveWorkoutButton(_ sender: SaveWorkoutTVCell) {
+        if WorkoutDataService.instance.activeWorkout == nil || WorkoutDataService.instance.activeWorkout!.exercises.count == 0 {
+            return
+        }
         WorkoutDataService.instance.markWorkoutSaved()
-        self.performSegue(withIdentifier: BACK_TO_DASHBOARD, sender: nil)
+        self.performSegue(withIdentifier: BACK_TO_DASHBOARD, sender: self)
     }
     
     func didPressSaveBtn(_ sender: NewExerciseTVCell, exercise: Exercise) {

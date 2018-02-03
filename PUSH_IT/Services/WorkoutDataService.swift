@@ -58,6 +58,7 @@ class WorkoutDataService {
         
         let body = [
             "exercise_name": exercise.type,
+            "goal_weight": exercise.goalWeight,
             "goal_sets": exercise.goalSets,
             "goal_reps": exercise.goalRepsPerSet
             ] as [String : Any]
@@ -66,6 +67,8 @@ class WorkoutDataService {
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)/exercises", method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error != nil {
                 debugPrint("something went wrong adding exercise")
+            } else {
+                debugPrint("added exercise to workout")
             }
         }
     }
@@ -144,6 +147,12 @@ class WorkoutDataService {
     
     func clearHistory() {
         self.workouts = [Workout]()
+    }
+    
+    func setActiveWorkout(workout: Workout) {
+        self.activeWorkout = workout
+        self.workouts.append(workout)
+        self.activeWorkoutID = workouts.count - 1
     }
     
     func getWeightPlates(weight: Int) -> [Int] {

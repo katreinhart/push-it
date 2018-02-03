@@ -42,6 +42,9 @@
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <state key="normal" title="Save Workout"/>
+                        <connections>
+                            <action selector="SaveWorkoutBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZA2-hA-vb2"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

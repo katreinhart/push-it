@@ -34,6 +34,7 @@ class DashboardVC: UIViewController {
         
         ExerciseDataService.instance.fetchExercisesFromServer()
         HistoryDataService.instance.fetchHistory()
+        HistoryDataService.instance.fetchSavedWorkouts()
         
         UserDataService.instance.getUserPrimaryGoal { (success) in
             if !success {
