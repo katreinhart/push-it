@@ -10,20 +10,19 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-// HistoryDataService handles the history functions fetching from API.
+// HistoryDataService handles the history and saved workout functions fetching from API.
 class HistoryDataService {
     
     // HistoryDataService is a singleton class, so set the instance.
     static let instance = HistoryDataService()
     
-    // history is an array of workout objects
+    // history and saved are arrays of workout objects
     var history = [Workout]()
-    
     var saved = [Workout]()
     
     // Boolean for displaying the calendar view
     func hasEventforDate(date: Date) -> Bool {
-        // Compare short format date strings "mm/dd/yy" for equality, since we don't care about more granular lengths of time
+        // Compare short format date strings "mm/dd/yy" for equality, since we don't care about more granular units of time
         
         let stringDate = DateFormatter.shortStringDateFormatter.string(from: date)
         for item in history {
