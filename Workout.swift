@@ -10,6 +10,7 @@ import Foundation
 
 struct Workout {
     var exercises: [Exercise]
+    var id: Int
     var date: Date
     var rating: Int
     var comments: String?

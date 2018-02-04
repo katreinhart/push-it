@@ -46,7 +46,7 @@ class WorkoutDataService {
             guard let id = json["ID"].int else {return}
             
             self.activeWorkoutID = id
-            let workout = Workout(exercises: [Exercise](), date: Date(), rating: 0, comments: "")
+            let workout = Workout(exercises: [Exercise](), id: id, date: Date(), rating: 0, comments: "")
             self.workouts.append(workout)
             self.activeWorkout = workout
         }
@@ -67,9 +67,7 @@ class WorkoutDataService {
         Alamofire.request("\(BASE_URL)/api/workouts/\(id)/exercises", method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error != nil {
                 debugPrint("something went wrong adding exercise")
-            } else {
-                debugPrint("added exercise to workout")
-            }
+            } 
         }
     }
     
@@ -152,7 +150,7 @@ class WorkoutDataService {
     func setActiveWorkout(workout: Workout) {
         self.activeWorkout = workout
         self.workouts.append(workout)
-        self.activeWorkoutID = workouts.count - 1
+        self.activeWorkoutID = workout.id
     }
     
     func getWeightPlates(weight: Int) -> [Int] {

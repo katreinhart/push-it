@@ -147,7 +147,6 @@ class AuthService {
         self.userEmail = email
         self.id = Int(id)!
         
-        debugPrint("User \(id) is logged in")
         
         UserDataService.instance.setUserDataOnLogin(id: id, email: email, name: name, primaryGoal: primaryGoal, expLevel: expLevel)
         
@@ -159,8 +158,5 @@ class AuthService {
         authToken = ""
         id = 0
         debugPrint("user logged out")
-        if defaults.bool(forKey: LOGGED_IN_KEY) {
-            debugPrint("what the hell")
-        }
     }
 }

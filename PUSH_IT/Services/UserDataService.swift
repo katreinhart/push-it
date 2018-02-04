@@ -96,8 +96,8 @@ class UserDataService {
             guard let data = response.data else { return }
             
             let json = JSON(data: data)
-            let message = json["message"]
-            if message == "Goals added successfully" {
+            let goals = json["goals"]
+            if goals != JSON.null {
                 completion(true)
             }
         }
@@ -113,7 +113,6 @@ class UserDataService {
         Alamofire.request(PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
             (response) in
             if response.result.error != nil {
-                debugPrint("something went wrong updating primary goal")
                 completion(false)
             }
         }

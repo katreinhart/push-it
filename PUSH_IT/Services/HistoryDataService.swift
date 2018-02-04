@@ -93,23 +93,21 @@ class HistoryDataService {
     func fetchSavedWorkouts() {
         // reset so it doesn't duplicate
         self.saved = [Workout]()
-        debugPrint("fetching saved workouts")
         // Make the request
         Alamofire.request(SAVED_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error != nil {return}
             guard let data = response.data else {return}
             
             let json = JSON(data: data).arrayValue
-            debugPrint(json)
+            
             for item in json {
-                debugPrint("in foreach")
                 let responseExercises = item["exercises"].array
                 if responseExercises == nil {continue}
                 let dateString = item["created"].stringValue
                 let date = DateFormatter.veryLongStringDateFormatter.date(from: dateString)
-                var newWorkout = Workout(exercises: [], date: date!, rating: 0, comments: "")
+                let id = item["workout_id"].intValue
+                var newWorkout = Workout(exercises: [], id: id, date: date!, rating: 0, comments: "")
                 
-                debugPrint("made new workout")
                 for ex in responseExercises! {
                     let exName = ex["exercise_name"].stringValue
                     let goalWt = ex["goal_weight"].intValue
@@ -126,6 +124,7 @@ class HistoryDataService {
     
     func clearHistory() {
         self.history = [Workout]()
+        self.saved = [Workout]()
     }
     
     func fetchHistory() {
@@ -151,9 +150,10 @@ class HistoryDataService {
                 // parse rating and comments from JSON
                 let rating = item["rating"].int
                 let comments = item["comments"].stringValue
+                let id = item["workout_id"].intValue
                 
                 // create new workout object
-                var newWorkout = Workout(exercises: [], date: date!, rating: rating!, comments: comments)
+                var newWorkout = Workout(exercises: [], id: id, date: date!, rating: rating!, comments: comments)
                 
                 // parse exercises and sets from JSON
                 let responseExercises = item["exercises"].array
@@ -184,7 +184,7 @@ class HistoryDataService {
                     let repsAtt = set["reps_att"].intValue
                     let repsComp = set["reps_comp"].intValue
                     let weight = set["weight"].intValue
-                    debugPrint(weight)
+                    
                     let newSet = Set(weight: weight, repsCompleted: repsComp, repsAttempted: repsAtt)
                     
                     newWorkout.exercises[exIndex!].sets.append(newSet)
