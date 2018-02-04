@@ -400,10 +400,10 @@
             </objects>
             <point key="canvasLocation" x="-290.39999999999998" y="606.74662668665667"/>
         </scene>
-        <!--showSWRevealFromOnboarding-->
+        <!--OnboardingVC-->
         <scene sceneID="93u-YK-OYm">
             <objects>
-                <viewController title="showSWRevealFromOnboarding" id="fvv-AX-G2b" customClass="OnboardingVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="OnboardingVC" id="fvv-AX-G2b" customClass="OnboardingVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5oZ-gy-DlZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -617,10 +617,10 @@
             </objects>
             <point key="canvasLocation" x="692" y="-454"/>
         </scene>
-        <!--GoalsVC-->
+        <!--DashboardVC-->
         <scene sceneID="sv9-29-hCH">
             <objects>
-                <viewController storyboardIdentifier="Dashboard" title="GoalsVC" id="7bo-Jd-GdI" customClass="DashboardVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Dashboard" title="DashboardVC" id="7bo-Jd-GdI" customClass="DashboardVC" customModule="PUSH_IT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="byZ-Oe-t6G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -653,7 +653,7 @@
                                                 <state key="normal" title="Workout Now!"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="9"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -671,7 +671,7 @@
                                                 <state key="normal" title="Plan a Workout"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -689,7 +689,7 @@
                                                 <state key="normal" title="History"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -707,7 +707,7 @@
                                                 <state key="normal" title="Goals"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -816,7 +816,7 @@
                                                 <state key="normal" title="New Workout"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -834,7 +834,7 @@
                                                 <state key="normal" title="Load Workout"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -1067,16 +1067,21 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gqm-IG-TQQ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gqm-IG-TQQ" customClass="RoundedButton" customModule="PUSH_IT" customModuleProvider="target">
                                                 <rect key="frame" x="63" y="223" width="250" height="39"/>
                                                 <color key="backgroundColor" red="0.14901960780000001" green="0.30196078430000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="XZy-50-bnz"/>
                                                     <constraint firstAttribute="height" constant="39" id="ZnE-lI-qx0"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="nextBtnPressed:" destination="xXe-bF-rzz" eventType="touchUpInside" id="B98-b8-yGi"/>
                                                 </connections>
@@ -1157,16 +1162,21 @@
                                                     <constraint firstAttribute="height" constant="75" id="Def-6t-4YR"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQZ-9r-dmV">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQZ-9r-dmV" customClass="RoundedButton" customModule="PUSH_IT" customModuleProvider="target">
                                                 <rect key="frame" x="62" y="356" width="250" height="42"/>
                                                 <color key="backgroundColor" red="0.14901960780000001" green="0.30196078430000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="iFb-bR-Amd"/>
                                                     <constraint firstAttribute="height" constant="42" id="whr-jG-Wmj"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Go!"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="GoBtnPressed:" destination="xXe-bF-rzz" eventType="touchUpInside" id="JIf-U8-PmL"/>
                                                 </connections>
@@ -1286,7 +1296,7 @@
                                                         <state key="normal" title="Done!"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="3"/>
+                                                                <real key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
@@ -1626,7 +1636,7 @@
                                         <state key="normal" title="Edit Goals"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="6"/>
+                                                <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -2006,7 +2016,7 @@
                                         <state key="normal" title="Save Goals"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="6"/>
+                                                <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -2813,13 +2823,13 @@
         <image name="pexels-photo-703014" width="5184" height="3456"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e6a-lV-JoV"/>
-        <segue reference="zTJ-cW-96y"/>
-        <segue reference="tob-Bw-JXB"/>
+        <segue reference="N7W-wl-8C7"/>
+        <segue reference="KUT-Dz-Bs0"/>
+        <segue reference="jNH-LZ-V24"/>
         <segue reference="Wcj-Vc-wEK"/>
-        <segue reference="RId-AX-Wvz"/>
-        <segue reference="Fij-fs-pB9"/>
-        <segue reference="CaC-mH-2Zf"/>
-        <segue reference="QSp-BC-tgV"/>
+        <segue reference="bV5-YU-lYX"/>
+        <segue reference="TdR-xf-2e7"/>
+        <segue reference="06S-at-Nbd"/>
+        <segue reference="9ii-9g-hg6"/>
     </inferredMetricsTieBreakers>
 </document>

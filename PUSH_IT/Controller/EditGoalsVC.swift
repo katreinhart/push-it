@@ -13,6 +13,7 @@ class EditGoalsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 
     // Outlets
     @IBOutlet weak var menuBtn: UIButton!
+    
     @IBOutlet weak var primaryGoalTxt: UITextField!
     @IBOutlet weak var sg1ExerciseTxt: UILabel!
     @IBOutlet weak var sg2ExerciseTxt: UILabel!
@@ -189,8 +190,24 @@ class EditGoalsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     
     // Save Button Pressed
     @IBAction func saveGoalsBtn(_ sender: Any) {
-        let sg1 = Goal(exercise: sg1Exercise!, weight: Int64(sg1Wt!)!, date: sg1Date!)
-        let sg2 = Goal(exercise: sg2Exercise!, weight: Int64(sg2Wt!)!, date: sg2Date!)
+        
+        // check to make sure all necessary variables have values
+        if primaryGoal == "" {return}
+        if sg1Exercise == nil {return}
+        if sg2Exercise == nil {return}
+        if sg1Wt == nil {return}
+        if sg2Wt == nil {return}
+        if sg1Date == nil {return}
+        if sg2Date == nil {return}
+        
+        // make sure values in weights are convertible to int64
+        guard let sg1WtInt = Int64(sg1Wt!) else {return}
+        guard let sg2WtInt = Int64(sg2Wt!) else {return}
+        
+        // create goals out of necessary variables
+        let sg1 = Goal(exercise: sg1Exercise!, weight: sg1WtInt, date: sg1Date!)
+        let sg2 = Goal(exercise: sg2Exercise!, weight: sg2WtInt, date: sg2Date!)
+        
         UserDataService.instance.setSecondaryGoals(sg1: (sg1), sg2: sg2) {
             (success) in
             if success {

@@ -41,9 +41,9 @@ class LoadWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let cell = Bundle.main.loadNibNamed(LOAD_WORKOUT_TV_CELL, owner: self, options: nil)?.first as! LoadWorkoutTVCell
         let dateString = DateFormatter.medStringDateFormatter.string(from: workout.date)
         cell.dateLbl.text = dateString
-        cell.ex1Lbl.text = workout.exercises[0].type
-        cell.ex2Lbl.text = workout.exercises.count > 1 ? workout.exercises[1].type : ""
-        cell.ex3Lbl.text = workout.exercises.count > 2 ? workout.exercises[2].type : ""
+        cell.ex1Lbl.text = "\(workout.exercises[0].type) @ \(workout.exercises[0].goalWeight)"
+        cell.ex2Lbl.text = workout.exercises.count > 1 ? "\(workout.exercises[1].type) @ \(workout.exercises[1].goalWeight)" : ""
+        cell.ex3Lbl.text = workout.exercises.count > 2 ? "\(workout.exercises[2].type) @ \(workout.exercises[2].goalWeight)" : ""
         
         return cell
     }

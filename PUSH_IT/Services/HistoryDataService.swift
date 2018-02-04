@@ -103,6 +103,7 @@ class HistoryDataService {
                 let responseExercises = item["exercises"].array
                 if responseExercises == nil {continue}
                 let dateString = item["created"].stringValue
+                debugPrint(dateString)
                 let date = DateFormatter.veryLongStringDateFormatter.date(from: dateString)
                 let id = item["workout_id"].intValue
                 var newWorkout = Workout(exercises: [], id: id, date: date!, rating: 0, comments: "")

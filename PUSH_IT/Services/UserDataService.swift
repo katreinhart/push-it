@@ -71,8 +71,8 @@ class UserDataService {
 
     func setSecondaryGoals(sg1: Goal, sg2: Goal, completion: @escaping CompletionHandler) {
         
-        self.secondaryGoal1! = sg1
-        self.secondaryGoal2! = sg2
+        self.secondaryGoal1 = sg1
+        self.secondaryGoal2 = sg2
         
         let body: [String: [String: Any]] = [
             "goal1": [
