@@ -14,6 +14,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    
     // Variables
     var exercises = WorkoutDataService.instance.activeWorkout?.exercises
     
@@ -51,6 +52,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.selectionStyle = .none
             
             return cell
+            
         } else if section == 1 {
             let cell = Bundle.main.loadNibNamed(NEW_EX_TV_CELL, owner: self, options: nil)?.first as! NewExerciseTVCell
             cell.selectionStyle = .none
@@ -126,7 +128,7 @@ class BuildWorkoutVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Keyboard slide up and down functions
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if exercises != nil, exercises!.count > 0, let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
                 self.view.frame.origin.y -= keyboardSize.height
             }

@@ -70,16 +70,16 @@ class PlanWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             cell.weightLbl.text = String(exercises![indexPath.row].goalWeight)
             cell.repsLbl.text = String(exercises![indexPath.row].goalRepsPerSet)
             cell.setsLbl.text = String(exercises![indexPath.row].goalSets)
-            
+            cell.selectionStyle = .none
             return cell
         } else if section == 1 {
             let cell = Bundle.main.loadNibNamed(NEW_EX_TV_CELL, owner: self, options: nil)?.first as! NewExerciseTVCell
-            
+            cell.selectionStyle = .none
             cell.delegate = self
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed(SAVE_TV_CELL, owner: self, options: nil)?.first as! SaveWorkoutTVCell
-            
+            cell.selectionStyle = .none
             cell.delegate = self
             return cell
         }
@@ -119,7 +119,7 @@ class PlanWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     // Keyboard slide up and down functions
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if exercises != nil, exercises!.count > 0, let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
                 self.view.frame.origin.y -= keyboardSize.height
             }
