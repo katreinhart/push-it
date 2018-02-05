@@ -86,7 +86,7 @@ class UserDataService {
                 "exercise": sg2.exercise
             ]
         ]
-        
+        debugPrint(body)
         Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error != nil {
                 debugPrint("Something went wrong updating goals")
