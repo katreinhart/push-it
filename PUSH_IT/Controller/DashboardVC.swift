@@ -24,7 +24,6 @@ class DashboardVC: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
         username = UserDataService.instance.name
-        // TODO: persist user name in userdefaults (via auth service?)
         
         if username == "" {
             greeting.text = "Hello!"

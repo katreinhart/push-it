@@ -146,8 +146,7 @@ class AuthService {
         self.isLoggedIn = true
         self.userEmail = email
         self.id = Int(id)!
-        
-        
+        self.name = name
         UserDataService.instance.setUserDataOnLogin(id: id, email: email, name: name, primaryGoal: primaryGoal, expLevel: expLevel)
         
     }
