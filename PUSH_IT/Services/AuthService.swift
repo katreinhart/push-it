@@ -78,11 +78,15 @@ class AuthService {
                 completion(false)
                 return
             }
-            guard let data = response.data else { return }
+            guard let data = response.data else {
+                completion(false)
+                return
+            }
+            
             let json = JSON(data: data)
             self.userEmail = json["email"].stringValue
             self.authToken = json["token"].stringValue
-            
+            debugPrint(self.authToken)
             self.isLoggedIn = true
             completion(true)
         }
@@ -122,6 +126,7 @@ class AuthService {
         
         Alamofire.request(SET_INFO_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error != nil {
+                debugPrint(response.result)
                 completion(false)
                 return
             }

@@ -82,6 +82,7 @@ let HEADER = [
     "Content-Type": "application/json; charset=utf-8"
 ]
 
+// BUG: This string is interpolated at compile time, so if the user logs out and a new user logs back in, it will still reflect the old user's authToken. 🤔
 let BEARER_HEADER = [
     "authorization": "Bearer \(AuthService.instance.authToken)",
     "Content-Type": "application/json; charset=utf-8"
