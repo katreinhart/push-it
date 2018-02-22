@@ -120,7 +120,9 @@ class AuthService {
             "goal": goal
         ]
         
-        Alamofire.request(SET_INFO_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+        let header = self.bearerHeader()
+        
+        Alamofire.request(SET_INFO_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error != nil {
                 completion(false)
                 return
@@ -157,5 +159,13 @@ class AuthService {
         authToken = ""
         id = 0
         debugPrint("user logged out")
+    }
+    
+    func bearerHeader() -> Dictionary<String, String>  {
+        return [
+            "authorization": "Bearer \(self.authToken)",
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
     }
 }

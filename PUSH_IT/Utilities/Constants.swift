@@ -82,8 +82,8 @@ let HEADER = [
     "Content-Type": "application/json; charset=utf-8"
 ]
 
-let BEARER_HEADER = [
-    "authorization": "Bearer \(AuthService.instance.authToken)",
-    "Content-Type": "application/json; charset=utf-8"
-]
+//let BEARER_HEADER = [
+//    "authorization": "Bearer \(AuthService.instance.authToken)",
+//    "Content-Type": "application/json; charset=utf-8"
+//]
 

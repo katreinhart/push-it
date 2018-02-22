@@ -93,7 +93,9 @@ class HistoryDataService {
         // reset so it doesn't duplicate
         self.saved = [Workout]()
         // Make the request
-        Alamofire.request(SAVED_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+        let header = AuthService.instance.bearerHeader()
+        
+        Alamofire.request(SAVED_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error != nil {return}
             guard let data = response.data else {return}
             
@@ -134,11 +136,16 @@ class HistoryDataService {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = ISO_LONG_FORMAT
         
-        Alamofire.request(HISTORY_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+        let header = AuthService.instance.bearerHeader()
+        
+        Alamofire.request(HISTORY_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             
-            if response.result.error != nil {return}
+            if response.result.error != nil {
+                debugPrint("error with fetch")
+                return
+            }
             guard let data = response.data else {return}
-            
+            debugPrint("history fetch")
             let json = JSON(data: data).array
             for item in json! {
                 let dateString = item["start_time"].stringValue
@@ -198,6 +205,7 @@ class HistoryDataService {
             self.history.sort(by: { (workout1, workout2) -> Bool in
                 workout1.date > workout2.date
             })
+            debugPrint(self.history)
         }
     }
 }

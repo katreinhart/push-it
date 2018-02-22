@@ -33,8 +33,8 @@ class UserDataService {
     }
     
     func getSecondaryGoals(completion: @escaping CompletionHandler) {
-        
-        Alamofire.request(SECONDARY_GOALS_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+        let header = AuthService.instance.bearerHeader()
+        Alamofire.request(SECONDARY_GOALS_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error != nil {
                 debugPrint("Something went wrong getting goals")
                 completion(false)
@@ -86,8 +86,10 @@ class UserDataService {
                 "exercise": sg2.exercise
             ]
         ]
-        debugPrint(body)
-        Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+        
+        let header = AuthService.instance.bearerHeader()
+//        debugPrint(body)
+        Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error != nil {
                 debugPrint("Something went wrong updating goals")
                 completion(false)
@@ -110,7 +112,9 @@ class UserDataService {
             "goal": goal
         ]
         
-        Alamofire.request(PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
+        let header = AuthService.instance.bearerHeader()
+        
+        Alamofire.request(PRIMARY_GOAL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON {
             (response) in
             if response.result.error != nil {
                 completion(false)
@@ -119,7 +123,8 @@ class UserDataService {
     }
     
     func getUserPrimaryGoal(completion: @escaping CompletionHandler) {
-        Alamofire.request(PRIMARY_GOAL_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON {
+        let header = AuthService.instance.bearerHeader()
+        Alamofire.request(PRIMARY_GOAL_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON {
             (response) in
             if response.result.error != nil {
                 completion(false)

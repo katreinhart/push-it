@@ -19,8 +19,8 @@ class ExerciseDataService {
     public private(set) var exercises: [String] = []
     
     func fetchExercisesFromServer() {
-        
-        Alamofire.request(FETCH_EXERCISES_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+        let header = AuthService.instance.bearerHeader()
+        Alamofire.request(FETCH_EXERCISES_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error != nil {return}
             
             self.exercises = [String]()
