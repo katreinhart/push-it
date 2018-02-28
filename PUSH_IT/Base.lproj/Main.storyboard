@@ -133,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1210" y="46"/>
+            <point key="canvasLocation" x="-2466" y="30"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="g7N-mp-ek1">
@@ -260,7 +260,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDA-hJ-OW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zaG-xt-ZH6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-290.39999999999998" y="-453.82308845577217"/>
+            <point key="canvasLocation" x="-1244" y="-455"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="O9W-Ek-Hob">
@@ -398,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSK-Hu-FgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-290.39999999999998" y="606.74662668665667"/>
+            <point key="canvasLocation" x="-1244" y="621"/>
         </scene>
         <!--OnboardingVC-->
         <scene sceneID="93u-YK-OYm">
@@ -615,7 +615,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Veg-BR-b47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692" y="-454"/>
+            <point key="canvasLocation" x="641" y="-776"/>
         </scene>
         <!--DashboardVC-->
         <scene sceneID="sv9-29-hCH">
@@ -730,6 +730,11 @@
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Wn-xm-cKG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.7725490196" green="0.81176470590000005" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -761,6 +766,7 @@
                     </view>
                     <connections>
                         <outlet property="greeting" destination="Yst-uL-xje" id="ipD-8x-VCe"/>
+                        <outlet property="loadingView" destination="4Wn-xm-cKG" id="Osy-di-Yy2"/>
                         <outlet property="menuBtn" destination="Lct-ev-pe9" id="dbr-wx-0N4"/>
                         <segue destination="U0E-lJ-K0X" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSeguePushController" id="zTJ-cW-96y"/>
                         <segue destination="JdB-GF-5U0" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="RId-AX-Wvz"/>
@@ -2823,13 +2829,13 @@
         <image name="pexels-photo-703014" width="5184" height="3456"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N7W-wl-8C7"/>
-        <segue reference="KUT-Dz-Bs0"/>
-        <segue reference="jNH-LZ-V24"/>
+        <segue reference="e6a-lV-JoV"/>
+        <segue reference="zTJ-cW-96y"/>
+        <segue reference="tob-Bw-JXB"/>
         <segue reference="Wcj-Vc-wEK"/>
-        <segue reference="bV5-YU-lYX"/>
-        <segue reference="TdR-xf-2e7"/>
-        <segue reference="06S-at-Nbd"/>
-        <segue reference="9ii-9g-hg6"/>
+        <segue reference="RId-AX-Wvz"/>
+        <segue reference="rvF-yG-foN"/>
+        <segue reference="CaC-mH-2Zf"/>
+        <segue reference="QSp-BC-tgV"/>
     </inferredMetricsTieBreakers>
 </document>

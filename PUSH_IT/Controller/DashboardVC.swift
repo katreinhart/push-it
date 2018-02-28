@@ -11,13 +11,22 @@ import UIKit
 class DashboardVC: UIViewController {
     @IBOutlet weak var greeting: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
- 
+    @IBOutlet weak var loadingView: UIView!
+
+    var completePercent = 0
     
     var username = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        guard let loadingScreen = Bundle.main.loadNibNamed(LOAD_SCREEN, owner: self, options: nil)!.first as? LoadingScreen else { return }
+
+        loadingView.addSubview(loadingScreen)
+        loadingScreen.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":loadingScreen]))
+        loadingView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":loadingScreen]))
+
         // menu button 
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -31,9 +40,32 @@ class DashboardVC: UIViewController {
             greeting.text = "Hi, \(username)!"
         }
         
-        ExerciseDataService.instance.fetchExercisesFromServer()
-        HistoryDataService.instance.fetchHistory()
-        HistoryDataService.instance.fetchSavedWorkouts()
+        ExerciseDataService.instance.fetchExercisesFromServer { (success) in
+            if !success {
+                debugPrint("error fetching exercises from server")
+            } else {
+                self.completePercent += 33
+                self.updateProgressBar(pb: loadingScreen.progressBar)
+            }
+        }
+
+        HistoryDataService.instance.fetchHistory { (success) in
+            if !success {
+                debugPrint("error fetching history from server")
+            } else {
+                self.completePercent += 33
+                self.updateProgressBar(pb: loadingScreen.progressBar)
+            }
+        }
+
+        HistoryDataService.instance.fetchSavedWorkouts { (success) in
+            if !success {
+                debugPrint("error fetching saved workouts from server")
+            } else {
+                self.completePercent += 34
+                self.updateProgressBar(pb: loadingScreen.progressBar)
+            }
+        }
         
         UserDataService.instance.getUserPrimaryGoal { (success) in
             if !success {
@@ -74,5 +106,11 @@ class DashboardVC: UIViewController {
         addChildViewController(newGoalsVC!)
         self.revealViewController().pushFrontViewController(newGoalsVC, animated: true)
     }
-    
+
+    func updateProgressBar(pb: UIProgressView) {
+        pb.progress = Float(self.completePercent / 100)
+        if(pb.progress == 1) {
+            self.loadingView.isHidden = true
+        }
+    }
 }

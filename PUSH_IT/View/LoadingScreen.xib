@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Heavy</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoadingScreen" customModule="PUSH_IT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOg-VU-IDU">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pexels-photo-703014" translatesAutoresizingMaskIntoConstraints="NO" id="MbI-Nf-Lkp">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH_IT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0C-v8-o1A">
+                            <rect key="frame" x="70" y="295" width="235" height="76"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="76" id="0xx-eB-VHm"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="76" id="JzH-qp-HRq"/>
+                                <constraint firstAttribute="width" constant="235" id="eKw-g0-jS9"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="248" id="nuq-Sr-mS4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="54"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pick up stuff that's heavy and put it back down again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60u-F9-nGt">
+                            <rect key="frame" x="20" y="569" width="335" height="76"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="76" id="37z-5P-HI5"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="340" id="D5n-9m-zQV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUV-Qd-B7Y">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <subviews>
+                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JwQ-PG-gK1">
+                                    <rect key="frame" x="50" y="482.5" width="275" height="2"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="275" id="XiO-vt-7pa"/>
+                                    </constraints>
+                                </progressView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="JwQ-PG-gK1" firstAttribute="centerY" secondItem="AUV-Qd-B7Y" secondAttribute="centerY" constant="150" id="Ac7-DP-SM3"/>
+                                <constraint firstItem="JwQ-PG-gK1" firstAttribute="centerX" secondItem="AUV-Qd-B7Y" secondAttribute="centerX" id="g0Y-Eg-hYi"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="AUV-Qd-B7Y" firstAttribute="trailing" secondItem="MbI-Nf-Lkp" secondAttribute="trailing" id="0qR-Ic-Pru"/>
+                        <constraint firstItem="AUV-Qd-B7Y" firstAttribute="top" secondItem="MbI-Nf-Lkp" secondAttribute="top" id="30h-q6-M0K"/>
+                        <constraint firstAttribute="bottom" secondItem="60u-F9-nGt" secondAttribute="bottom" constant="22" id="DIt-Fi-K45"/>
+                        <constraint firstItem="60u-F9-nGt" firstAttribute="centerX" secondItem="vOg-VU-IDU" secondAttribute="centerX" id="FhU-cD-amJ"/>
+                        <constraint firstAttribute="trailing" secondItem="AUV-Qd-B7Y" secondAttribute="trailing" id="Hzt-2s-K1X"/>
+                        <constraint firstItem="AUV-Qd-B7Y" firstAttribute="leading" secondItem="MbI-Nf-Lkp" secondAttribute="leading" id="Kgd-v8-KC9"/>
+                        <constraint firstItem="C0C-v8-o1A" firstAttribute="centerX" secondItem="vOg-VU-IDU" secondAttribute="centerX" id="QJe-ma-Cb9"/>
+                        <constraint firstItem="AUV-Qd-B7Y" firstAttribute="top" secondItem="vOg-VU-IDU" secondAttribute="top" id="jeM-Bh-jeA"/>
+                        <constraint firstAttribute="bottom" secondItem="AUV-Qd-B7Y" secondAttribute="bottom" id="naP-dn-kIr"/>
+                        <constraint firstItem="AUV-Qd-B7Y" firstAttribute="leading" secondItem="Lvt-yg-s7o" secondAttribute="leading" id="q62-3b-spH"/>
+                        <constraint firstItem="C0C-v8-o1A" firstAttribute="centerY" secondItem="vOg-VU-IDU" secondAttribute="centerY" id="vgY-0S-eM0"/>
+                        <constraint firstItem="AUV-Qd-B7Y" firstAttribute="bottom" secondItem="MbI-Nf-Lkp" secondAttribute="bottom" id="vmx-V5-fJv"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Lvt-yg-s7o"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vOg-VU-IDU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1Tg-69-Z5t"/>
+                <constraint firstAttribute="trailing" secondItem="vOg-VU-IDU" secondAttribute="trailing" id="GT6-NN-zrn"/>
+                <constraint firstItem="vOg-VU-IDU" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="fm9-zw-WbT"/>
+                <constraint firstItem="vOg-VU-IDU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="h6r-zZ-ZYa"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="progressBar" destination="JwQ-PG-gK1" id="d1L-M4-Lkl"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pexels-photo-703014" width="5184" height="3456"/>
+    </resources>
+</document>

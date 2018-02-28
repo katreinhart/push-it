@@ -60,6 +60,8 @@
 		46F7DB24201BDE310082374D /* PersonalBestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7DB23201BDE310082374D /* PersonalBestsVC.swift */; };
 		46F7DB27201BE1590082374D /* PersonalBestTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F7DB25201BE1590082374D /* PersonalBestTVCell.swift */; };
 		46F7DB28201BE1590082374D /* PersonalBestTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46F7DB26201BE1590082374D /* PersonalBestTVCell.xib */; };
+		A726A7F62047358C00B6794F /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726A7F52047358C00B6794F /* LoadingScreen.swift */; };
+		A726A7F8204735B600B6794F /* LoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A726A7F7204735B600B6794F /* LoadingScreen.xib */; };
 		B6069BBFA4BD94A98B17FAE2 /* Pods_PUSH_IT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FFC952A66998C4F5FCD90E /* Pods_PUSH_IT.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +147,8 @@
 		46F7DB25201BE1590082374D /* PersonalBestTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBestTVCell.swift; sourceTree = "<group>"; };
 		46F7DB26201BE1590082374D /* PersonalBestTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalBestTVCell.xib; sourceTree = "<group>"; };
 		57FB22A2EBEF7CC71BCCFD73 /* Pods-PUSH_IT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PUSH_IT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PUSH_IT/Pods-PUSH_IT.debug.xcconfig"; sourceTree = "<group>"; };
+		A726A7F52047358C00B6794F /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		A726A7F7204735B600B6794F /* LoadingScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,8 @@
 				46B219E720222CBD002D3355 /* PlateGraphicsView.swift */,
 				4616CC992026705200629EEE /* LoadWorkoutTVCell.swift */,
 				4616CC9A2026705200629EEE /* LoadWorkoutTVCell.xib */,
+				A726A7F52047358C00B6794F /* LoadingScreen.swift */,
+				A726A7F7204735B600B6794F /* LoadingScreen.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				46E54825201161D800536426 /* LaunchScreen.storyboard in Resources */,
 				46E54822201161D800536426 /* Assets.xcassets in Resources */,
 				46F7DB22201BB1340082374D /* ProgressTVCell.xib in Resources */,
+				A726A7F8204735B600B6794F /* LoadingScreen.xib in Resources */,
 				46B219E620214B46002D3355 /* SaveWorkoutTVCell.xib in Resources */,
 				4616CC9C2026705200629EEE /* LoadWorkoutTVCell.xib in Resources */,
 				46778E8420179F96001D7FE0 /* NewExerciseTVCell.xib in Resources */,
@@ -571,6 +578,7 @@
 				46778E8C2017D19E001D7FE0 /* Workout.swift in Sources */,
 				46778E8320179F96001D7FE0 /* NewExerciseTVCell.swift in Sources */,
 				461A4BE820194D3A00C67A24 /* HistoryVC.swift in Sources */,
+				A726A7F62047358C00B6794F /* LoadingScreen.swift in Sources */,
 				46E548572012747000536426 /* SignUpVC.swift in Sources */,
 				463A426620157BB90016D18A /* Goal.swift in Sources */,
 				46E548502012682600536426 /* AuthService.swift in Sources */,

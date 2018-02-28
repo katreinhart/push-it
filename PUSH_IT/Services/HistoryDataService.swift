@@ -89,23 +89,30 @@ class HistoryDataService {
         return returnValue
     }
     
-    func fetchSavedWorkouts() {
+    func fetchSavedWorkouts(completion: @escaping CompletionHandler) {
         // reset so it doesn't duplicate
         self.saved = [Workout]()
         // Make the request
         let header = AuthService.instance.bearerHeader()
         
         Alamofire.request(SAVED_URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
-            if response.result.error != nil {return}
-            guard let data = response.data else {return}
+
+            if response.result.error != nil {
+                completion(false)
+                return
+            }
+            guard let data = response.data else {
+                completion(false)
+                return
+            }
             
             let json = JSON(data: data).arrayValue
             
             for item in json {
                 let responseExercises = item["exercises"].array
                 if responseExercises == nil {continue}
+
                 let dateString = item["created"].stringValue
-                debugPrint(dateString)
                 let date = DateFormatter.veryLongStringDateFormatter.date(from: dateString)
                 let id = item["workout_id"].intValue
                 var newWorkout = Workout(exercises: [], id: id, date: date!, rating: 0, comments: "")
@@ -121,6 +128,8 @@ class HistoryDataService {
                 }
                 self.saved.append(newWorkout)
             }
+
+            completion(true)
         }
     }
     
@@ -129,7 +138,7 @@ class HistoryDataService {
         self.saved = [Workout]()
     }
     
-    func fetchHistory() {
+    func fetchHistory(completion: @escaping CompletionHandler) {
         
         // re-instantiate history when fetching so it does not continue adding
         history = [Workout]()
@@ -142,10 +151,15 @@ class HistoryDataService {
             
             if response.result.error != nil {
                 debugPrint("error with fetch")
+                completion(false)
                 return
             }
-            guard let data = response.data else {return}
-            debugPrint("history fetch")
+            guard let data = response.data else {
+                debugPrint("malformed data")
+                completion(false)
+                return
+            }
+
             let json = JSON(data: data).array
             for item in json! {
                 let dateString = item["start_time"].stringValue
@@ -205,7 +219,8 @@ class HistoryDataService {
             self.history.sort(by: { (workout1, workout2) -> Bool in
                 workout1.date > workout2.date
             })
-            debugPrint(self.history)
+
+            completion(true)
         }
     }
 }
