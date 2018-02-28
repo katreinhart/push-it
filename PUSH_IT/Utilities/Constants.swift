@@ -69,6 +69,7 @@ let HISTORY_CELL = "historyCell"
 let PROGRESS_TV_CELL = "ProgressTVCell"
 let PERSONAL_BEST_TV_CELL = "PersonalBestTVCell"
 let LOAD_WORKOUT_TV_CELL = "LoadWorkoutTVCell"
+let LOAD_SCREEN = "LoadingScreen"
 
 // User Defaults
 let TOKEN_KEY = "token"
