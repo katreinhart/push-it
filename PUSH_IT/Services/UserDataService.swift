@@ -88,7 +88,6 @@ class UserDataService {
         ]
         
         let header = AuthService.instance.bearerHeader()
-//        debugPrint(body)
         Alamofire.request(SECONDARY_GOALS_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error != nil {
                 debugPrint("Something went wrong updating goals")

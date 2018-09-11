@@ -47,7 +47,7 @@ class AuthService {
     
     var name : String {
         get {
-            return defaults.string(forKey: USER_NAME) as! String
+            return defaults.string(forKey: USER_NAME)!
         }
         set {
             defaults.set(newValue, forKey: USER_NAME)
@@ -97,7 +97,6 @@ class AuthService {
         ]
         
         Alamofire.request(LOGIN_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
-            debugPrint(response)
             
             if response.result.error != nil {
                 debugPrint(response.result.error as Any)
